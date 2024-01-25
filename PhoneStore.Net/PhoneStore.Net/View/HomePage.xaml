@@ -25,7 +25,7 @@
                     <RowDefinition Height="35"/>
                 </Grid.RowDefinitions>
                 
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0" Margin="0,0,0,16">
                     <TextBlock
                             Text="PHÔN"
                             FontSize="35"
@@ -41,7 +41,7 @@
                     </TextBlock>
                 </Grid>
                 
-                <Grid Grid.Row="1">
+                <Grid Margin="0,98,0,0" Grid.RowSpan="2">
                     <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10">
                         <Button Background="DeepSkyBlue" Foreground="White" Margin="0,0,0,25"   
                                 Content="TRANG CHỦ" FontSize="20"           
@@ -72,14 +72,14 @@
                                 FontFamily="Times New Roman" FontWeight="Bold"/>
 
                         <Button Content="CÀI ĐẶT" FontSize="16" Background="Transparent" 
-                                Foreground="White"
+                                Foreground="White" Margin="0,0,0,25"
                                 FontFamily="Times New Roman" FontWeight="Bold"/>
                     </StackPanel>
                     
                     <Grid Grid.Row="2" VerticalAlignment="Bottom">
                         <Button Content="ĐĂNG XUẤT" FontSize="16" Background="Transparent" 
                             Foreground="White"
-                            FontFamily="Times New Roman" Margin="10,0,10,0" FontWeight="Bold"/>
+                            FontFamily="Times New Roman" Margin="10,6,10,-6" FontWeight="Bold"/>
                     </Grid>
                 </Grid>
             </Grid>
