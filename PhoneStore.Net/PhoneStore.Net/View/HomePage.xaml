@@ -5,10 +5,267 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PhoneStore.Net.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      Background="Transparent"
+      d:DesignHeight="550" d:DesignWidth="1074"
       Title="HomePage">
+    <Border  
+                Background="#2E2E3E"
+                CornerRadius="40">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="225"/>
+                <ColumnDefinition Width="665"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                
+                <Grid Grid.Row="0">
+                    <TextBlock
+                            Text="PHÔN"
+                            FontSize="35"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                                <GradientStop Color="DarkOliveGreen" Offset="0"/>
+                                <GradientStop Color="LightGreen" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </Grid>
+                
+                <Grid Grid.Row="1">
+                    <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10">
+                        <Button Background="DeepSkyBlue" Foreground="White" Margin="0,0,0,25"   
+                                Content="TRANG CHỦ" FontSize="20"           
+                                FontFamily="Times New Roman" FontWeight="Bold"/>
 
-    <Grid>
-        
-    </Grid>
+                        <Button  Content="ĐƠN HÀNG" FontSize="16" Background="Transparent" 
+                                 Foreground="White" Margin="0,0,0,25"
+                                 FontFamily="Times New Roman" FontWeight="Bold"/>
+
+                        <Button Content="SẢN PHẨM" FontSize="16" Background="Transparent" 
+                                Foreground="White" Margin="0,0,0,25" 
+                                FontFamily="Times New Roman" FontWeight="Bold"/>
+
+                        <Button  Content="KHÁCH HÀNG" FontSize="16" Background="Transparent" 
+                                 Foreground="White" Margin="0,0,0,25"
+                                 FontFamily="Times New Roman" FontWeight="Bold"/>
+
+                        <Button Content="NHẬP HÀNG" FontSize="16" Background="Transparent" 
+                                Foreground="White" Margin="0,0,0,25"
+                                FontFamily="Times New Roman" FontWeight="Bold"/>
+
+                        <Button Content="THỐNG KÊ" FontSize="16" Background="Transparent" 
+                                Foreground="White" Margin="0,0,0,25"
+                                FontFamily="Times New Roman" FontWeight="Bold"/>
+
+                        <Button Content="QUẢN LÝ" FontSize="16"  Background="Transparent" 
+                                Foreground="White" Margin="0,0,0,25"
+                                FontFamily="Times New Roman" FontWeight="Bold"/>
+
+                        <Button Content="CÀI ĐẶT" FontSize="16" Background="Transparent" 
+                                Foreground="White"
+                                FontFamily="Times New Roman" FontWeight="Bold"/>
+                    </StackPanel>
+                    
+                    <Grid Grid.Row="2" VerticalAlignment="Bottom">
+                        <Button Content="ĐĂNG XUẤT" FontSize="16" Background="Transparent" 
+                            Foreground="White"
+                            FontFamily="Times New Roman" Margin="10,0,10,0" FontWeight="Bold"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            
+            <Grid Grid.Column="1">
+                <Border Height="550" Width="665" Background="#21222D" CornerRadius="40">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="65"/>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        
+                        <Grid Grid.Row="0" Height="65">
+                            <TextBlock VerticalAlignment="Center"
+                                   FontSize="30"
+                                   Margin="20, 0, 0, 0"
+                                   Foreground="White"
+                                   FontWeight="Bold">
+                                <Run Text="TRANG CHỦ"/>
+                            </TextBlock>
+                        </Grid>
+                        
+                        <Grid Grid.Row="1">
+                            <Canvas>
+                                <Border CornerRadius="20" Height="130" Width="190"
+                                        Canvas.Left="22" Canvas.Top="10" 
+                                        HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="15" Direction="-90"
+                                                          RenderingBias="Quality" ShadowDepth="5"/>
+                                    </Border.Effect>
+                                    
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.1, 1" StartPoint="0.5, 0">
+                                            <GradientStop Color="#FFE80A00" Offset="0"/>
+                                            <GradientStop Color="#FFBB8181" Offset="0.973"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+
+                                    <StackPanel HorizontalAlignment="Center"
+                                                VerticalAlignment="Center">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="55"/>
+                                                <RowDefinition Height="55"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid Grid.Row="0" Width="150">
+                                                <TextBlock Text="Số đơn bán ra trong ngày" 
+                                                           TextWrapping="Wrap"
+                                                           FontSize="20"
+                                                           Foreground="White" 
+                                                           FontFamily="Times New Roman"
+                                                           Height="Auto" FontWeight="Bold"/>
+                                            </Grid>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border CornerRadius="20" Height="130" Width="190" 
+                                        Canvas.Left="238" Canvas.Top="10" 
+                                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="15" Direction="-90"
+                                                          RenderingBias="Quality" ShadowDepth="5"/>
+                                    </Border.Effect>
+                                    
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.1,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FF35E411" Offset="0"/>
+                                            <GradientStop Color="#FF88960B" Offset="0.863"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    
+                                    <StackPanel HorizontalAlignment="Center"
+                                                VerticalAlignment="Center">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="55"/>
+                                                <RowDefinition Height="55"/>
+                                            </Grid.RowDefinitions>
+                                            
+                                            <Grid Grid.Row="0" Width="150">
+                                                <TextBlock Text="Doanh thu ngày" 
+                                                           TextWrapping="Wrap"
+                                                           FontSize="20"
+                                                           Foreground="White" 
+                                                           FontFamily="Times New Roman"
+                                                           Height="Auto" FontWeight="Bold">
+                                                </TextBlock>
+                                            </Grid>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border CornerRadius="20" Height="130" Width="190" 
+                                        Canvas.Left="450" Canvas.Top="10"
+                                        HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="15" Direction="-90"
+                                                          RenderingBias="Quality" ShadowDepth="5"/>
+                                    </Border.Effect>
+                                    
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FF121EDA" Offset="0"/>
+                                            <GradientStop Color="#FFB588F7" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    
+                                    <StackPanel HorizontalAlignment="Center"
+                                                VerticalAlignment="Center">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="55"/>
+                                                <RowDefinition Height="55"/>
+                                            </Grid.RowDefinitions>
+                                            
+                                            <Grid Grid.Row="0" Width="150">
+                                                <TextBlock Text="Số sản phẩm bán trong ngày" 
+                                                           TextWrapping="Wrap"
+                                                           FontSize="20"
+                                                           Foreground="White" 
+                                                           FontFamily="Times New Roman"
+                                                           Height="Auto" FontWeight="Bold">
+                                                </TextBlock>
+                                            </Grid>
+                                            
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+                            </Canvas>
+                            
+                        </Grid>
+                        
+                        <Grid Grid.Row="2">
+                            <Border Height="300" Width="617.5" Background="AliceBlue" CornerRadius="25"
+                                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="15" Direction="-90"
+                                                  RenderingBias="Quality" ShadowDepth="5"/>
+                                </Border.Effect>
+                                
+                                <StackPanel VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <Grid Grid.Row="0">
+                    <DockPanel>
+                        <Border
+                            Height="40"
+                            Width="40"
+                            Background="White"
+                            CornerRadius="50"
+                            Margin="6">
+                            
+                            <Ellipse Height="40" Width="40" VerticalAlignment="Top">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="/Resource/avatar/GoldGoat.jpg" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            
+                        </Border>
+                        
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <TextBlock  Text="Mạnh Tâm" FontSize="15" Foreground="White"/>
+                            <TextBlock  Text="Quản trị viên" FontSize="12" Foreground="White" />
+                        </StackPanel>
+                    </DockPanel>
+                    
+                </Grid>
+                
+                <Grid Grid.Row="1">
+                    <Calendar HorizontalAlignment="Center" VerticalAlignment="Top" Width="184"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
 </Page>
