@@ -8,8 +8,8 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="QLNV">
 
-    <Grid>
-        <Label Content="QUẢN LÝ SẢN PHẨM" HorizontalAlignment="Left" Margin="57,29,0,0" VerticalAlignment="Top" Width="707" Height="57" IsEnabled="False" FontSize="36" Background="#FF222020" Foreground="White" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center"/>
+    <Grid Background="White">
+        <Label Content="QUẢN LÝ SẢN PHẨM" HorizontalAlignment="Left" Margin="57,29,0,0" VerticalAlignment="Top" Width="707" Height="57" IsEnabled="False" FontSize="36" Background="White" Foreground="Black" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center"/>
         <TextBox HorizontalAlignment="Left" Margin="57,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" Height="30"/>
         <Button Content="THÊM" HorizontalAlignment="Left" Margin="537,102,0,0" VerticalAlignment="Top" Width="58" Height="30" Background="#FF9B00FF"/>
         <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="400,102,0,0" VerticalAlignment="Top" Width="77" Height="30" Background="#FF9B00FF"/>
@@ -26,11 +26,11 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Text="Mã SP" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" IsEnabled="False"/>
-            <TextBlock Text="Tên Sản Phẩm" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" IsEnabled="False" Grid.Column="1"/>
-            <TextBlock Text="Hãng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" IsEnabled="False" Grid.Column="2"/>
-            <TextBlock Text="Giá" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" IsEnabled="False" Grid.Column="3"/>
-            <TextBlock Text="Còn Hàng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" IsEnabled="False" Grid.Column="4" Height="21"/>
+            <TextBlock Text="Mã SP" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False"/>
+            <TextBlock Text="Tên Sản Phẩm" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="1"/>
+            <TextBlock Text="Hãng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="2"/>
+            <TextBlock Text="Giá" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="3"/>
+            <TextBlock Text="Còn Hàng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="4" Height="21"/>
         </Grid>
 
     </Grid>
