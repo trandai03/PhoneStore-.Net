@@ -1,0 +1,141 @@
+﻿<Page x:Class="PhoneStore.View.Dang_Nhap"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PhoneStore.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="650"
+      Title="Dang_Nhap">
+    <Border
+     CornerRadius="30,40,40,30"
+     Background="BlueViolet"
+     >
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="280"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <StackPanel Margin="25">
+                        <TextBlock FontSize="26" >PHẦN MỀM</TextBlock>
+                        <TextBlock FontSize="26"  Foreground="#17181F">QUẢN LÝ BÁN HÀNG</TextBlock>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Image Source="C:\Users\ACER SWIFT\OneDrive\Tài liệu\GitHub\PhoneStore\PhoneStore\PhoneStore\Resource\Img\Login1.png" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-35,0,0"/>
+                </Grid>
+            </Grid>
+            <Border Grid.Column="1" Background="#17181F"
+                 CornerRadius="0,30,30,0"
+                 BorderThickness="0"
+                 >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <StackPanel HorizontalAlignment="Right" Margin="0,10,20,0" Orientation="Horizontal">
+
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-10">
+                            <TextBlock FontSize="24"  Foreground="BlueViolet">CHÀO MỪNG</TextBlock>
+                            <TextBlock FontSize="24"  Foreground="BlueViolet"> TRỞ LẠI VỚI PHONE.VN</TextBlock>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <StackPanel Margin="0,20,0,0">
+                            <TextBox
+                             Text="{Binding Username}"
+                             
+                             Background="White"
+                             Height="48"
+                             Width="250"
+                             FontSize="12"
+                             FontWeight="Bold"
+                             
+                             VerticalAlignment="Top"
+                             AcceptsReturn="True"
+                             TextWrapping="Wrap"
+                             MaxWidth="400"
+                             Margin="0,0,0,10"
+                             x:Name="dangnhap" TextChanged="dangnhap_TextChanged"
+                             
+                            
+                             />
+                            <PasswordBox x:Name="password"
+                             
+                             VerticalAlignment="Top"
+                             Background="White"
+                             Margin="0,0,0,40"
+                             Height="48"
+                             Width="250"
+                             FontSize="12"
+                             FontWeight="Bold"
+                             
+                             />
+                            <Button
+                             Content="ĐĂNG NHẬP"
+                             Height="47"
+                             Width="252"
+                            
+                             Background="BlueViolet"
+                             Foreground="white"
+                             BorderBrush="Transparent"                
+                             >
+
+                            </Button>
+                            <StackPanel Orientation="Horizontal" Margin="15,0,0,0">
+                                <TextBlock
+                             Text="ĐĂNG KÝ"
+                             Margin="0,10,0,0"
+                      
+                             Background="Transparent"
+                             >
+
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Foreground" Value="BlueViolet"/>
+                                                    <Setter Property="TextDecorations" Value="Underline"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <TextBlock
+                             Text="QUÊN MẬT KHẨU"
+                             Margin="90,10,0,0"
+                          
+                             Background="Transparent"
+                             >
+
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Foreground" Value="BlueViolet"/>
+                                                    <Setter Property="TextDecorations" Value="Underline"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Page>
