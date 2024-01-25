@@ -1,0 +1,199 @@
+﻿<Page x:Class="PhoneStore.Net.View.Thong_tin_khach_hang"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PhoneStore.Net.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Thong_tin_khach_hang">
+
+    <Border
+        CornerRadius="15"
+        Background="AliceBlue" Width="500
+        " Height="360"
+    >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="Transparent">
+                    <StackPanel 
+                        Orientation="Horizontal" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Center"
+                        Margin="0,0,10,0"
+                        >
+
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackPanel Orientation="Vertical"
+                        Margin="15,20,0,0"
+                        >
+                        <TextBlock
+                    Margin="-15,0,0,20"
+                    HorizontalAlignment="Center"
+                    Text="THÔNG TIN KHÁCH HÀNG"
+                    FontSize="24"
+                    Foreground="Black"
+                   
+                    />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock
+                            Margin="8,0,0,0"
+                            Text="MÃ KHÁCH HÀNG"
+                           
+                        />
+                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+                                    <TextBox
+                            x:Name="MaKH"
+                            HorizontalAlignment="Left"
+                            Width="150"
+                            
+                            BorderThickness="0"
+                           
+                            IsEnabled="False"
+                            
+
+                        />
+                                </Border>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical"
+                                Margin="10,0,0,0"
+                                >
+                                <TextBlock
+                            Margin="8,0,0,0"
+                            Text="HỌ TÊN"
+                           
+                        />
+                                <TextBox
+                            x:Name="TenKH"
+                            
+                            HorizontalAlignment="Left"
+                            Width="150"
+                            BorderThickness="2"
+                            
+                        />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" 
+                            Margin="0,10,0,0" HorizontalAlignment="Center"
+                            >
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock
+                            Margin="8,0,0,0"
+                            Text="SỐ ĐIỆN THOẠI"
+                           
+                        />
+                                <TextBox
+                            x:Name="SDT"
+                            HorizontalAlignment="Left"
+                            Width="151"
+                            
+                            BorderThickness="2"
+                            
+                        />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical"
+                                Margin="15,0,0,0"
+                                >
+                                <TextBlock
+                            Margin="8,0,0,0"
+                            Text="GIỚI TÍNH"
+                            
+                        />
+                                <ComboBox
+                            x:Name="GT"
+                            
+                            HorizontalAlignment="Left"
+                            Width="150"
+                            BorderThickness="2"
+                            
+                        >
+                                    <ComboBoxItem Content="Nam"/>
+                                    <ComboBoxItem Content="Nữ"/>
+                                    <ComboBoxItem Content="Khác"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" 
+                            Margin="0,10,0,0" HorizontalAlignment="Center"
+                            >
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock
+                            Margin="8,0,0,0"
+                            Text="DOANH SỐ"
+                            
+                        />
+                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+                                    <TextBox
+                            x:Name="DS"
+                            HorizontalAlignment="Left"
+                            Width="150"
+                            BorderThickness="0"
+                            
+                            IsEnabled="False"
+                           
+                        />
+                                </Border>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical"
+                                Margin="10,0,0,0"
+                                >
+                                <TextBlock
+                            Margin="8,0,0,0"
+                            Text="HẠNG"
+                            
+                        />
+                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+                                    <TextBox
+                            x:Name="Rank"
+                         
+                            HorizontalAlignment="Left"
+                            Width="150"
+                            BorderThickness="0"
+                           
+                            IsEnabled="False"
+                            
+                        />
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                        <TextBlock
+                            Margin="8,10,0,0"
+                            Text="ĐỊA CHỈ" HorizontalAlignment="Center"
+                            
+                        />
+                        <TextBox
+                            x:Name="DC"
+                           
+                            HorizontalAlignment="Center"
+                            Width="319"
+                            Height="50"
+                            BorderThickness="2"
+                            
+                            HorizontalScrollBarVisibility="Auto"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                        />
+                        <Button Content="CẬP NHẬT"
+                        Width="230"
+                        BorderThickness="0"
+                        x:Name="btnupdate" Margin="0,10,0,0" HorizontalAlignment="Center"
+                        Background="AliceBlue"
+                        >
+                            
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>

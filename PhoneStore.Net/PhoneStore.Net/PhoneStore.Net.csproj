@@ -58,8 +58,20 @@
     <Compile Include="View\AddEmployee.xaml.cs">
       <DependentUpon>AddEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\HoaDonBH.xaml.cs">
+      <DependentUpon>HoaDonBH.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewProduct.xaml.cs">
+      <DependentUpon>NewProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nhap_hoa_don.xaml.cs">
+      <DependentUpon>Nhap_hoa_don.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Phieu_nhap_hang.xaml.cs">
+      <DependentUpon>Phieu_nhap_hang.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\QLNV.xaml.cs">
       <DependentUpon>QLNV.xaml</DependentUpon>
@@ -69,6 +81,9 @@
     </Compile>
     <Compile Include="View\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Thong_tin_khach_hang.xaml.cs">
+      <DependentUpon>Thong_tin_khach_hang.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -86,7 +101,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\HoaDonBH.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nhap_hoa_don.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Phieu_nhap_hang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -99,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Thong_tin_khach_hang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
