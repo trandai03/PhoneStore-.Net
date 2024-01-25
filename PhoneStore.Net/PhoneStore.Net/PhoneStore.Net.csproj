@@ -58,6 +58,12 @@
     <Compile Include="View\AddEmployee.xaml.cs">
       <DependentUpon>AddEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Dang_Ki.xaml.cs">
+      <DependentUpon>Dang_Ki.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dang_Nhap.xaml.cs">
+      <DependentUpon>Dang_Nhap.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HoaDonBH.xaml.cs">
       <DependentUpon>HoaDonBH.xaml</DependentUpon>
     </Compile>
@@ -79,6 +85,9 @@
     <Compile Include="View\QLSP.xaml.cs">
       <DependentUpon>QLSP.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\QuenMatKhau.xaml.cs">
+      <DependentUpon>QuenMatKhau.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
@@ -98,6 +107,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AddEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Dang_Ki.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Dang_Nhap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\QLSP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\QuenMatKhau.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
