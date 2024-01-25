@@ -1,0 +1,158 @@
+﻿<Page x:Class="PhoneStore.Net.View.Setting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PhoneStore.Net.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="665"
+      Title="Setting">
+
+    <Border
+        Height="550"
+        Width="665"
+        Background="#21222D"
+        CornerRadius="40"
+        Padding="13.75,0,6.875,0"
+        >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="325"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock VerticalAlignment="Center" 
+           FontSize="30" Margin="20,0,0,0" 
+           Foreground="White" 
+           ><Run Text="CÀI ĐẶT"/></TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Border CornerRadius="10" Background="Black" Height="40">
+                    <TextBlock VerticalAlignment="Center" 
+               FontSize="25" Margin="20,0,0,0" 
+               Foreground="White" 
+                Text="Thông tin cá nhân"/>
+
+
+                </Border>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Border CornerRadius="10" Background="White">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="322*"/>
+                            <RowDefinition Height="123*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="210"/>
+                            <ColumnDefinition Width="210"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Border Margin="0,0,0,0.333" Grid.RowSpan="2">
+                            <Ellipse Height="150" Width="150" 
+                             VerticalAlignment="Top" HorizontalAlignment="Left"
+                             Margin="30" StrokeThickness="5">
+                                <Ellipse.Effect>
+                                    <DropShadowEffect ShadowDepth="0"
+                                    Color="Black"
+                                    Opacity="10"
+                                    BlurRadius="10"/>
+                                </Ellipse.Effect>
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="/Resource/avatar/GoldGoat.jpg"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>
+                        <Button HorizontalAlignment="Center" Margin="0,185,0,0" 
+                            VerticalAlignment="Center" BorderBrush="BlanchedAlmond"
+                            Content="Thay Đổi Ảnh" Width="150" Height="40"
+                            Background="LightSkyBlue" Foreground="Black">
+                        </Button>
+                        <Grid Grid.Column="1" Margin="0,0,0,0.333" Grid.RowSpan="2">
+                            <StackPanel Margin="10">
+                                <TextBox Margin="0,10,0,0" Foreground="Black" Background="#0F000000"
+                                 VerticalAlignment="Center" AcceptsReturn="True"
+                                 TextWrapping="Wrap" BorderThickness="0,0,0,1"
+                                 MaxWidth="400" Height="42"
+                                 Text="Họ tên" FontSize="14"/>
+                                <DatePicker  HorizontalAlignment="Left" Margin="0,20,0,0" 
+                                        VerticalAlignment="Center" Width="190" 
+                                        Background="#0F000000" Foreground="Black"
+                                        FontSize="14" BorderThickness="0,0,0,1">
+                                    <DatePicker.Resources>
+                                        <Style TargetType="DatePickerTextBox">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate>
+                                                        <TextBlock Text="Ngày sinh" Height="42" HorizontalAlignment="Left"/>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </DatePicker.Resources>
+                                </DatePicker>
+                                <TextBox Margin="0, 20, -200, 0" Foreground="Black" Background="#0F000000"
+                                     VerticalAlignment="Top" AcceptsReturn="False"
+                                     TextWrapping="Wrap" MaxWidth="400" Height="42"
+                                     Text="Địa chỉ" BorderThickness="0,0,0,1"/>
+
+                                <TextBox Margin="0, 20, -200, 0" Foreground="Black" Background="#0F000000"
+                                     VerticalAlignment="Top" AcceptsReturn="False"
+                                     TextWrapping="Wrap" MaxWidth="400" Height="42"
+                                     Text="Email" BorderThickness="0,0,0,1"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <StackPanel>
+                                <ComboBox Margin="0,20,35,0" BorderThickness="0,0,0,1"
+                                      Text="Giới tính" FontSize="14" Height="42"
+                                     IsEditable="True" Background="#0F000000"
+                                     SelectionChanged="ComboBox_SelectionChanged">
+
+                                </ComboBox>
+                                <StackPanel >
+                                    <TextBox Margin="0,20,0,0" Foreground="Black" Background="#0F000000" 
+                                         Width="190" Height="47"
+                                         Text="Số điện thoại"  FontSize="14" TextWrapping="Wrap"
+                                         HorizontalAlignment="Left"  BorderThickness="0,0,0,1"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Button Width="390" Margin="220,270,34.667,23"
+                    Content="Cập nhât thông tin" FontFamily="Time New Romans"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Border CornerRadius="10" Background="Black" Height="40">
+                    <TextBlock VerticalAlignment="Center" 
+                           FontSize="25" Margin="20,0,0,0" 
+                           Foreground="White"
+                           Text="Thông tin tài khoản"/>
+                </Border>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Border CornerRadius="10" Background="White"/>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Margin="30,20,0,0" Width="190"
+                             VerticalAlignment="Top" AcceptsReturn="True"
+                             TextWrapping="Wrap" HorizontalAlignment="Left"
+                             Height="42" IsEnabled="False" Text="Tên đăng nhập"/>
+
+                        <TextBox Margin="30,20,0,0" Width="190"
+                             VerticalAlignment="Top" AcceptsReturn="True"
+                             TextWrapping="Wrap" HorizontalAlignment="Left"
+                             Height="42" IsEnabled="False" Text="Đổi mật khẩu"/>
+
+                        <Button VerticalAlignment="Top" Margin="30,20" 
+                            Height="42" Content="Đổi mật khẩu"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>
