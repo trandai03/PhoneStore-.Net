@@ -78,14 +78,12 @@
                         <Grid Grid.Column="1" Margin="0,0,0,0.333" Grid.RowSpan="2">
                             <StackPanel Margin="10">
 
-                                <TextBox Margin="0,10,0,0" Foreground="Black" Background="#0F000000"
-                                         VerticalAlignment="Center" AcceptsReturn="True"
-                                         TextWrapping="Wrap" BorderThickness="0,0,0,1"
-                                         MaxWidth="400" Height="42"
-                                         Text="Họ tên" FontSize="14" FontFamily="Time New Romans"
-                                         TextAlignment="Left"
-                                         HorizontalContentAlignment="Center"
-                                         VerticalContentAlignment="Bottom">
+                                <TextBox Margin="0,10,0,0" Foreground="Black" Background="#0F000000" 
+                                         Width="190" Height="47"
+                                         Text="Họ tên"  FontSize="14" TextWrapping="Wrap"
+                                         HorizontalAlignment="Left"  BorderThickness="0,0,0,1"
+                                         VerticalContentAlignment="Bottom"
+                                         HorizontalContentAlignment="Center">
                                 </TextBox>
 
                                 <DatePicker HorizontalAlignment="Left" Margin="0,20,0,0" 
@@ -97,7 +95,9 @@
                                             <Setter Property="Template">
                                                 <Setter.Value>
                                                     <ControlTemplate>
-                                                        <TextBlock Height="42" Text="Ngày sinh">
+                                                        <TextBlock Height="42" Text="Ngày sinh"
+                                                                   VerticalAlignment="Bottom"
+                                                                   HorizontalAlignment="Center">
                                                         </TextBlock>
                                                     </ControlTemplate>
                                                 </Setter.Value>
