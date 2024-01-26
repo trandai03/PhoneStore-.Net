@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\PhoneStore.Net",
-    "\\PhoneStore.Net\\PhoneStore.Net",
-    "\\PhoneStore.Net\\PhoneStore.Net\\View"
+    ""
   ],
-  "SelectedNode": "\\PhoneStore.Net\\PhoneStore.Net\\View\\HomePage.xaml",
+  "SelectedNode": "\\PhoneStore.Net.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -35,14 +35,7 @@
             <TextBox Margin="421,0,0,0" VerticalAlignment="Center" Width="176" Height="44" Text="Số Điện Thoại" FontSize="16" HorizontalAlignment="Left" TextAlignment="Center" Background="#FFCACACA" Foreground="#89000000" TextWrapping="Wrap" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <TextBox Margin="225,323,0,0" VerticalAlignment="Top" Width="372" Height="45" Text="Địa Chỉ" FontSize="16" HorizontalAlignment="Left" TextAlignment="Center" Background="#FFCACACA" Foreground="#89000000" TextWrapping="Wrap" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <TextBox Margin="225,260,0,0" VerticalAlignment="Top" Width="372" Height="45" Text="Email" FontSize="16" HorizontalAlignment="Left" TextAlignment="Center" Background="#FFCACACA" Foreground="#89000000" TextWrapping="Wrap" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <ComboBox HorizontalAlignment="Left" Margin="421,139,0,0" VerticalAlignment="Top" Width="176" Height="45" Text="Chức Vụ" IsEnabled="False" IsEditable="True" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                <ComboBox.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="#FFF0F0F0"/>
-                        <GradientStop Color="#FFCACACA" Offset="1"/>
-                    </LinearGradientBrush>
-                </ComboBox.Background>
-            </ComboBox>
+            <ComboBox HorizontalAlignment="Left" Margin="421,139,0,0" VerticalAlignment="Top" Width="176" Height="45" Text="Chức Vụ" IsEnabled="False" IsEditable="True" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" SelectionChanged="ComboBox_SelectionChanged" BorderBrush="Black" Foreground="Black"/>
             <ComboBox HorizontalAlignment="Left" Margin="227,139,0,0" VerticalAlignment="Top" Width="173" Height="45" Text="Giới tính" IsEnabled="False" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsEditable="True"/>
             <Label Content="Ngày Sinh&#xD;&#xA;" HorizontalAlignment="Left" Margin="275,0,0,0" VerticalAlignment="Center" Width="88" FontSize="16" Height="44" FontWeight="Bold" Foreground="#89000000"/>
             <Ellipse Height="149" Width="150" 
