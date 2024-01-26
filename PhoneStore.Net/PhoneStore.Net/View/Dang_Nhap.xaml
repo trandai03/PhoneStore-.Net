@@ -29,7 +29,7 @@
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <Image Source="C:\Users\ACER SWIFT\OneDrive\Tài liệu\GitHub\PhoneStore\PhoneStore\PhoneStore\Resource\Img\Login1.png" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-35,0,0"/>
+                    <Image Source="https://icon-technic.com/wp-content/uploads/2021/01/123.jpg" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Height="204" Width="370"/>
                 </Grid>
             </Grid>
             <Border Grid.Column="1" Background="#17181F"
