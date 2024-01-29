@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PhoneStore.Net.View
 {
     /// <summary>
-    /// Interaction logic for QuenMatKhau.xaml
+    /// Interaction logic for ReportView.xaml
     /// </summary>
-    public partial class QuenMatKhau : Page
+    public partial class ReportView : Window
     {
-        public QuenMatKhau()
+        public ReportView()
         {
             InitializeComponent();
         }

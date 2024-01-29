@@ -123,49 +123,6 @@
                                 </ComboBox>
                             </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" 
-                            Margin="0,10,0,0" HorizontalAlignment="Center"
-                            >
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock
-                            Margin="8,0,0,0"
-                            Text="DOANH SỐ"
-                            
-                        />
-                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                    <TextBox
-                            x:Name="DS"
-                            HorizontalAlignment="Left"
-                            Width="150"
-                            BorderThickness="0"
-                            
-                            IsEnabled="False"
-                           
-                        />
-                                </Border>
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical"
-                                Margin="10,0,0,0"
-                                >
-                                <TextBlock
-                            Margin="8,0,0,0"
-                            Text="HẠNG"
-                            
-                        />
-                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                    <TextBox
-                            x:Name="Rank"
-                         
-                            HorizontalAlignment="Left"
-                            Width="150"
-                            BorderThickness="0"
-                           
-                            IsEnabled="False"
-                            
-                        />
-                                </Border>
-                            </StackPanel>
-                        </StackPanel>
                         <TextBlock
                             Margin="8,10,0,0"
                             Text="ĐỊA CHỈ" HorizontalAlignment="Center"
