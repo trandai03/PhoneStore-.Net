@@ -178,7 +178,6 @@
                                     <ComboBox
                                 Margin="4,0,0,0"
                                 x:Name="SP"
-                                
                                 BorderThickness="0"
                                 
                                 ItemsSource="{Binding LSP}"
