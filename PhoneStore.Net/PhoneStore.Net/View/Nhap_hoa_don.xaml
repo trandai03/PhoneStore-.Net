@@ -61,54 +61,7 @@
                         HorizontalAlignment="Center"
                         />
                             <StackPanel Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock
-                            Margin="8,0,0,0"
-                            Text="MÃ ND"
-                           
-                            />
-                                    <TextBlock
-                            Margin="4,0,0,0"
-                            Text="|"
-                            
-                            />
-                                    <TextBlock
-                            Margin="4,0,0,0"
-                            Text="TÊN ND"
-                            
-                            />
-                                </StackPanel>
-                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBox
-                                    x:Name="MaND" 
-                                    HorizontalAlignment="Left"
-                                    
-                                    BorderThickness="0"
-                                    
-                                    IsEnabled="False"
-                                    
-                                    ></TextBox>
-                                        <TextBox
-                                   
-                                    HorizontalAlignment="Left"
-                                    
-                                    BorderThickness="0"
-                                   
-                                    IsEnabled="False"
-                                    
-                                    ></TextBox>
-                                        <TextBox
-                                    x:Name="TenND"
-                                    HorizontalAlignment="Left"
-                                    
-                                    BorderThickness="0"
-                                    
-                                    IsEnabled="False"
-                                 
-                                ></TextBox>
-                                    </StackPanel>
-                                </Border>
+                                <StackPanel Orientation="Horizontal"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical">
@@ -160,23 +113,7 @@
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
-                            <StackPanel>
-                                <TextBlock
-                                Margin="8,0,0,0"
-                                Text="THỜI GIAN"
-                        />
-                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                    <TextBox
-                                x:Name="Ngay"
-                                HorizontalAlignment="Left"
-                                
-                                BorderThickness="0"
-                               
-                                IsEnabled="False"
-                               
-                            ></TextBox>
-                                </Border>
-                            </StackPanel>
+                            <StackPanel/>
                             <StackPanel>
                                 <TextBlock
                             Margin="8,0,0,0"

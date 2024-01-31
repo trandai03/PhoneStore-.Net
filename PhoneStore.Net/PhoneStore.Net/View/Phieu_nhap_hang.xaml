@@ -66,56 +66,7 @@
                        
                         HorizontalAlignment="Center"
                         />
-                            <StackPanel Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock
-                            Margin="8,0,0,0"
-                            Text="MÃ ND"
-                           
-                            />
-                                    <TextBlock
-                            Margin="4,0,0,0"
-                            Text="|"
-                            
-                            />
-                                    <TextBlock
-                            Margin="4,0,0,0"
-                            Text="TÊN ND"
-                            
-                            />
-                                </StackPanel>
-                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBox
-                                    x:Name="MaND" 
-                                    HorizontalAlignment="Left"
-                                    
-                                    BorderThickness="0"
-                                    
-                                    IsEnabled="False"
-                                    
-                                    ></TextBox>
-                                        <TextBox
-                                   
-                                    HorizontalAlignment="Left"
-                                    
-                                    BorderThickness="0"
-                                   
-                                    IsEnabled="False"
-                                    
-                                    ></TextBox>
-                                        <TextBox
-                                    x:Name="TenND"
-                                    HorizontalAlignment="Left"
-                                    
-                                    BorderThickness="0"
-                                    
-                                    IsEnabled="False"
-                                 
-                                ></TextBox>
-                                    </StackPanel>
-                                </Border>
-                            </StackPanel>
+                            <StackPanel Orientation="Vertical"/>
                             <StackPanel>
                                 <TextBlock
                             Margin="8,0,0,0"
@@ -178,7 +129,6 @@
                                     <ComboBox
                                 Margin="4,0,0,0"
                                 x:Name="SP"
-                                
                                 BorderThickness="0"
                                 
                                 ItemsSource="{Binding LSP}"
@@ -265,15 +215,6 @@
                             FontSize="12"
                             x:Name="deletebtn" Width="40"
                              Background="AliceBlue"
-                        >
-                                </Button>
-                                <Button                            
-                            BorderThickness="0"
-                            Margin="15,0,0,0"
-                            Content="XÁC NHẬN"
-                            FontSize="12"
-                             Background="AliceBlue"
-                            x:Name="ttbtn" Width="60"
                         >
                                 </Button>
                             </StackPanel>
@@ -457,6 +398,13 @@
                 FontSize="16"
                 />
                 </Grid>
+                <Button                            
+                    BorderThickness="0"
+                    Content="XÁC NHẬN"
+                    FontSize="16"
+                    Background="AliceBlue"
+                    x:Name="ttbtn" Margin="41,0,57,23" Grid.Column="3"
+                        />
             </Grid>
         </Grid>
     </Border>

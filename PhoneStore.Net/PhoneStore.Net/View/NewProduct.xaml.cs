@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace PhoneStore.Net.View
 {
     /// <summary>
-    /// Interaction logic for Dang_Ki.xaml
+    /// Interaction logic for NewProduct.xaml
     /// </summary>
-    public partial class Dang_Ki : Page
+    public partial class NewProduct : Page
     {
-        public Dang_Ki()
+        public NewProduct()
         {
             InitializeComponent();
         }
