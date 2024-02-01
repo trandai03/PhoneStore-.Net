@@ -61,6 +61,9 @@
     <Compile Include="View\Dang_Nhap.xaml.cs">
       <DependentUpon>Dang_Nhap.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Don_Hang.xaml.cs">
+      <DependentUpon>Don_Hang.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HoaDonBH.xaml.cs">
       <DependentUpon>HoaDonBH.xaml</DependentUpon>
     </Compile>
@@ -108,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Dang_Nhap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Don_Hang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
