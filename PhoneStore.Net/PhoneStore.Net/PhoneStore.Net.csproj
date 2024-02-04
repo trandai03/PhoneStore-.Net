@@ -91,6 +91,9 @@
     <Compile Include="View\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ThongKe.xaml.cs">
+      <DependentUpon>ThongKe.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Thong_tin_khach_hang.xaml.cs">
       <DependentUpon>Thong_tin_khach_hang.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThongKe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
