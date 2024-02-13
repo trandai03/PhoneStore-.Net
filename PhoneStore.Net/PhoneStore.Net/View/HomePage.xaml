@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PhoneStore.Net.View"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
       mc:Ignorable="d" 
       Background="Transparent"
       d:DesignHeight="550" d:DesignWidth="1074"
@@ -225,8 +227,56 @@
                                     <DropShadowEffect BlurRadius="15" Direction="-90"
                                                   RenderingBias="Quality" ShadowDepth="5"/>
                                 </Border.Effect>
+                                <StackPanel VerticalAlignment="Center">
+                                    <syncfusion:SfChart 
+                                                Height="250" Width="600" Header="Đồ thị sản phẩm bán ra theo giờ">
+                                        <syncfusion:SfChart.PrimaryAxis>
+                                            <syncfusion:CategoryAxis/>
+                                        </syncfusion:SfChart.PrimaryAxis>
+                                        <syncfusion:SfChart.SecondaryAxis>
+                                            <syncfusion:NumericalAxis/>
+                                        </syncfusion:SfChart.SecondaryAxis>
+                                        <syncfusion:SfChart.Legend>
+                                            <syncfusion:ChartLegend/>
+                                        </syncfusion:SfChart.Legend>
+                                        <syncfusion:SfChart.Resources>
+                                            <DataTemplate x:Key="tooltipTemplate">
+                                                <Border Background="Transparent" Margin="-5"
+                                                        Padding="4" CornerRadius="3">
+                                                    <StackPanel Orientation="Horizontal" >
+                                                        <TextBlock Text="{Binding Item.SP}" Foreground="Black" 
+                                                                   TextAlignment="Center" FontFamily="Times New Roman"/>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
 
-                                <StackPanel VerticalAlignment="Center"/>
+                                            <Style TargetType="Path" x:Key="tooltipStyle">
+                                                <Setter Property="Stroke" Value="White"/>
+                                                <Setter Property="Fill" Value="#FFE5D8"/>
+                                            </Style>
+                                        </syncfusion:SfChart.Resources>
+                                        <syncfusion:SfChart.Behaviors>
+                                            <syncfusion:ChartTooltipBehavior Style="{StaticResource tooltipStyle}" 
+                                                                             Position="Pointer"/>
+                                        </syncfusion:SfChart.Behaviors>
+                                        <syncfusion:ColumnSeries x:Name="Chart" ShowTooltip="True" TooltipTemplate="{StaticResource tooltipTemplate}" Palette="Custom" Label="Sản phẩm" ItemsSource="{Binding Data}" XBindingPath="Hour" YBindingPath="SP" EnableAnimation="True" AnimationDuration="00:00:01">
+                                            <syncfusion:ColumnSeries.ColorModel>
+                                                <syncfusion:ChartColorModel>
+                                                    <syncfusion:ChartColorModel.CustomBrushes>
+                                                        <SolidColorBrush Color="BlueViolet"/>
+                                                    </syncfusion:ChartColorModel.CustomBrushes>
+                                                </syncfusion:ChartColorModel>
+                                            </syncfusion:ColumnSeries.ColorModel>
+                                        </syncfusion:ColumnSeries>
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Loaded">
+                                                <i:InvokeCommandAction Command="{Binding LoadChart}"
+                                                                       CommandParameter="{Binding ElementName=Homewd}">
+                                                </i:InvokeCommandAction>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </syncfusion:SfChart>
+                                </StackPanel>
                             </Border>
                         </Grid>
                     </Grid>
