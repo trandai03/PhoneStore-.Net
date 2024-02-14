@@ -5,10 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"   
       xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:local="clr-namespace:PhoneStore.Net.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="665"
       Title="ThongKe">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loadwd}"
+                                   CommandParameter="{Binding ElementName=Reportwd}">
+            </i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 
     <Border Height="550" Width="665" Background="#21222D" CornerRadius="40" Padding="13.75,0,6.875,0">
         <Grid>
@@ -31,6 +40,7 @@
                     <StackPanel Orientation="Horizontal">
                         <RadioButton Uid="0"
                              x:Name="btnMain"
+                             Style="{StaticResource MaterialDesignTabRadioButton}"
                              Margin="20,4,4,4"
                              IsChecked="True"
                              Width="300"
@@ -40,6 +50,7 @@
 
                         <RadioButton Uid="1"
                                  x:Name="btnSale" 
+                                 Style="{StaticResource MaterialDesignTabRadioButton}"
                                  Margin="4"
                                  Width="300"
                                  FontFamily="Times New Roman"
@@ -201,12 +212,12 @@
                                            FontWeight="Bold" TextWrapping="Wrap" FontSize="25" 
                                            Foreground="White" FontFamily="Times New Roman}" 
                                            Height="Auto" HorizontalAlignment="Right" Width="100">
-                        <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="Loaded">
-                        <i:InvokeCommandAction Command="{Binding LoadNV}"
-                                           CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Loaded">
+                                        <i:InvokeCommandAction Command="{Binding LoadNV}"
+                                               CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
 
                                 </TextBlock>
                                 <TextBlock x:Name="NVName" VerticalAlignment="Bottom" Text="Tên" TextAlignment="Left"  
@@ -354,15 +365,14 @@
                         <Grid>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="56*"/>
-                                <ColumnDefinition Width="99*"/>
-                                <ColumnDefinition Width="155*"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <ComboBox x:Name="Combobox" ItemsSource="{Binding Select, Mode=TwoWay}" 
-                                      Margin="34,10,0,10" Width="100" HorizontalAlignment="Left" 
-                                      Grid.ColumnSpan="2" Text="Chọn chu kỳ" BorderThickness="0,0,0,1"
-                                      IsEditable="True">
+                                      Margin="25,10,10,10" Width="100" HorizontalAlignment="Left" 
+                                      materialDesign:HintAssist.Hint="Chọn chu kì"
+                                      Style="{StaticResource MaterialDesignFloatingHintComboBox}">
 
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="SelectionChanged">
@@ -373,11 +383,12 @@
                                 </i:Interaction.Triggers>
                             </ComboBox>
 
-                            <Grid Grid.Column="2">
-                                <Button x:Name="Save" Content="Xuất biểu đồ" Width="88"
+                            <Grid Grid.Column="1">
+                                <Button x:Name="Save" Content="Xuất biểu đồ" Width="Auto"
                                         BorderThickness="2" HorizontalAlignment="Right" 
-                                        VerticalAlignment="Bottom" Margin="0,0,30,0" FontFamily="Times New Roman"
-                                        Background="Transparent" Foreground="BlueViolet" BorderBrush="BlueViolet" Height="30">
+                                        VerticalAlignment="Bottom" Margin="10,10,30,10" FontFamily="Times New Roman"
+                                        Background="Transparent" Foreground="BlueViolet" BorderBrush="BlueViolet" Height="30"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth0">
 
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click">
