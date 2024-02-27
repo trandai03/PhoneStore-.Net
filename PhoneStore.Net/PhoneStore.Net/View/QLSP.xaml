@@ -31,8 +31,11 @@
             <TextBlock Text="Mã SP" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False"/>
             <TextBlock Text="Tên Sản Phẩm" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="1"/>
             <TextBlock Text="Hãng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="2"/>
-            <TextBlock Text="Giá" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="3"/>
-            <TextBlock Text="Còn Hàng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="4" Height="21"/>
+            <TextBlock Text="Giá Nhập" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="3"/>
+            <TextBlock Text="Giá Bán" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="4" Height="21"/>
+            <TextBlock Text="Còn Hàng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="5" Height="21"/>
+            <Button Grid.Column="6" Content="Sửa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="10,0,0,0"/>
+            <Button Grid.Column="6" Content="Xóa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="51,0,0,0"/>
         </Grid>
         <ComboBox HorizontalAlignment="Left" Margin="57,106,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.43,0.469"/>
 

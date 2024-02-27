@@ -20,7 +20,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="336,126,0,0" VerticalAlignment="Top" Width="97" Height="30" Background="#FF9B00FF"/>
+        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="336,126,0,0" VerticalAlignment="Top" Width="97" Height="30" Background="#FF9B00FF" FontSize="14"/>
         <Grid ShowGridLines="True" Margin="102,238,36,29">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -53,7 +53,7 @@
                 >
             <TextBlock Foreground="DarkGray" 
                        VerticalAlignment="Center" 
-                       HorizontalAlignment="Center"
+                       HorizontalAlignment="Right"
                        
                        Text="Search" Width="160" Height="30" FontSize="14"/>
 
