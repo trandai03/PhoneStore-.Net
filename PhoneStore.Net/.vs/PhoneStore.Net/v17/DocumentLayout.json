@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|d:\\download\\learning\\ki2-3\\c#\\phonestore.net\\phonestore.net\\phonestore.net\\view\\homepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\view\\homepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\phonestore.net\\view\\qlnv.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\view\\qlnv.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -50,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 934,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,7 +74,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
+              "Title": "HomePage.xaml.cs",
+              "DocumentMoniker": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\HomePage.xaml.cs",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\View\\HomePage.xaml.cs",
+              "ToolTip": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\HomePage.xaml.cs",
+              "RelativeToolTip": "PhoneStore.Net\\View\\HomePage.xaml.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAwwA8AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-27T03:09:11.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "QLSP.g.cs",
+              "DocumentMoniker": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs",
+              "ToolTip": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs",
+              "RelativeToolTip": "PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAewEUAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-27T03:02:51.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "App.xaml",
               "DocumentMoniker": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\App.xaml",
               "RelativeDocumentMoniker": "PhoneStore.Net\\App.xaml",
@@ -78,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Setting.xaml",
               "DocumentMoniker": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\Setting.xaml",
               "RelativeDocumentMoniker": "PhoneStore.Net\\View\\Setting.xaml",
@@ -89,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "HomePage.xaml",
               "DocumentMoniker": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\HomePage.xaml",
               "RelativeDocumentMoniker": "PhoneStore.Net\\View\\HomePage.xaml",
@@ -100,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "ThongKe.xaml",
               "DocumentMoniker": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\ThongKe.xaml",
               "RelativeDocumentMoniker": "PhoneStore.Net\\View\\ThongKe.xaml",
@@ -111,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "QLSP.xaml",
               "DocumentMoniker": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\QLSP.xaml",
               "RelativeDocumentMoniker": "PhoneStore.Net\\View\\QLSP.xaml",
@@ -122,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "QLNV.xaml",
               "DocumentMoniker": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\QLNV.xaml",
               "RelativeDocumentMoniker": "PhoneStore.Net\\View\\QLNV.xaml",
@@ -134,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "HoaDonBH.xaml",
               "DocumentMoniker": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\HoaDonBH.xaml",
               "RelativeDocumentMoniker": "PhoneStore.Net\\View\\HoaDonBH.xaml",
@@ -145,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Dang_Nhap.xaml",
               "DocumentMoniker": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\Dang_Nhap.xaml",
               "RelativeDocumentMoniker": "PhoneStore.Net\\View\\Dang_Nhap.xaml",
@@ -156,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Don_Hang.xaml",
               "DocumentMoniker": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\Don_Hang.xaml",
               "RelativeDocumentMoniker": "PhoneStore.Net\\View\\Don_Hang.xaml",
@@ -168,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "AddEmployee.xaml",
               "DocumentMoniker": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\AddEmployee.xaml",
               "RelativeDocumentMoniker": "PhoneStore.Net\\View\\AddEmployee.xaml",
