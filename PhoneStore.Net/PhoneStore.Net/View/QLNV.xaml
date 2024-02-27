@@ -9,11 +9,19 @@
       Title="QLNV">
 
     <Grid Background="White">
-        <Label Content="QUẢN LÝ NHÂN VIÊN" HorizontalAlignment="Left" Margin="57,29,0,0" VerticalAlignment="Top" Width="707" Height="57" IsEnabled="False" FontSize="36" Background="White" Foreground="Black" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center"/>
-        <TextBox HorizontalAlignment="Left" Margin="57,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" Height="30"/>
-        <Button Content="THÊM" HorizontalAlignment="Left" Margin="537,102,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="#FF9B00FF"/>
-        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="400,102,0,0" VerticalAlignment="Top" Width="107" Height="30" Background="#FF9B00FF"/>
-        <Grid ShowGridLines="True" Margin="57,188,81,79">
+        <Label Content="QUẢN LÝ NHÂN VIÊN" HorizontalAlignment="Left" Margin="57,19,0,0" VerticalAlignment="Top" Width="707" Height="57" IsEnabled="False" FontSize="36" Background="White" Foreground="Black" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center"/>
+        <Button Content="THÊM" HorizontalAlignment="Left" Margin="651,112,0,0" VerticalAlignment="Top" Width="105" Height="26" Background="#FF9B00FF" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.572"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.349"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="649,155,0,0" VerticalAlignment="Top" Width="107" Height="30" Background="#FF9B00FF"/>
+        <Grid ShowGridLines="True" Margin="102,238,36,29">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -33,6 +41,25 @@
             <TextBlock Text="Giới tính" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="3"/>
             <TextBlock Text="Số Máy Bán Được" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="4" Height="42" Width="67" TextWrapping="Wrap"/>
         </Grid>
+        <Label Content="Danh sách nhân viên" HorizontalAlignment="Left" Margin="102,102,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16"/>
+        <ComboBox HorizontalAlignment="Left" Margin="102,155,0,0" VerticalAlignment="Top" Width="120" Height="30">
+            <ComboBoxItem Content="Nhân Viên"/>
+            <ComboBoxItem Content="Chức Vụ" IsSelected="True"/>
+            <ComboBoxItem/>
+        </ComboBox>
 
+        <Border  Margin="353,155,287,265" 
+                BorderThickness="1"
+                BorderBrush="Black"
+                 Width="160"
+                 Height="30"
+                >
+            <TextBlock Foreground="DarkGray" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"
+                       
+                       Text="Search" Width="160" Height="30" FontSize="14"/>
+
+        </Border>
     </Grid>
 </Page>
