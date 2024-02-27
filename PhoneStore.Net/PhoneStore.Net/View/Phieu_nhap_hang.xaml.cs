@@ -24,5 +24,10 @@ namespace PhoneStore.Net.View
         {
             InitializeComponent();
         }
+
+        private void deletebtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

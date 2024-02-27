@@ -64,7 +64,7 @@
                                 <StackPanel Orientation="Horizontal"/>
                             </StackPanel>
 
-                            <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Vertical" Width="127">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock
                                     Margin="8,0,0,0"
@@ -81,8 +81,8 @@
 
                                     />                      
                                 </StackPanel>
-                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
+                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10" Width="286">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,-2,0">
                                         <TextBox
                                             x:Name="MaKH" 
                                             HorizontalAlignment="Left"
