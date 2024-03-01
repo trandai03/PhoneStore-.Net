@@ -13,7 +13,7 @@
         CornerRadius="15"
         Background="AliceBlue"
 >
-        
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
@@ -122,7 +122,7 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock
                             Margin="8,0,0,0"
-                            Text="TÊN SP | DUNG LƯỢNG | TỒN KHO"
+                            Text="TÊN SP | DUNG LƯỢNG"
                           
                         />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
@@ -196,27 +196,35 @@
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel
-                        Margin="20"
+                        Margin="10"
                         Orientation="Horizontal"
                         >
                                 <Button Margin="4,0,0,0"
                                 BorderThickness="0"
                                 Content="THÊM"
                                 FontSize="12"
-                                x:Name="addbtn" Width="40"
-                               Background="AliceBlue"
+                                x:Name="addbtn" Width="73"
+                               Background="AliceBlue" Foreground="#DD000000"
                         >
-                                    
+
                                 </Button>
                                 <Button    
                             BorderThickness="0"
                             Margin="15,0,0,0"
-                            Content="XÓA"
+                            Content="SỬA"
                             FontSize="12"
-                            x:Name="deletebtn" Width="40"
-                             Background="AliceBlue"
+                            x:Name="deletebtn" Width="73"
+                             Background="AliceBlue" Foreground="#DD000000" Click="deletebtn_Click"
                         >
                                 </Button>
+                                <Button    
+                                    Margin="15,0,0,0"
+                                    BorderThickness="0"
+                                    Content="XÓA"
+                                    FontSize="12"
+                                    x:Name="deletebtn_Copy" Width="73"
+                                    Background="AliceBlue" Foreground="#DD000000"
+                        />
                             </StackPanel>
                         </StackPanel>
                     </Border>
@@ -403,7 +411,14 @@
                     Content="XÁC NHẬN"
                     FontSize="16"
                     Background="AliceBlue"
-                    x:Name="ttbtn" Margin="41,0,57,23" Grid.Column="3"
+                    x:Name="ttbtn" Margin="41,0,38,14" Grid.Column="3" Foreground="#DD000000"
+                        />
+                <Button                            
+                    BorderThickness="0"
+                    Content="HỦY"
+                    FontSize="16"
+                    Background="AliceBlue"
+                    x:Name="ttbtn_Copy" Margin="122,0,10,14" Grid.Column="2" Foreground="#DD000000"
                         />
             </Grid>
         </Grid>
