@@ -98,6 +98,30 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "QLSP.g.cs",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs",
+              "RelativeToolTip": "PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAIAwwDEAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-27T03:02:51.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "QLNV.g.cs",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\obj\\Debug\\View\\QLNV.g.cs",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\obj\\Debug\\View\\QLNV.g.cs",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\obj\\Debug\\View\\QLNV.g.cs",
+              "RelativeToolTip": "PhoneStore.Net\\obj\\Debug\\View\\QLNV.g.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAewCgAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-27T07:13:44.018Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Thong_tin_khach_hang.xaml",
               "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\Thong_tin_khach_hang.xaml",
@@ -151,30 +175,6 @@
               "RelativeToolTip": "PhoneStore.Net\\View\\Dang_Nhap.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-02-23T10:04:28.152Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "QLSP.g.cs",
-              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs",
-              "RelativeDocumentMoniker": "PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs",
-              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs",
-              "RelativeToolTip": "PhoneStore.Net\\obj\\Debug\\View\\QLSP.g.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAIAwwDEAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-27T03:02:51.722Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "QLNV.g.cs",
-              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\obj\\Debug\\View\\QLNV.g.cs",
-              "RelativeDocumentMoniker": "PhoneStore.Net\\obj\\Debug\\View\\QLNV.g.cs",
-              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\obj\\Debug\\View\\QLNV.g.cs",
-              "RelativeToolTip": "PhoneStore.Net\\obj\\Debug\\View\\QLNV.g.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAewCgAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-27T07:13:44.018Z"
             },
             {
               "$type": "Bookmark",
