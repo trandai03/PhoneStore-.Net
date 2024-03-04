@@ -177,7 +177,7 @@
                                     
                                 />
                                     </Border>
-                                    
+
                                 </StackPanel>
 
                             </StackPanel>
@@ -377,14 +377,20 @@
                 FontSize="16"
                 />
                 </Grid>
-                <Grid Grid.Column="1">
-                    <TextBlock
-                Foreground="Black"
-                x:Name="TT"
-                
+                <Button                            
+                BorderThickness="0"
+                Content="XÁC NHẬN"
                 FontSize="16"
-                />
-                </Grid>
+                Background="AliceBlue"
+                 x:Name="xacnhan" Margin="41,0,38,14" Grid.Column="3" Foreground="#DD000000"/>
+                <Button                            
+                BorderThickness="0"
+                Content="HỦY"
+                FontSize="16"
+                Background="AliceBlue"
+                x:Name="huy" 
+                Margin="122,0,10,14" 
+                Grid.Column="2" Foreground="#DD000000"/>
             </Grid>
         </Grid>
     </Border>
