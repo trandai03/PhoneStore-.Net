@@ -10,7 +10,7 @@
 
     <Grid Background="white">
         <Label   Content="ĐƠN HÀNG" HorizontalAlignment="Left" Height="60" Margin="10,15,0,0" VerticalAlignment="Top" Width="690" HorizontalContentAlignment="Center" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" />
-        <Button Content="Tạo" HorizontalAlignment="Left" Margin="559,100,0,0" VerticalAlignment="Top" Width="67" Height="26" Background="#FF9B00FF" RenderTransformOrigin="0.5,0.5" FontFamily="Times New Roman" Foreground="Black">
+        <Button Content="Tạo" HorizontalAlignment="Left" Margin="559,100,0,0" VerticalAlignment="Top" Width="67" Height="26" Background="#FF00B3FF" RenderTransformOrigin="0.5,0.5" FontFamily="Times New Roman" Foreground="Black">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -20,14 +20,86 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="331,100,0,0" VerticalAlignment="Top" Width="90" Height="26" Background="#FF9B00FF" FontSize="14" FontFamily="Times New Roman" Foreground="Black"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="26" Margin="91,100,0,0" VerticalAlignment="Top" Width="120"
+        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="331,100,0,0" VerticalAlignment="Top" Width="90" Height="26" Background="#FF00B3FF" FontSize="14" FontFamily="Times New Roman" Foreground="Black"/>
+        <Border BorderBrush="Black" BorderThickness="1,1,1,1" HorizontalAlignment="Left" Height="26" Margin="91,100,0,0" VerticalAlignment="Top" Width="120" CornerRadius="5,5,5,5"
                 
                 >
-            <TextBlock Foreground="DarkGray" HorizontalAlignment="Center" Height="26" TextWrapping="Wrap" Text="Search" VerticalAlignment="Bottom" Width="120" Margin="0,0,0,-1"/>
+            <TextBlock Foreground="DarkGray" HorizontalAlignment="Center" Height="26" TextWrapping="Wrap" Text="Search" VerticalAlignment="Center" Width="120"/>
         </Border>
-        <Label Content="DANH SÁCH NHÂN VIÊN" HorizontalAlignment="Left" Height="29" Margin="91,170,0,0" VerticalAlignment="Top" Width="181" FontWeight="Bold" FontFamily="Times New Roman" FontSize="14"/>
-        <Grid ShowGridLines="True" Margin="102,238,36,29">
+        <Label Content="NHẬP ĐƠN" HorizontalAlignment="Left" Height="29" Margin="91,170,0,0" VerticalAlignment="Top" Width="181" FontWeight="Bold" FontFamily="Times New Roman" FontSize="14"/>
+        <Grid  Margin="102,238,36,29">
+            <Rectangle Grid.Column="0"
+               Grid.Row="0"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="1"
+               Grid.Row="0"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="2"
+               Grid.Row="0"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="3"
+               Grid.Row="0"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="4"
+               Grid.Row="0"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="5"
+               Grid.Row="0"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="0"
+               Grid.Row="1"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="1"
+               Grid.Row="1"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="2"
+               Grid.Row="1"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="3"
+               Grid.Row="1"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="4"
+               Grid.Row="1"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="5"
+               Grid.Row="1"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="0"
+               Grid.Row="2"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="1"
+               Grid.Row="2"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="2"
+               Grid.Row="2"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="3"
+               Grid.Row="2"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="4"
+               Grid.Row="2"  
+               Stroke="Blue"
+               Fill="Transparent" />
+            <Rectangle Grid.Column="5"
+               Grid.Row="2"  
+               Stroke="Blue"
+               Fill="Transparent" />
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="75"></ColumnDefinition>
                 <ColumnDefinition Width="120"></ColumnDefinition>
@@ -46,8 +118,8 @@
             <TextBlock Text="NGÀY" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="2"/>
             <TextBlock Text="GIÁ" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="3"/>
             <TextBlock Text="SỐ LƯỢNG" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="4" Height="42" Width="67" TextWrapping="Wrap"/>
-            <Button Grid.Column="5" Content="Sửa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="10,22,0,0" BorderBrush="Purple" Background="#FF9B00FF"/>
-            <Button Grid.Column="5" Content="Xóa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Bottom" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="55,0,0,15" Background="#FF9B00FF"/>
+            <Button Grid.Column="5" Content="Sửa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="10,22,0,0" BorderBrush="Purple" Background="#FF2BCDE2"/>
+            <Button Grid.Column="5" Content="Xóa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Bottom" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="55,0,0,15" Background="#FF2BCDE2"/>
 
         </Grid>
     </Grid>
