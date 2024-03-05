@@ -3,14 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:PhoneShopManagement.View"
+      
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="700"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
 
-    <Grid Background="white">
-        <Label   Content="ĐƠN HÀNG" HorizontalAlignment="Left" Height="60" Margin="10,35,0,0" VerticalAlignment="Top" Width="690" HorizontalContentAlignment="Center" FontSize="36" FontFamily="Times New Roman" FontWeight="Bold" />
-        <Button Content="Tạo" HorizontalAlignment="Left" Margin="345,109,0,0" VerticalAlignment="Top" Width="67" Height="26" Background="#FF00B3FF" RenderTransformOrigin="0.5,0.5" FontFamily="Times New Roman" Foreground="Black">
+    <Grid Background="White" Margin="0,0,-91,0">
+        <Label Content="QUẢN LÝ ĐƠN HÀNG" HorizontalAlignment="Left" Margin="57,19,0,0" VerticalAlignment="Top" Width="707" Height="57" IsEnabled="False" FontSize="36" Background="White" Foreground="Black" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center"/>
+        <Button Content="Thêm" HorizontalAlignment="Left" Margin="616,133,0,0" VerticalAlignment="Top" Width="67" Height="26" Background="#FF9B00FF" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -20,89 +20,11 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="239,108,0,0" VerticalAlignment="Top" Width="90" Height="26" Background="#FF00B3FF" FontSize="14" FontFamily="Times New Roman" Foreground="Black"/>
-        <Border BorderBrush="Black" BorderThickness="1,1,1,1" HorizontalAlignment="Left" Height="26" Margin="103,108,0,0" VerticalAlignment="Top" Width="120" CornerRadius="5,5,5,5"
-                
-                >
-            <TextBlock Foreground="DarkGray" HorizontalAlignment="Center" Height="26" TextWrapping="Wrap" Text="Search" VerticalAlignment="Center" Width="120" RenderTransformOrigin="0.487,2.073"/>
-        </Border>
-        <Label Content="NHẬP ĐƠN" HorizontalAlignment="Left" Height="29" Margin="103,180,0,0" VerticalAlignment="Top" Width="181" FontWeight="Bold" FontFamily="Times New Roman" FontSize="14" RenderTransformOrigin="0.5,1.024"/>
-        <Grid  Margin="102,238,36,29">
-            <Rectangle Grid.Column="0"
-               Grid.Row="0"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="1"
-               Grid.Row="0"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="2"
-               Grid.Row="0"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="3"
-               Grid.Row="0"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="4"
-               Grid.Row="0"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="5"
-               Grid.Row="0"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="0"
-               Grid.Row="1"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="1"
-               Grid.Row="1"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="2"
-               Grid.Row="1"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="3"
-               Grid.Row="1"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="4"
-               Grid.Row="1"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="5"
-               Grid.Row="1"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="0"
-               Grid.Row="2"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="1"
-               Grid.Row="2"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="2"
-               Grid.Row="2"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="3"
-               Grid.Row="2"  
-               Stroke="Blue"
-               Fill="Transparent" />
-            <Rectangle Grid.Column="3"
-               Grid.Row="2"  
-               Stroke="Blue"
-               Fill="Transparent" Grid.ColumnSpan="2" Margin="91,0,0,0" />
-            <Rectangle Grid.Column="5"
-               Grid.Row="2"  
-               Stroke="Blue"
-               Fill="Transparent" />
+        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="336,126,0,0" VerticalAlignment="Top" Width="97" Height="30" Background="#FF9B00FF" FontSize="14"/>
+        <Grid ShowGridLines="True" Margin="102,238,36,29">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="75"></ColumnDefinition>
-                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -113,14 +35,28 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Text="MÃ ĐH" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False"/>
-            <TextBlock Text="KHÁCH HÀNG" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="1" />
-            <TextBlock Text="NGÀY" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="2"/>
-            <TextBlock Text="GIÁ" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="3"/>
-            <TextBlock Text="SỐ LƯỢNG" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="4" Height="42" Width="67" TextWrapping="Wrap"/>
-            <Button Grid.Column="5" Content="Sửa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="10,22,0,0" BorderBrush="Purple" Background="#FF2BCDE2"/>
-            <Button Grid.Column="5" Content="Xóa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Bottom" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="55,0,0,15" Background="#FF2BCDE2"/>
-
+            <TextBlock Text="Mã ĐH" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False"/>
+            <TextBlock Text="Khách Hàng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="1"/>
+            <TextBlock Text="Ngày" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="2"/>
+            <TextBlock Text="Giá" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="3"/>
+            <TextBlock Text="Số Lượng " FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="4" Height="42" Width="67" TextWrapping="Wrap"/>
+            <Button Grid.Column="5" Content="Sửa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="10,0,0,0"/>
+            <Button Grid.Column="5" Content="Xóa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Bottom" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="55,0,0,15"/>
         </Grid>
+        <Label Content="Danh sách nhân viên" HorizontalAlignment="Left" Margin="102,195,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16" FontWeight="Bold"/>
+
+        <Border  Margin="102,126,538,294" 
+            BorderThickness="1"
+            BorderBrush="Black"
+             Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False"
+            >
+            <TextBlock Foreground="DarkGray" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Right"
+                   
+                   Text="Search" Width="160" Height="30" FontSize="14"/>
+
+        </Border>
+        <ComboBox HorizontalAlignment="Left" Margin="507,127,0,0" VerticalAlignment="Top" Width="50" Height="30" Text="Lọc" IsEditable="True"/>
     </Grid>
 </Page>

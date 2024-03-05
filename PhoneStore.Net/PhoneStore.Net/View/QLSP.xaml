@@ -11,8 +11,7 @@
     <Grid Background="White">
         <Label Content="QUẢN LÝ SẢN PHẨM" HorizontalAlignment="Left" Margin="57,29,0,0" VerticalAlignment="Top" Width="707" Height="57" IsEnabled="False" FontSize="36" Background="White" Foreground="Black" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center"/>
         <TextBox HorizontalAlignment="Left" Margin="246,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="30"/>
-        <Button Content="THÊM" HorizontalAlignment="Left" Margin="57,400,0,0" VerticalAlignment="Top" Width="90" Height="30" Background="#FF9B00FF" BorderBrush="Black" Foreground="Black"/>
-        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="582,102,0,0" VerticalAlignment="Top" Width="77" Height="30" Background="#FF9B00FF"/>
+        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="582,102,0,0" VerticalAlignment="Top" Width="100" Height="30" Background="#FF9B00FF"/>
         <Grid ShowGridLines="True" Margin="57,188,81,79">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
