@@ -22,7 +22,10 @@ namespace PhoneStore.Net.View
     {
         public HomePage()
         {
+
             InitializeComponent();
         }
+
+
     }
 }

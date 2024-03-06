@@ -22,7 +22,7 @@ namespace PhoneStore.Net.View
     {
         public Don_Hang()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

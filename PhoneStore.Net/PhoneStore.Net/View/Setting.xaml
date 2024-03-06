@@ -122,7 +122,7 @@
                                           materialDesign:HintAssist.Hint="Giới tính" 
                                           FontSize="14" FontFamily="Times New Roman"
                                           IsEditable="True" Background="#0F000000"
-                                          SelectionChanged="ComboBox_SelectionChanged"                         
+                                                                
                                           HorizontalContentAlignment="Center" Width="190">
                                     
                                     <ComboBoxItem Content="Nam"/>
