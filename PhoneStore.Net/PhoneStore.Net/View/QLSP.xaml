@@ -60,6 +60,18 @@
 
         </Border>
         <ComboBox HorizontalAlignment="Left" Margin="507,127,0,0" VerticalAlignment="Top" Width="50" Height="30" Text="Lọc" IsEditable="True"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=3}" Name="dtSanPham" Margin="102,297,140,-17" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn/>
+                <DataGridTextColumn/>
+                <DataGridTextColumn/>
+                <DataGridTextColumn/>
+                <DataGridTextColumn/>
+                <DataGridTextColumn/>
+                <DataGridTextColumn/>
+
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Page>
