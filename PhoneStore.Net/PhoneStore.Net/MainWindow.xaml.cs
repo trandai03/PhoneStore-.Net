@@ -38,7 +38,7 @@ namespace PhoneStore.Net
 
         private void San_Pham(object sender, RoutedEventArgs e)
         {
-            this.Main.NavigationService.Navigate(new Detail_phone());
+            this.Main.NavigationService.Navigate(new QLSP());
         }
 
         private void Nhap_Hang(object sender, RoutedEventArgs e)
