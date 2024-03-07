@@ -33,9 +33,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
-
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-
             <TextBlock Text="Mã SP" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False"/>
             <TextBlock Text="Tên Sản Phẩm" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="1"/>
             <TextBlock Text="Hãng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="2"/>
@@ -47,10 +46,11 @@
         </Grid>
         <Label Content="Danh sách Sản phẩm" HorizontalAlignment="Left" Margin="102,182,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16" FontWeight="Bold"/>
 
-        <Border  Margin="507,167,243,0" 
+        <Border  Margin="102,126,538,294" 
         BorderThickness="1"
         BorderBrush="Black"
-         Height="30" VerticalAlignment="Top"
+         Width="160"
+         Height="30"
         >
             <TextBlock Foreground="DarkGray" 
                VerticalAlignment="Center" 
@@ -60,10 +60,13 @@
 
         </Border>
         <ComboBox HorizontalAlignment="Left" Margin="507,127,0,0" VerticalAlignment="Top" Width="50" Height="30" Text="Lọc" IsEditable="True"/>
-        <DataGrid  Name="dtSanPham" Margin="-4,270,104,10" SelectionChanged="DataGrid_SelectionChanged">
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=3}" Name="dtSanPham" Margin="102,297,97,-17" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Mã SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Path=MaSP}"/>
+                <DataGridTextColumn Header="Mã SP" IsReadOnly="True" CanUserResize="False" Width="auto"/>
                 <DataGridTextColumn Header="Tên SP" IsReadOnly="True" CanUserResize="False" Width="auto"/>
+
+
+
                 <DataGridTextColumn Header="Hãng" IsReadOnly="True" CanUserResize="False" Width="auto"/>
                 <DataGridTextColumn Header="Giá Nhập" IsReadOnly="True" CanUserResize="False" Width="auto"/>
                 <DataGridTextColumn Header="Gía Bán" IsReadOnly="True" CanUserResize="False" Width="auto"/>
@@ -72,8 +75,6 @@
                 <DataGridTextColumn Header="Size" IsReadOnly="True" CanUserResize="False" Width="auto"/>
             </DataGrid.Columns>
         </DataGrid>
+
     </Grid>
-
-    
-
 </Page>
