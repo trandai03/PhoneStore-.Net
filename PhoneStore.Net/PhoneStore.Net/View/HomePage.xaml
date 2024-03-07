@@ -26,81 +26,8 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-<<<<<<< HEAD
-                <Grid Grid.Row="0" Margin="0,0,0,16">
-                    <TextBlock
-                            Text="PHONE"
-                            FontSize="35"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
-                        <TextBlock.Foreground>
-                            <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
-                                <GradientStop Color="DarkOliveGreen" Offset="0"/>
-                                <GradientStop Color="LightGreen" Offset="1"/>
-                            </LinearGradientBrush>
-                        </TextBlock.Foreground>
-                    </TextBlock>
-                </Grid>
-
-                <Grid Margin="0,98,0,0" Grid.RowSpan="2">
-                    <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10">
-                        <Button Background="DeepSkyBlue" Foreground="White" Margin="0,0,0,25"   
-                                Content="TRANG CHỦ" FontSize="20"           
-                                FontFamily="Times New Roman" FontWeight="Bold"/>
-
-                        <Button  Content="ĐƠN HÀNG" FontSize="16" Background="Transparent" 
-                                 Foreground="White" Margin="0,0,0,25"
-                                 FontFamily="Times New Roman" FontWeight="Bold"/>
-
-                        <Button Content="SẢN PHẨM" FontSize="16" Background="Transparent" 
-                                Foreground="White" Margin="0,0,0,25" 
-                                FontFamily="Times New Roman" FontWeight="Bold"/>
-
-                        <Button  Content="KHÁCH HÀNG" FontSize="16" Background="Transparent" 
-                                 Foreground="White" Margin="0,0,0,25"
-                                 FontFamily="Times New Roman" FontWeight="Bold"/>
-
-                        <Button Content="NHẬP HÀNG" FontSize="16" Background="Transparent" 
-                                Foreground="White" Margin="0,0,0,25"
-                                FontFamily="Times New Roman" FontWeight="Bold"/>
-
-                        <Button Content="THỐNG KÊ" FontSize="16" Background="Transparent" 
-                                Foreground="White" Margin="0,0,0,25"
-                                FontFamily="Times New Roman" FontWeight="Bold"/>
-
-                        <Button Content="QUẢN LÝ" FontSize="16"  Background="Transparent" 
-                                Foreground="White" Margin="0,0,0,25"
-                                FontFamily="Times New Roman" FontWeight="Bold"/>
-
-                        <Button Content="CÀI ĐẶT" FontSize="16" Background="Transparent" 
-                                Foreground="White" Margin="0,0,0,25"
-                                FontFamily="Times New Roman" FontWeight="Bold" Click="Button_Click"/>
-                    </StackPanel>
-
-                    <Grid Grid.Row="2" VerticalAlignment="Bottom">
-                        <Button Content="ĐĂNG XUẤT" FontSize="16" Background="Transparent" 
-                            Foreground="White"
-                            FontFamily="Times New Roman" Margin="10,6,10,-6" FontWeight="Bold"/>
-                    </Grid>
-                </Grid>
-            </Grid>
-
-            <Grid Grid.Column="2">
-                <Border Height="550" Width="665" Background="#17181F" CornerRadius="40">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="65"/>
-                            <RowDefinition Height="150"/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-
-                        <Grid Grid.Row="0" Height="65">
-                            <TextBlock VerticalAlignment="Center"
-=======
                 <Grid Grid.Row="0" Height="65">
                     <TextBlock VerticalAlignment="Center"
->>>>>>> ccfd2c635ddaa684b07c8b2fba9486d359775145
                                    FontSize="30"
                                    Margin="20, 0, 0, 0"
                                    Foreground="White"
@@ -282,137 +209,13 @@
                                                         </i:InvokeCommandAction>
                                                     </i:EventTrigger>
                                                 </i:Interaction.Triggers>
-<<<<<<< HEAD
-                                                </TextBlock>
-                                            </Grid>
-
-                                        </Grid>
-                                    </StackPanel>
-                                </Border>
-                            </Canvas>
-
-                        </Grid>
-
-                        <Grid Grid.Row="2">
-                            <Border Height="300" Width="617.5" Background="AliceBlue" CornerRadius="25"
-                                    HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Border.Effect>
-                                    <DropShadowEffect BlurRadius="15" Direction="-90"
-                                                  RenderingBias="Quality" ShadowDepth="5"/>
-                                </Border.Effect>
-                                <StackPanel VerticalAlignment="Center">
-                                    <syncfusion:SfChart 
-                                                Height="250" Width="600" Header="Đồ thị sản phẩm bán ra theo giờ">
-                                        <syncfusion:SfChart.PrimaryAxis>
-                                            <syncfusion:CategoryAxis/>
-                                        </syncfusion:SfChart.PrimaryAxis>
-                                        <syncfusion:SfChart.SecondaryAxis>
-                                            <syncfusion:NumericalAxis/>
-                                        </syncfusion:SfChart.SecondaryAxis>
-                                        <syncfusion:SfChart.Legend>
-                                            <syncfusion:ChartLegend/>
-                                        </syncfusion:SfChart.Legend>
-                                        <syncfusion:SfChart.Resources>
-                                            <DataTemplate x:Key="tooltipTemplate">
-                                                <Border Background="Transparent" Margin="-5"
-                                                        Padding="4" CornerRadius="3">
-                                                    <StackPanel Orientation="Horizontal" >
-                                                        <TextBlock Text="{Binding Item.SP}" Foreground="Black" 
-                                                                   TextAlignment="Center" FontFamily="Times New Roman"/>
-                                                    </StackPanel>
-                                                </Border>
-                                            </DataTemplate>
-
-                                            <Style TargetType="Path" x:Key="tooltipStyle">
-                                                <Setter Property="Stroke" Value="White"/>
-                                                <Setter Property="Fill" Value="#FFE5D8"/>
-                                            </Style>
-                                        </syncfusion:SfChart.Resources>
-                                        <syncfusion:SfChart.Behaviors>
-                                            <syncfusion:ChartTooltipBehavior Style="{StaticResource tooltipStyle}" 
-                                                                             Position="Pointer"/>
-                                        </syncfusion:SfChart.Behaviors>
-                                        <syncfusion:ColumnSeries x:Name="Chart" ShowTooltip="True" TooltipTemplate="{StaticResource tooltipTemplate}" Palette="Custom" Label="Sản phẩm" ItemsSource="{Binding Data}" XBindingPath="Hour" YBindingPath="SP" EnableAnimation="True" AnimationDuration="00:00:01">
-                                            <syncfusion:ColumnSeries.ColorModel>
-                                                <syncfusion:ChartColorModel>
-                                                    <syncfusion:ChartColorModel.CustomBrushes>
-                                                        <SolidColorBrush Color="BlueViolet"/>
-                                                    </syncfusion:ChartColorModel.CustomBrushes>
-                                                </syncfusion:ChartColorModel>
-                                            </syncfusion:ColumnSeries.ColorModel>
-                                        </syncfusion:ColumnSeries>
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="Loaded">
-                                                <i:InvokeCommandAction Command="{Binding LoadChart}"
-                                                                       CommandParameter="{Binding ElementName=Homewd}">
-                                                </i:InvokeCommandAction>
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                    </syncfusion:SfChart>
-                                </StackPanel>
-                            </Border>
-                        </Grid>
-                    </Grid>
-                </Border>
-            </Grid>
-
-            <Grid Grid.Column="3" Grid.ColumnSpan="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="150"/>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,25,0">
-                        <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" Height="24" Width="24" Margin="0,0,8,0">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="MouseLeftButtonDown">
-                                    <i:InvokeCommandAction Command="{Binding MinimizeLogin}"
-                                   CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </materialDesign:PackIcon>
-                        <materialDesign:PackIcon Kind="CloseThick" Foreground="White" Height="24" Width="24">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="MouseLeftButtonDown">
-                                    <i:InvokeCommandAction Command="{Binding CloseLogin}"
-                                   CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </materialDesign:PackIcon>
-                    </StackPanel>
-                    
-                    <DockPanel>
-                        <Border
-                            Height="40"
-                            Width="40"
-                            Background="White"
-                            CornerRadius="50"
-                            Margin="6">
-
-                            <Ellipse Height="40" Width="40" VerticalAlignment="Top" Name="UserAvatar">
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="/Resource/avatar/GoldGoat.jpg" />
-                                </Ellipse.Fill>
-                            </Ellipse>
-=======
                                         </TextBlock>
                                     </Grid>
->>>>>>> ccfd2c635ddaa684b07c8b2fba9486d359775145
 
                                 </Grid>
                             </StackPanel>
                         </Border>
-<<<<<<< HEAD
-
-                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <TextBlock  Text="Mạnh Tâm" FontSize="15" Foreground="White" Name="NameDisplayTextBlock"/>
-                            <TextBlock  Text="Quản trị viên" FontSize="12" Foreground="White" />
-                        </StackPanel>
-                    </DockPanel>
-=======
                     </Canvas>
->>>>>>> ccfd2c635ddaa684b07c8b2fba9486d359775145
 
                 </Grid>
 

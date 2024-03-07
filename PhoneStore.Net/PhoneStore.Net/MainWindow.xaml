@@ -8,16 +8,6 @@
         xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF" 
         xmlns:local="clr-namespace:PhoneStore.Net" d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
         mc:Ignorable="d"
-<<<<<<< HEAD
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="85*"/>
-            <ColumnDefinition Width="4*"/>
-        </Grid.ColumnDefinitions>
-
-    </Grid>
-=======
         Title="MainWindow" 
         x:Name="Mainwd"
         Background="Transparent"
@@ -180,5 +170,4 @@
             </Grid>
         </Grid>
     </Border>
->>>>>>> ccfd2c635ddaa684b07c8b2fba9486d359775145
 </Window>
