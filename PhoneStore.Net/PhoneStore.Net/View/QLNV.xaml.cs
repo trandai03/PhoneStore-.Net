@@ -18,5 +18,13 @@ namespace PhoneStore.Net.View
     /// <summary>
     /// Interaction logic for QLNV.xaml
     /// </summary>
+    /// 
+    public partial class QLNV : Page
+    {
+        public QLNV()
+        {
+            InitializeComponent();
+        }
+    }
    
 }

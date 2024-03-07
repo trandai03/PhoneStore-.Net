@@ -2,7 +2,11 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:PhoneStore.Net"
-             StartupUri="View/HomePage.xaml">
+<<<<<<< HEAD
+             StartupUri="View/Dang_Nhap.xaml">
+=======
+             StartupUri="MainWindow.xaml">
+>>>>>>> ccfd2c635ddaa684b07c8b2fba9486d359775145
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
