@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SQLite;
+using PhoneStore.Net.View;
 namespace PhoneStore.Net
 {
     /// <summary>
@@ -23,6 +24,52 @@ namespace PhoneStore.Net
         public MainWindow()
         {
             InitializeComponent();          
-        }    
+        }
+
+        private void HomePage_Click(object sender, RoutedEventArgs e)
+        {
+            this.Main.NavigationService.Navigate(new HomePage());
+        }
+
+        private void Don_Hang(object sender, RoutedEventArgs e)
+        {
+            this.Main.NavigationService.Navigate(new Don_Hang());
+        }
+
+        private void San_Pham(object sender, RoutedEventArgs e)
+        {
+            this.Main.NavigationService.Navigate(new Detail_phone());
+        }
+
+        private void Nhap_Hang(object sender, RoutedEventArgs e)
+        {
+            this.Main.NavigationService.Navigate(new QLNH());
+        }
+
+        private void Thong_Ke(object sender, RoutedEventArgs e)
+        {
+            this.Main.NavigationService.Navigate(new ThongKe());
+        }
+
+        private void Quan_Ly(object sender, RoutedEventArgs e)
+        {
+            this.Main.NavigationService.Navigate(new QLNV());
+        }
+
+        private void Cai_Dat(object sender, RoutedEventArgs e)
+        {
+            this.Main.NavigationService.Navigate(new Setting());
+        }
+
+        private void Close_Window(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Minimize_Window(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState.CompareTo(WindowState.Minimized);
+        }
+
     }
 }

@@ -59,7 +59,7 @@ namespace PhoneStore.Net
 
         private string _localLink = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf(@"bin\Debug"));
 
-        public ICommand CloseLogin { get; set; }
+       
         public ICommand MinimizeLogin { get; set; }
         public ICommand Loadwd { get; set; }
         public ICommand GetIdTab { get; set; }
@@ -71,7 +71,7 @@ namespace PhoneStore.Net
         public BitmapImage Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
         public MainViewModel()
         {
-            CloseLogin = new RelayCommand<MainWindow>((p) => true, (p) => Close());
+    
             MinimizeLogin = new RelayCommand<MainWindow>((p) => true, (p) => Minimize(p));
             GetIdTab = new RelayCommand<Button>((p) => true, (p) => Name = p.Uid);
             MoveWindow = new RelayCommand<MainWindow>((p) => true, (p) => moveWindow(p));
@@ -133,10 +133,7 @@ namespace PhoneStore.Net
         {
             p.DragMove();
         }
-        public void Close()
-        {
-            Application.Current.Shutdown();
-        }
+     
 
         public void Minimize(MainWindow p)
         {
