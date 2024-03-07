@@ -141,6 +141,7 @@
     </ApplicationDefinition>
     <Compile Include="DBClass\DBConnect.cs" />
     <Compile Include="DBClass\sanPham.cs" />
+    <Compile Include="MainViewModel.cs" />
     <Compile Include="View\AddEmployee.xaml.cs">
       <DependentUpon>AddEmployee.xaml</DependentUpon>
     </Compile>
