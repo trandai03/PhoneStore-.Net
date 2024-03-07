@@ -18,7 +18,7 @@ namespace PhoneStore.Net.View
     /// <summary>
     /// Interaction logic for AddEmployee.xaml
     /// </summary>
-    public partial class AddEmployee : Page
+    public partial class AddEmployee : Window
     {
         public AddEmployee()
         {
