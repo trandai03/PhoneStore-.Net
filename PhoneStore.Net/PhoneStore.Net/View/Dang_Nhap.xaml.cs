@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhoneStore.Net.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,30 @@ namespace PhoneStore.Net.View
     /// <summary>
     /// Interaction logic for Dang_Nhap.xaml
     /// </summary>
-    public partial class Dang_Nhap : Page
+    public partial class Dang_Nhap : Window
     {
         public Dang_Nhap()
         {
             InitializeComponent();
+        }
+
+        private void DangNhapClick(object sender, RoutedEventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            string password = PasswordTextBox.Password;
+
+            DatabaseService db = new DatabaseService();
+
+            if(db.checkUser(username, password))
+            {
+                HomePage homepage = new HomePage();
+                homepage.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Wrong username or password");
+            }
         }
     }
 }
