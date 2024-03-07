@@ -15,7 +15,7 @@ namespace PhoneStore.Net.Controller
 
         public DatabaseService()
         {
-            conn = new SQLiteConnection("Data Source = C:\\phonestore.db");
+            conn = new SQLiteConnection("Data Source=C:\\phonestore.db");
             conn.Open();
         }
 
