@@ -5,18 +5,24 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PhoneStore.Net.DBClass
 {
     internal class DBConnect
     {
-        string chuoiketnoi = string.Format(@"Data Source={0}\QLDT.db;Version=3;", System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf(@"bin\Debug")));
+  
+        public static string StartupPath { get; }
+        
+        string databaseName ="D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\bin\\Debug\\QLDT.db";
+        
         public DataTable Sql_select(string sql_querry)
         {
-            SQLiteConnection _con = new SQLiteConnection(chuoiketnoi);
+            SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
             _con.Open();
             DataTable dt = new DataTable();
             SQLiteCommand cmd = new SQLiteCommand(sql_querry, _con);
+
             SQLiteDataReader reader = cmd.ExecuteReader();
             dt.Load(reader);
             _con.Close();
