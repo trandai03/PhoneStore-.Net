@@ -2,6 +2,7 @@
 using OpenTK.Graphics.OpenGL;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 namespace PhoneStore.Net.View
@@ -9,14 +10,15 @@ namespace PhoneStore.Net.View
     /// <summary>
     /// Interaction logic for Setting.xaml
     /// </summary>
-    public partial class Setting : Window
+    public partial class Setting : Page
     {
-        HomePage homePage { get; set; }
-        public Setting(HomePage hp)
+        //HomePage homePage { get; set; }
+        public Setting()
         {
             InitializeComponent();
-            homePage = hp;
-            this.FullNameTextBox.Text = HomePage.userSetting.Name;
+            //homePage = hp;
+            /*
+             this.FullNameTextBox.Text = HomePage.userSetting.Name;
             this.GenderComboBox.Text = HomePage.userSetting.Gender;
             this.DateBox.SelectedDate = HomePage.userSetting.DOB;
             this.DateBox.Text = HomePage.userSetting.DOB.ToString();
@@ -24,6 +26,7 @@ namespace PhoneStore.Net.View
             this.AddressTextBox.Text = HomePage.userSetting.Address;
             this.EmailTextBox.Text = HomePage.userSetting.Email;
             this.UserImage.Fill = new ImageBrush(HomePage.userSetting.Image);
+             */
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -69,21 +72,23 @@ namespace PhoneStore.Net.View
                 return;
             }
 
-            HomePage.userSetting.Name = this.FullNameTextBox.Text;
+            /*
+             HomePage.userSetting.Name = this.FullNameTextBox.Text;
             HomePage.userSetting.Gender = this.GenderComboBox.Text;
             HomePage.userSetting.DOB = this.DateBox.SelectedDate;
             HomePage.userSetting.PhoneNumber = this.PhoneNumberTextBox.Text;
             HomePage.userSetting.Address = this.AddressTextBox.Text;
             HomePage.userSetting.Email = this.EmailTextBox.Text;
-
-            this.Close();
             homePage.RefreshDisplay();
+
+             */
+            //this.Close();
         }
 
         // Event cho nút "X"
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            //this.Close();
         }
 
         // Event cho nút "Thay đổi ảnh"
@@ -109,7 +114,7 @@ namespace PhoneStore.Net.View
                     return;
                 }
                 this.UserImage.Fill = new ImageBrush(image);
-                HomePage.userSetting.Image = image;
+                //HomePage.userSetting.Image = image;
             }
             
         }

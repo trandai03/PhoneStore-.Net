@@ -18,7 +18,7 @@ namespace PhoneStore.Net.View
     /// <summary>
     /// Interaction logic for NewProduct.xaml
     /// </summary>
-    public partial class NewProduct : Page
+    public partial class NewProduct : Window
     {
         public NewProduct()
         {

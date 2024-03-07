@@ -31,12 +31,12 @@ namespace PhoneStore.Net.View
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Password;
 
-            DatabaseService db = new DatabaseService();
+            //DatabaseService db = new DatabaseService();
 
-            if(db.checkUser(username, password))
+            /*
+             if(db.checkUser(username, password))
             {
                 HomePage homepage = new HomePage();
-                homepage.Show();
                 this.Close();
             }
             else
@@ -44,5 +44,11 @@ namespace PhoneStore.Net.View
                 MessageBox.Show("Wrong username or password");
             }
         }
+             */
+            if (username == "admin")
+            {
+                HomePage homePage = new HomePage();
+            }
+        }
+        }
     }
-}
