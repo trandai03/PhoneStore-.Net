@@ -1,17 +1,21 @@
-﻿<Page x:Class="PhoneStore.Net.View.Dang_Nhap"
+﻿<Window x:Class="PhoneStore.Net.View.Dang_Nhap"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="650"
+      WindowStyle="None"
+      ResizeMode="NoResize"
+      Background="Transparent"
+      AllowsTransparency="True"
+      WindowStartupLocation="CenterScreen"
       Title="Dang_Nhap">
+
     <Border
      CornerRadius="30,40,40,30"
      Background="BlueViolet"
      >
-
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -54,7 +58,7 @@
                         <StackPanel Margin="0,20,0,0">
                             <TextBox
                              Text="{Binding Username}"
-                             
+                             Name="UsernameTextBox"
                              Background="White"
                              Height="48"
                              Width="250"
@@ -70,7 +74,7 @@
                              
                             
                              />
-                            <PasswordBox x:Name="password"
+                            <PasswordBox x:Name="PasswordTextBox"
                              
                              VerticalAlignment="Top"
                              Background="White"
@@ -88,7 +92,7 @@
                             
                              Background="BlueViolet"
                              Foreground="white"
-                             BorderBrush="Transparent"                
+                             BorderBrush="Transparent" Click="DangNhapClick"                
                              >
 
                             </Button>
@@ -138,4 +142,4 @@
             </Border>
         </Grid>
     </Border>
-</Page>
+</Window>

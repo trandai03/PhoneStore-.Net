@@ -141,11 +141,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DBClass\DBConnect.cs" />
+    <Compile Include="DBClass\sanPham.cs" />
+    <Compile Include="MainViewModel.cs" />
     <Compile Include="View\AddEmployee.xaml.cs">
       <DependentUpon>AddEmployee.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AddNV.xaml.cs">
-      <DependentUpon>AddNV.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Dang_Nhap.xaml.cs">
       <DependentUpon>Dang_Nhap.xaml</DependentUpon>
@@ -199,10 +199,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AddEmployee.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\AddNV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

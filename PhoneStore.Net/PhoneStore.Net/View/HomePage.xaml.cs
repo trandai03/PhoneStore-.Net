@@ -18,7 +18,7 @@ namespace PhoneStore.Net.View
     /// <summary>
     /// Interaction logic for HomePage.xaml
     /// </summary>
-    public partial class HomePage 
+    public partial class HomePage : Page
     {
         public HomePage()
         {
@@ -26,6 +26,6 @@ namespace PhoneStore.Net.View
             InitializeComponent();
         }
 
-
+        
     }
 }
