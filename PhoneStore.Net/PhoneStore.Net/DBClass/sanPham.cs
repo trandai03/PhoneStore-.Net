@@ -29,7 +29,7 @@ namespace PhoneStore.Net.DBClass
         public DataTable hienThiSanPham()
         {
             DataTable dt = new DataTable();
-            string sql = "select * from sanphams";
+            string sql = "select * from SANPHAMS";
             dt = db.Sql_select(sql);
             return dt;
         }

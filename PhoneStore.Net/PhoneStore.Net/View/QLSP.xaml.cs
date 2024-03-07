@@ -57,6 +57,7 @@ namespace PhoneStore.Net.View
         {
             
             dtSanPham.ItemsSource = sp.hienThiSanPham().DefaultView;
+            
         }
     }
 }
