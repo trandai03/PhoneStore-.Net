@@ -141,6 +141,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\DatabaseService.cs" />
     <Compile Include="DBClass\DBConnect.cs" />
     <Compile Include="DBClass\sanPham.cs" />
     <Compile Include="MainViewModel.cs" />
