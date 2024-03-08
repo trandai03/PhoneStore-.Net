@@ -14,7 +14,7 @@ namespace PhoneStore.Net.DBClass
   
         public static string StartupPath { get; }
         
-        string databaseName ="D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\bin\\Debug\\QLDT.db";
+        string databaseName ="QLDT.db";
         
         public DataTable Sql_select(string sql_querry)
         {
