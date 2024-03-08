@@ -3,9 +3,9 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="665"
       Title="Page1">
 
     <Grid Background="White" Margin="0,0,-91,0">
@@ -45,16 +45,30 @@
         </Grid>
         <Label Content="Danh sách nhân viên" HorizontalAlignment="Left" Margin="102,195,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16" FontWeight="Bold"/>
 
-        <Border  Margin="102,126,538,294" 
+        <Border  Margin="86,124,0,0" 
             BorderThickness="1"
             BorderBrush="Black"
-             Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False"
+             Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False"
             >
-            <TextBlock Foreground="DarkGray" 
-                   VerticalAlignment="Center" 
-                   HorizontalAlignment="Right"
-                   
-                   Text="Search" Width="160" Height="30" FontSize="14"/>
+            <TextBox
+             x:Name="txbSearch"
+             Width="250"
+             Height="40"
+             Margin="10,0,0,0"
+             BorderBrush="White"
+             Foreground="White"
+             FontSize="16"
+             FontWeight="SemiBold"
+             materialDesign:HintAssist.Hint="Tìm Kiếm"
+             
+             materialDesign:HintAssist.Foreground="White"
+             materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+             materialDesign:TextFieldAssist.TextBoxViewMargin="10,3,0,0"
+             BorderThickness="2"
+             VerticalAlignment="Center" CaretBrush="White" >
+                
+            </TextBox>
 
         </Border>
         <ComboBox HorizontalAlignment="Left" Margin="507,127,0,0" VerticalAlignment="Top" Width="50" Height="30" Text="Lọc" IsEditable="True"/>

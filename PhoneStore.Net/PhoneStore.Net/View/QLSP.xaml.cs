@@ -55,9 +55,9 @@ namespace PhoneStore.Net.View
         
         private void loadThongTin()
         {
-            
             dtSanPham.ItemsSource = sp.hienThiSanPham().DefaultView;
             
+
         }
     }
 }
