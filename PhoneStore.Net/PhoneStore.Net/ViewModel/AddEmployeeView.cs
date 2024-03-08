@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Data.SQLite;
 using PhoneStore.Net.View;
+using PhoneStore.Net.DBClass;
+using System.Data;
 
 namespace PhoneStore.Net.ViewModel
 {
@@ -57,7 +59,29 @@ namespace PhoneStore.Net.ViewModel
         }
         void _AddND(AddEmployee p)
         {
-            MessageBox.Show("Email này chưa được đăng lý !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn thêm người dùng ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            if (String.IsNullOrEmpty(p.MaND.Text) || String.IsNullOrEmpty(p.TenND.Text) || String.IsNullOrEmpty(p.SDT.Text) || String.IsNullOrEmpty(p.GT.Text) || String.IsNullOrEmpty(p.QTV.Text) || p.NS.SelectedDate == null)
+            {
+                MessageBox.Show("Bạn chưa nhập đầy đủ thông tin !", "THÔNG BÁO");
+                return;
+            }
+            string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+            Regex reg = new Regex(match);
+            if (!reg.IsMatch(p.Mail.Text))
+            {
+                MessageBox.Show("Email không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            string match1 = @"^((09(\d){8})|(086(\d){7})|(088(\d){7})|(089(\d){7})|(01(\d){9}))$";
+            Regex reg1 = new Regex(match1);
+            if (!reg1.IsMatch(p.SDT.Text))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            Employee temp = new Employee();
+            
+            
         }
     }
 }
