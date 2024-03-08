@@ -7,10 +7,11 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        DataContext= "{DynamicResource AddNhanVien}"
         x:Name="Add_employee"
         ResizeMode="NoResize"
         Height="500" Width="650" WindowStartupLocation="CenterScreen">
-
+    
     <Border CornerRadius="15" Background="AliceBlue">
         <Grid>
             <Grid.RowDefinitions>
