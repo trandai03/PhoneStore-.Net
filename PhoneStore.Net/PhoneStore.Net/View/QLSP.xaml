@@ -60,15 +60,11 @@
 
         </Border>
         <ComboBox HorizontalAlignment="Left" Margin="507,127,0,0" VerticalAlignment="Top" Width="50" Height="30" Text="Lọc" IsEditable="True"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=3}" Name="dtSanPham" Margin="102,297,97,-17" SelectionChanged="DataGrid_SelectionChanged">
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=3}"  Name="dtSanPham" Margin="102,297,23,-17" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã SP" IsReadOnly="True" CanUserResize="False" Width="auto"/>
                 <DataGridTextColumn Header="Tên SP" IsReadOnly="True" CanUserResize="False" Width="auto"/>
-
-
-
-                <DataGridTextColumn Header="Hãng" IsReadOnly="True" CanUserResize="False" Width="auto"/>
-                <DataGridTextColumn Header="Giá Nhập" IsReadOnly="True" CanUserResize="False" Width="auto"/>
+                
                 <DataGridTextColumn Header="Gía Bán" IsReadOnly="True" CanUserResize="False" Width="auto"/>
                 <DataGridTextColumn Header="Còn Hàng" IsReadOnly="True" CanUserResize="False" Width="auto"/>
                 <DataGridTextColumn Header="Loại " IsReadOnly="True" CanUserResize="False" Width="auto"/>
