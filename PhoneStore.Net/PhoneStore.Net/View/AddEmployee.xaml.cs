@@ -12,12 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SQLite;
 
 namespace PhoneStore.Net.View
 {
-    /// <summary>
-    /// Interaction logic for AddEmployee.xaml
-    /// </summary>
+   
     public partial class AddEmployee : Window
     {
         public AddEmployee()
@@ -25,14 +24,6 @@ namespace PhoneStore.Net.View
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        
     }
 }
