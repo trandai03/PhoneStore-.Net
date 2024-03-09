@@ -1,18 +1,6 @@
-﻿using PhoneStore.Net.Controller;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PhoneStore.Net.DBClass;
+using System.Data.SQLite;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PhoneStore.Net.View
 {
@@ -31,24 +19,24 @@ namespace PhoneStore.Net.View
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Password;
 
-            //DatabaseService db = new DatabaseService();
 
-            /*
-             if(db.checkUser(username, password))
+            try
             {
-                HomePage homepage = new HomePage();
-                this.Close();
+                if (DBConnect.DataProvider.Instance.checkUser(username, password))
+                {
+                    MainWindow main = new MainWindow();
+                    main.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Sai username hoặc password");
+                }
             }
-            else
+            catch (SQLiteException error)
             {
-                MessageBox.Show("Wrong username or password");
+                MessageBox.Show(error.Message);
             }
-        }
-             */
-            if (username == "admin")
-            {
-                HomePage homePage = new HomePage();
-            }
-        }
         }
     }
+}

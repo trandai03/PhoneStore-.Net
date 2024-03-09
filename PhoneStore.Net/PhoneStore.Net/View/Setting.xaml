@@ -30,16 +30,6 @@
                            FontSize="30" Margin="20,0,0,0" 
                            Foreground="White" 
            ><Run Text="CÀI ĐẶT"/></TextBlock>
-                <Button Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.485,0.514" Background="{x:Null}" BorderBrush="{x:Null}" Height="37" Width="50" Margin="585,10,0,0" FontSize="20" Click="Button_Click_1">
-                    <Button.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleX="-1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform X="1.02"/>
-                        </TransformGroup>
-                    </Button.RenderTransform>
-                </Button>
             </Grid>
             <Grid Grid.Row="1">
                 <Border CornerRadius="10" Background="Black" Height="40">
