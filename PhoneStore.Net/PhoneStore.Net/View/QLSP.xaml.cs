@@ -22,7 +22,7 @@ namespace PhoneStore.Net.View
     /// </summary>
     public partial class QLSP : Page
     {
-        sanPham sp =  new sanPham();
+        SANPHAM sp =  new SANPHAM();
 
         //string _localLink = ;
         public QLSP()
@@ -55,6 +55,7 @@ namespace PhoneStore.Net.View
         
         private void loadThongTin()
         {
+            dtSanPham.Columns.Clear();
             dtSanPham.ItemsSource = sp.hienThiSanPham().DefaultView;
             
 

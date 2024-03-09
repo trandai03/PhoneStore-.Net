@@ -6,10 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PhoneStore.Net.DBClass;
-namespace PhoneStore.Net.DBClass
+using PhoneStore.Net;
+namespace PhoneStore.Net.Model
 {
-    internal class sanPham
+
+    public partial  class SANPHAM
     {
+        public virtual ICollection<CTHD> CTHDs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        public virtual ICollection<CTPN> CTPNs { get; set; }
+        public SANPHAM()
+        {
+
+            this.CTHDs = new HashSet<CTHD>();
+
+            this.CTPNs = new HashSet<CTPN>();
+
+        }
         public string MASP { get; set; }
 
         public string TENSP { get; set; }
@@ -34,4 +49,6 @@ namespace PhoneStore.Net.DBClass
             return dt;
         }
     }
+
+    
 }
