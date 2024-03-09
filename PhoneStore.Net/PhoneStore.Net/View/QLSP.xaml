@@ -20,30 +20,7 @@
             </Button.RenderTransform>
         </Button>
         <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="336,126,0,0" VerticalAlignment="Top" Width="97" Height="30" Background="#FF9B00FF" FontSize="14"/>
-        <Grid ShowGridLines="True" Margin="86,230,52,37">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <TextBlock Text="Mã SP" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False"/>
-            <TextBlock Text="Tên Sản Phẩm" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="1"/>
-            <TextBlock Text="Hãng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="2"/>
-            <TextBlock Text="Giá Nhập" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="3"/>
-            <TextBlock Text="Giá Bán" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="4" Height="21"/>
-            <TextBlock Text="Còn Hàng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="5" Height="21"/>
-            <Button Grid.Column="6" Content="Sửa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="10,0,0,0"/>
-            <Button Grid.Column="6" Content="Xóa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="51,0,0,0"/>
-        </Grid>
+        
         <Label Content="Danh sách Sản phẩm" HorizontalAlignment="Left" Margin="102,182,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16" FontWeight="Bold"/>
 
         <Border  Margin="102,126,538,294" 
@@ -60,15 +37,14 @@
 
         </Border>
         <ComboBox HorizontalAlignment="Left" Margin="507,127,0,0" VerticalAlignment="Top" Width="50" Height="30" Text="Lọc" IsEditable="True"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=3}"  Name="dtSanPham" Margin="102,297,23,-17" SelectionChanged="DataGrid_SelectionChanged">
+        <DataGrid ItemsSource="{Binding }"  Name="dtSanPham" Margin="83,225,287,55">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Mã SP" IsReadOnly="True" CanUserResize="False" Width="auto"/>
-                <DataGridTextColumn Header="Tên SP" IsReadOnly="True" CanUserResize="False" Width="auto"/>
-                
-                <DataGridTextColumn Header="Gía Bán" IsReadOnly="True" CanUserResize="False" Width="auto"/>
-                <DataGridTextColumn Header="Còn Hàng" IsReadOnly="True" CanUserResize="False" Width="auto"/>
-                <DataGridTextColumn Header="Loại " IsReadOnly="True" CanUserResize="False" Width="auto"/>
-                <DataGridTextColumn Header="Size" IsReadOnly="True" CanUserResize="False" Width="auto"/>
+                <DataGridTextColumn Header="Mã SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MASP}"/>
+                <DataGridTextColumn Header="Tên SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding TENSP}"/>
+                <DataGridTextColumn Header="Gía Bán" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding GIABAN}"/>
+                <DataGridTextColumn Header="Còn Hàng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SL}"/>
+                <DataGridTextColumn Header="Loại " IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding LOAISP}"/>
+                <DataGridTextColumn Header="Size" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SIZE}"/>
             </DataGrid.Columns>
         </DataGrid>
 
