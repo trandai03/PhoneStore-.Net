@@ -13,9 +13,9 @@ namespace PhoneStore.Net.DBClass
     {
         public class DataProvider 
         {
+            string databaseName = "QLDT.db";
             SQLiteConnection _con = new SQLiteConnection();
             private static DataProvider instance;
-            string databaseName = "QLDT.db";
             public static DataProvider Instance
             {
                 get
@@ -38,9 +38,32 @@ namespace PhoneStore.Net.DBClass
                 _con.Close();
                 return dt;
             }
+
+            public bool checkUser(string username, string password)
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source=C:\\phonestore.db");
+                _con.Open();
+                string USERQUERYSTRING = @"SELECT * FROM user WHERE username = $username AND password = $password";
+                var command = _con.CreateCommand();
+                command.CommandText = USERQUERYSTRING;
+                command.Parameters.AddWithValue("$username", username);
+                command.Parameters.AddWithValue("$password", password);
+
+                var result = command.ExecuteScalar();
+                _con.Close();
+
+                if (result != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
-            public static string StartupPath { get; }
+        public static string StartupPath { get; }
         
         
         
