@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\",
+  "WorkspaceRootPath": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\",
   "Documents": [
     {
 <<<<<<< Updated upstream
@@ -31,8 +31,8 @@
       "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\view\\thongke.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|d:\\download\\learning\\ki2-3\\c#\\phonestore.net\\phonestore.net\\phonestore.net\\dbclass\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\dbclass\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|e:\\gitdesktop\\phonestore.net\\phonestore.net\\phonestore.net\\model\\khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\model\\khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|D:\\DOWNLOAD\\Learning\\ki2-3\\C#\\PhoneStore.Net\\PhoneStore.Net\\phonestore.net\\view\\qlsp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -109,6 +109,7 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             }
           ]
         },
