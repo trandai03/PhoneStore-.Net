@@ -143,7 +143,13 @@
     <Compile Include="Controller\DatabaseService.cs" />
     <Compile Include="DBClass\DBConnect.cs" />
     <Compile Include="DBClass\Employee.cs" />
-    <Compile Include="DBClass\sanPham.cs" />
+    <Compile Include="Model\CTHD.cs" />
+    <Compile Include="Model\CTPN.cs" />
+    <Compile Include="Model\HOADON.cs" />
+    <Compile Include="Model\KHACHHANG.cs" />
+    <Compile Include="Model\NGUOIDUNG.cs" />
+    <Compile Include="Model\PHIEUNHAP.cs" />
+    <Compile Include="Model\SANPHAM.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="ViewModel\AddEmployeeView.cs" />
     <Compile Include="View\AddEmployee.xaml.cs">

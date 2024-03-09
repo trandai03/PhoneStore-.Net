@@ -45,7 +45,7 @@ namespace PhoneStore.Net.Model
         {
             DataTable dt = new DataTable();
             string sql = "SELECT [MASP] , [TENSP] ,[GIA] , [SL] , [LOAISP], [SIZE] FROM SANPHAMs";
-            dt = db.Sql_select(sql);
+            //dt = db.Sql_select(sql);
             return dt;
         }
     }
