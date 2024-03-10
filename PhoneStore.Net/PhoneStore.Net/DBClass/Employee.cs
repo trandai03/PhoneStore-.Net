@@ -34,7 +34,7 @@ namespace PhoneStore.Net.DBClass
         {
             DataTable dt = new DataTable();
             string sql = "SELECT [MAND] , [TENND] ,[NGSINH] , [GIOITINH] , [SDT], [SIZE], [DIACHI], [MAIL], [QTV] FROM NGUOIDUNGS";
-            dt = db.Sql_select(sql);
+            //dt = db.Sql_select(sql);
             return dt;
         }
     }

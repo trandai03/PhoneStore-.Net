@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace PhoneStore.Net.Model
 {
@@ -12,10 +13,14 @@ namespace PhoneStore.Net.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NGUOIDUNG()
         {
+            TENND = "";
+            GIOITINH = "";
+            SDT = "";
+            DIACHI = "";
+            MAIL = "";
+            NGSINH = DateTime.Now;
             this.HOADONs = new HashSet<HOADON>();
-
             this.PHIEUNHAPs = new HashSet<PHIEUNHAP>();
-
         }
         public string MAND { get; set; }
 
@@ -37,7 +42,7 @@ namespace PhoneStore.Net.Model
 
         public bool TTND { get; set; }
 
-        public string AVA { get; set; }
+        public BitmapImage AVA { get; set; }
 
         public string MAIL { get; set; }
 

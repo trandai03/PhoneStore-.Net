@@ -46,7 +46,7 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignColors, Version=2.1.4.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignColors.3.0.0\lib\net462\MaterialDesignColors.dll</HintPath>
+      <HintPath>..\packages\MaterialDesignColors.2.1.4\lib\net462\MaterialDesignColors.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.9.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
@@ -143,7 +143,13 @@
     <Compile Include="Controller\DatabaseService.cs" />
     <Compile Include="DBClass\DBConnect.cs" />
     <Compile Include="DBClass\Employee.cs" />
-    <Compile Include="DBClass\sanPham.cs" />
+    <Compile Include="Model\CTHD.cs" />
+    <Compile Include="Model\CTPN.cs" />
+    <Compile Include="Model\HOADON.cs" />
+    <Compile Include="Model\KHACHHANG.cs" />
+    <Compile Include="Model\NGUOIDUNG.cs" />
+    <Compile Include="Model\PHIEUNHAP.cs" />
+    <Compile Include="Model\SANPHAM.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="ViewModel\AddEmployeeView.cs" />
     <Compile Include="View\AddEmployee.xaml.cs">

@@ -12,21 +12,17 @@ namespace PhoneStore.Net.View
     /// </summary>
     public partial class Setting : Page
     {
-        //HomePage homePage { get; set; }
         public Setting()
         {
             InitializeComponent();
-            //homePage = hp;
-            /*
-             this.FullNameTextBox.Text = HomePage.userSetting.Name;
-            this.GenderComboBox.Text = HomePage.userSetting.Gender;
-            this.DateBox.SelectedDate = HomePage.userSetting.DOB;
-            this.DateBox.Text = HomePage.userSetting.DOB.ToString();
-            this.PhoneNumberTextBox.Text = HomePage.userSetting.PhoneNumber;
-            this.AddressTextBox.Text = HomePage.userSetting.Address;
-            this.EmailTextBox.Text = HomePage.userSetting.Email;
-            this.UserImage.Fill = new ImageBrush(HomePage.userSetting.Image);
-             */
+             this.FullNameTextBox.Text = MainWindow.user.TENND;
+            this.GenderComboBox.Text = MainWindow.user.GIOITINH;
+            this.DateBox.SelectedDate = MainWindow.user.NGSINH;
+            this.DateBox.Text = MainWindow.user.NGSINH.ToString();
+            this.PhoneNumberTextBox.Text = MainWindow.user.SDT;
+            this.AddressTextBox.Text = MainWindow.user.DIACHI;
+            this.EmailTextBox.Text = MainWindow.user.MAIL;
+            this.UserImage.Fill = new ImageBrush(MainWindow.user.AVA);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -72,23 +68,15 @@ namespace PhoneStore.Net.View
                 return;
             }
 
-            /*
-             HomePage.userSetting.Name = this.FullNameTextBox.Text;
-            HomePage.userSetting.Gender = this.GenderComboBox.Text;
-            HomePage.userSetting.DOB = this.DateBox.SelectedDate;
-            HomePage.userSetting.PhoneNumber = this.PhoneNumberTextBox.Text;
-            HomePage.userSetting.Address = this.AddressTextBox.Text;
-            HomePage.userSetting.Email = this.EmailTextBox.Text;
-            homePage.RefreshDisplay();
+            MainWindow.user.TENND = this.FullNameTextBox.Text;
+            MainWindow.user.GIOITINH = this.GenderComboBox.Text;
+            MainWindow.user.NGSINH = this.DateBox.SelectedDate;
+            MainWindow.user.SDT = this.PhoneNumberTextBox.Text;
+            MainWindow.user.DIACHI = this.AddressTextBox.Text;
+            MainWindow.user.MAIL = this.EmailTextBox.Text;
 
-             */
-            //this.Close();
-        }
 
-        // Event cho nút "X"
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            //this.Close();
+            MessageBox.Show("Cập nhật thành công");
         }
 
         // Event cho nút "Thay đổi ảnh"
@@ -114,7 +102,7 @@ namespace PhoneStore.Net.View
                     return;
                 }
                 this.UserImage.Fill = new ImageBrush(image);
-                //HomePage.userSetting.Image = image;
+                MainWindow.user.AVA = image;
             }
             
         }

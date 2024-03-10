@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SQLite;
 using PhoneStore.Net.View;
+using PhoneStore.Net.Model;
 namespace PhoneStore.Net
 {
     /// <summary>
@@ -21,6 +22,7 @@ namespace PhoneStore.Net
     /// </summary>
     public partial class MainWindow : Window
     {    
+        public static NGUOIDUNG user = new NGUOIDUNG();
         public MainWindow()
         {
             InitializeComponent();          
