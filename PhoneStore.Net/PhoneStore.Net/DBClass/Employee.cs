@@ -29,13 +29,6 @@ namespace PhoneStore.Net.DBClass
         public string MAIL {  get; set; }
 
         public Employee() { }
-        DBConnect db = new DBConnect();
-        public DataTable hienThiSanPham()
-        {
-            DataTable dt = new DataTable();
-            string sql = "SELECT [MAND] , [TENND] ,[NGSINH] , [GIOITINH] , [SDT], [SIZE], [DIACHI], [MAIL], [QTV] FROM NGUOIDUNGS";
-            //dt = db.Sql_select(sql);
-            return dt;
-        }
+        
     }
 }

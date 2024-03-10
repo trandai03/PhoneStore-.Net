@@ -180,7 +180,7 @@
                                     TextWrapping="Wrap"
                                     HorizontalAlignment="Left" x:Name="SDT"
                                     
-                                    materialDesign:HintAssist.Hint="Số điện thoại" />
+                                    materialDesign:HintAssist.Hint="Số điện thoại"  />
                             </StackPanel>
                             <TextBox 
                                 Foreground="Black" 
@@ -220,7 +220,7 @@
                         Foreground="#6C63FF"
                         Background="White"
                         Height="40"
-                        Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}" Click="Button_Click" 
                     >
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">

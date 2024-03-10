@@ -27,6 +27,8 @@ namespace PhoneStore.Net.ViewModel
         public ICommand AddImage { get; set; }
         public ICommand Closewd { get; set; }
         public ICommand Minimizewd { get; set; }
+
+       
         public AddEmployeeView()
         {
             linkaddimage = _localLink + "/Resource/Image/addava.png";
@@ -34,7 +36,9 @@ namespace PhoneStore.Net.ViewModel
             AddImage = new RelayCommand<ImageBrush>((p) => true, (p) => _AddImage(p));
             Closewd = new RelayCommand<AddEmployee>((p) => true, (p) => Close(p));
             Minimizewd = new RelayCommand<AddEmployee>((p) => true, (p) => Minimize(p));
+            
         }
+        
         void Close(AddEmployee p)
         {
             linkaddimage = _localLink + "/Resource/Image/addava.png";
@@ -60,28 +64,9 @@ namespace PhoneStore.Net.ViewModel
         void _AddND(AddEmployee p)
         {
             MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn thêm người dùng ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
-            if (String.IsNullOrEmpty(p.MaND.Text) || String.IsNullOrEmpty(p.TenND.Text) || String.IsNullOrEmpty(p.SDT.Text) || String.IsNullOrEmpty(p.GT.Text) || String.IsNullOrEmpty(p.QTV.Text) || p.NS.SelectedDate == null)
-            {
-                MessageBox.Show("Bạn chưa nhập đầy đủ thông tin !", "THÔNG BÁO");
-                return;
-            }
-            string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
-            Regex reg = new Regex(match);
-            if (!reg.IsMatch(p.Mail.Text))
-            {
-                MessageBox.Show("Email không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            string match1 = @"^((09(\d){8})|(086(\d){7})|(088(\d){7})|(089(\d){7})|(01(\d){9}))$";
-            Regex reg1 = new Regex(match1);
-            if (!reg1.IsMatch(p.SDT.Text))
-            {
-                MessageBox.Show("Số điện thoại không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            Employee temp = new Employee();
+           
             
-            
+           
         }
     }
 }
