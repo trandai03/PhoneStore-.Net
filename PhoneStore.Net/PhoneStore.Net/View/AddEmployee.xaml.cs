@@ -25,6 +25,7 @@ namespace PhoneStore.Net.View
         {
             InitializeComponent();
         }
+
         
     }
 }
