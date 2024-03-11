@@ -178,7 +178,8 @@
                                  materialDesign:HintAssist.Hint="Tên đăng nhập"
                                  FontFamily="Time New Romans" FontSize="15"
                                  HorizontalContentAlignment="Center"
-                                 IsEnabled="False">
+                                 IsEnabled="False"
+                                 Name="UsernameTextBox">
                         </TextBox>
 
                         <TextBox Margin="30,20,0,0" Width="190"
@@ -190,12 +191,13 @@
                                  
                                  FontSize="15" FontFamily="Time New Romans"
                                  VerticalContentAlignment="Bottom"
-                                 HorizontalContentAlignment="Center">
+                                 HorizontalContentAlignment="Center"
+                                 Name="PasswordTextBox">
                         </TextBox>
 
                         <Button VerticalAlignment="Top" Margin="30,20" 
                                 Height="42" Content="Đổi mật khẩu" Width="128"
-                                Foreground="Black" Background="LightSkyBlue">
+                                Foreground="Black" Background="LightSkyBlue" Click="Button_Click_1">
                         </Button>
                     </StackPanel>
                 </StackPanel>
