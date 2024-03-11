@@ -7,6 +7,7 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        DataContext= "{DynamicResource AddSanPham}"
         x:Name="Add_product"
         ResizeMode="NoResize"
         Height="550" Width="700" WindowStartupLocation="CenterScreen">

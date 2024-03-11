@@ -220,12 +220,12 @@
                         Foreground="#6C63FF"
                         Background="White"
                         Height="40"
-                        Style="{StaticResource MaterialDesignFlatMidBgButton}" Click="Button_Click" 
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}" 
                     >
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
                                     <i:InvokeCommandAction Command="{Binding AddNDCommand}"
-                                                   CommandParameter="{Binding ElementName=Add_employee}"></i:InvokeCommandAction>
+                                         CommandParameter="{Binding ElementName=Add_employee}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </Button>

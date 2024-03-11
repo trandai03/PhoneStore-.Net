@@ -3,4 +3,5 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <viewmodel:AddEmployeeView x:Key="AddNhanVien"></viewmodel:AddEmployeeView>
+    <viewmodel:AddProductView x:Key="AddSanPham"></viewmodel:AddProductView>
 </ResourceDictionary>

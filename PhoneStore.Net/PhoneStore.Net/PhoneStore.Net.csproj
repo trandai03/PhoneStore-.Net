@@ -153,6 +153,7 @@
     <Compile Include="Model\SANPHAM.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="ViewModel\AddEmployeeView.cs" />
+    <Compile Include="ViewModel\AddProductView.cs" />
     <Compile Include="View\AddEmployee.xaml.cs">
       <DependentUpon>AddEmployee.xaml</DependentUpon>
     </Compile>
