@@ -22,10 +22,12 @@ namespace PhoneStore.Net
     /// </summary>
     public partial class MainWindow : Window
     {    
-        public static NGUOIDUNG user = new NGUOIDUNG();
-        public MainWindow()
+        public static NGUOIDUNG user;
+        public static string AVAType;
+        public MainWindow(NGUOIDUNG u)
         {
-            InitializeComponent();          
+            InitializeComponent();
+            user = u;
         }
 
         private void HomePage_Click(object sender, RoutedEventArgs e)
