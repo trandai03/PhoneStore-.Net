@@ -30,30 +30,8 @@ namespace PhoneStore.Net.View
     public partial class QLSP 
     {
         SANPHAM sp = new SANPHAM();
-        public QLSP()
-        {
-            InitializeComponent();
-            //listTK = new ObservableCollection<string>() { "Tên SP", "Giá SP" };
-            listSP1 = new ObservableCollection<SANPHAM>(DataProvider.Instance.selectQLSP());
-            listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
-            //AddPdPdCommand = new RelayCommand<QLSP>((p) => { return p == null ? false : true; }, (p) => _AddPdCommand(p));
-            SearchCommand = new RelayCommand<QLSP>((p) => { return p == null ? false : true; }, (p) => _SearchCommand(p));
-            LoadCsCommand = new RelayCommand<QLSP>((p) => true, (p) => _LoadCsCommand(p));
-
-            //Filter = new RelayCommand<QLSP>((p) => true, (p) => _Filter(p));
-            //LoadData();
-        }
-        private ObservableCollection<SANPHAM> _listSP;
-        public ObservableCollection<SANPHAM> listSP { get => _listSP; set { _listSP = value; /*OnPropertyChanged();*/ } }
-        private ObservableCollection<SANPHAM> _listSP1;
-        public ObservableCollection<SANPHAM> listSP1 { get => _listSP1; set { _listSP1 = value; /*OnPropertyChanged();*/ } }
-        public ICommand SearchCommand { get; set; }
-        public ICommand DetailPdCommand { get; set; }
-        public ICommand AddPdPdCommand { get; set; }
-        public ICommand LoadCsCommand { get; set; }
-        private ObservableCollection<string> _listTK;
-        //public ObservableCollection<string> listTK { get => _listTK; set { _listTK = value; OnPropertyChanged(); } }
-        public ICommand Filter { get; set; }
+        
+        
 
 
         public QLSP()
@@ -107,14 +85,7 @@ namespace PhoneStore.Net.View
             dtSanPham.ItemsSource = SANPHAMS;
         }
 
-        
-
-
-        private void EditNV(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+     
         
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -142,37 +113,28 @@ namespace PhoneStore.Net.View
             } while (check(ma));
             return ma;
         }
-        void _AddPdCommand(NewProduct paramater)
-        {
-            NewProduct newProduct = new NewProduct();
-            newProduct.ShowDialog();
-            
-            
-            
-        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            string keyword = string.Format("%{0}%", txbSearch.Text);
-            if (txbSearch.Text != "")
-            {
-                string sql = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
-                sql += "WHERE MASP LIKE @keyword";
-                sql += "OR TENSP LIKE @keyword";
-                sql += "OR GIA LIKE @keyword";
-                sql += "OR LOAISP LIKE @keyword";
-                sql += "OR SIZE LIKE @keyword";
-                sql += "OR SL LIKE @keyword";
-                //command.CommandType = CommandType.Text;
 
-                DataTable dataTable = DBConnect.DataProvider.Instance.Sql_select(sql);
-                dtSanPham.ItemsSource = dataTable.DefaultView;
+            try{
+                if (txbSearch.Text != "")
+                {
+                    DataTable dataTable = DBConnect.DataProvider.Instance.Sql_selectSearch(txbSearch.Text);
+                    dtSanPham.ItemsSource = dataTable.DefaultView;
+                }
+                else
+                    LoadData();
             }
-            else
-                LoadData();
+            catch(Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message);
+            }
 
            
         }
+
+        
     } 
 }
 

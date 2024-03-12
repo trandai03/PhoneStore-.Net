@@ -41,7 +41,7 @@
             <ComboBoxItem
     Content="Windows" />
         </ComboBox>
-        <DataGrid ItemsSource="{Binding dtSanPham }" AutoGenerateColumns="False"  Name="dtSanPham" Margin="83,229,56,51" >
+        <DataGrid ItemsSource="{Binding dtSanPham }" AutoGenerateColumns="False"  Name="dtSanPham" Margin="83,229,56,51"   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MASP}"/>
                 <DataGridTextColumn Header="Tên SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding TENSP}"/>

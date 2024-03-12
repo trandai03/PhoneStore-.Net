@@ -5,6 +5,7 @@ using PhoneStore.Net.Controller;
 using System;
 using System.Windows;
 using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace PhoneStore.Net.DBClass
 {
@@ -32,6 +33,39 @@ namespace PhoneStore.Net.DBClass
                 _con.Open();
                 DataTable dt = new DataTable();
                 SQLiteCommand cmd = new SQLiteCommand(sql_querry, _con);
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                dt.Load(reader);
+                _con.Close();
+                return dt;
+            }
+
+            public DataTable Sql_selectSearch(string txbSearch)
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                string sql = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
+                sql += " WHERE MASP LIKE @keyword";
+                sql += " OR TENSP LIKE @keyword";
+                sql += " OR GIA LIKE @keyword";
+                sql += " OR LOAISP LIKE @keyword";
+                sql += " OR SIZE LIKE @keyword";
+                sql += " OR SL LIKE @keyword";
+
+                DataTable dt = new DataTable();
+                SQLiteCommand cmd = new SQLiteCommand(sql, _con);
+                cmd.CommandType =  CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                string keyword = string.Format("%{0}%", txbSearch);
+                Console.WriteLine(keyword);
+                cmd.Parameters.AddWithValue("@keyword", keyword);
+                _con.Open();
+                
+                
+                //command.CommandType = CommandType.Text;
+                //SQLiteCommand cmd = new SQLiteCommand(sql); 
+
+                
+                
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 dt.Load(reader);
                 _con.Close();
