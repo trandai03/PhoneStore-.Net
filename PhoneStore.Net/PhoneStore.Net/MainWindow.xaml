@@ -93,15 +93,8 @@
 
                     <Grid Grid.Row="2" VerticalAlignment="Bottom">
                         <Button Content="ĐĂNG XUẤT" FontSize="16" Background="Transparent" 
-                        Foreground="White"
-                        FontFamily="Times New Roman" Margin="10,6,10,-6" FontWeight="Bold">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="Click">
-                                    <i:InvokeCommandAction Command="{Binding LogOutCommand}"
-                                                CommandParameter="{Binding ElementName=Mainwd}">
-                                    </i:InvokeCommandAction>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
+                                Foreground="White" FontFamily="Times New Roman" 
+                                Margin="10,6,10,-6" FontWeight="Bold" Click="Dang_Xuat">
                         </Button>
                     </Grid>
                 </Grid>

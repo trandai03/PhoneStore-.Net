@@ -38,14 +38,16 @@ namespace PhoneStore.Net.View
         
 
 
-        private void _LoadCsCommand(QLSP p)
+        public QLSP()
         {
-
+            InitializeComponent();
+            LoadData();
         }
-        private void _SearchCommand(QLSP p)
-        {
 
-        }
+        
+
+
+        
         private void LoadData()
         {
             try

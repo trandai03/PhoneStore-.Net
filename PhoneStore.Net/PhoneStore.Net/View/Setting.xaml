@@ -85,7 +85,7 @@
                                          materialDesign:HintAssist.Hint="Họ tên"
                                          MaxWidth="400" AcceptsReturn="True"
                                          FontSize="15" TextWrapping="Wrap"                                               
-                                         HorizontalContentAlignment="Center"
+                                         VerticalAlignment="Top"
                                          FontFamily="Times New Roman"
                                          Name="FullNameTextBox">
                                 </TextBox>
@@ -95,7 +95,7 @@
                                             materialDesign:HintAssist.Hint="Ngày sinh" FontSize="15"
                                             FontFamily="Times New Roman"
                                             Style="{StaticResource MaterialDesignFilledDatePicker}" 
-                                            HorizontalContentAlignment="Center" Width="190"
+                                            VerticalAlignment="Top" Width="190"
 >
                                 </DatePicker>
 
@@ -105,7 +105,7 @@
                                          TextWrapping="Wrap" MaxWidth="400"
                                          materialDesign:HintAssist.Hint="Địa chỉ" 
                                          FontSize="15" FontFamily="Time New Romans"                                                                           
-                                         HorizontalContentAlignment="Center" Width="390"
+                                         VerticalAlignment="Top" Width="390"
                                          Name="AddressTextBox">
                                 </TextBox>
 
@@ -114,7 +114,7 @@
                                          AcceptsReturn="False" TextWrapping="Wrap" 
                                          MaxWidth="400" materialDesign:HintAssist.Hint="Email"
                                          FontFamily="Time New Romans" FontSize="15"    
-                                         HorizontalContentAlignment="Center" Width="390"
+                                         VerticalAlignment="Top" Width="390"
                                          Name="EmailTextBox">
                                 </TextBox>
                             </StackPanel>
@@ -125,10 +125,9 @@
                                 <ComboBox Margin="0,20,35,0" BorderThickness="0,0,0,1"
                                           Style="{StaticResource MaterialDesignFilledComboBox}"
                                           materialDesign:HintAssist.Hint="Giới tính" 
-                                          FontSize="14" FontFamily="Times New Roman"
-                                          IsEditable="True" Background="#0F000000"
-                                                                
-                                          HorizontalContentAlignment="Center" Width="190"
+                                          FontSize="15" FontFamily="Times New Roman"
+                                          IsEditable="True" Background="#0F000000"                                                              
+                                          VerticalAlignment="Top" Width="190"
                                           Name="GenderComboBox">
 
                                     <ComboBoxItem Content="Nam"/>
@@ -141,7 +140,7 @@
                                          FontSize="15" FontFamily="Times New Roman" 
                                          TextWrapping="Wrap" AcceptsReturn="True"
                                          HorizontalAlignment="Left"  BorderThickness="0,0,0,1"                                
-                                         HorizontalContentAlignment="Center"
+                                         VerticalAlignment="Top"
                                          Name="PhoneNumberTextBox">
                                 </TextBox>
                             </StackPanel>
