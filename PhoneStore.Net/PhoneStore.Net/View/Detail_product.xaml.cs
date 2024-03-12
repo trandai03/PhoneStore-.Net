@@ -1,5 +1,8 @@
-﻿using System;
+﻿using PhoneStore.Net.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static PhoneStore.Net.View.QLSP;
 
 namespace PhoneStore.Net.View
 {
@@ -23,5 +27,6 @@ namespace PhoneStore.Net.View
         {
             InitializeComponent();
         }
+       
     }
 }
