@@ -30,7 +30,19 @@ namespace PhoneStore.Net.View
     public partial class QLSP 
     {
         SANPHAM sp = new SANPHAM();
-        
+        public QLSP()
+        {
+            InitializeComponent();
+            //listTK = new ObservableCollection<string>() { "Tên SP", "Giá SP" };
+            listSP1 = new ObservableCollection<SANPHAM>(DataProvider.Instance.selectQLSP());
+            listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
+            //AddPdPdCommand = new RelayCommand<QLSP>((p) => { return p == null ? false : true; }, (p) => _AddPdCommand(p));
+            SearchCommand = new RelayCommand<QLSP>((p) => { return p == null ? false : true; }, (p) => _SearchCommand(p));
+            LoadCsCommand = new RelayCommand<QLSP>((p) => true, (p) => _LoadCsCommand(p));
+
+            //Filter = new RelayCommand<QLSP>((p) => true, (p) => _Filter(p));
+            //LoadData();
+        }
         private ObservableCollection<SANPHAM> _listSP;
         public ObservableCollection<SANPHAM> listSP { get => _listSP; set { _listSP = value; /*OnPropertyChanged();*/ } }
         private ObservableCollection<SANPHAM> _listSP1;
@@ -72,7 +84,7 @@ namespace PhoneStore.Net.View
         private void LoadData1()
 
         {
-            string databaseName = "QLDT.db";
+            string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
             SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
             _con.Open();
             string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
