@@ -20,17 +20,16 @@ using static PhoneStore.Net.DBClass.DBConnect;
 using System.Collections.ObjectModel;
 using PhoneStore.Net.ViewModel;
 using System.Reflection;
+using Xamarin.Forms;
 
 namespace PhoneStore.Net.View
 {
     /// <summary>
     /// Interaction logic for QLSP.xaml
     /// </summary>
-    public partial class QLSP : Page
+    public partial class QLSP 
     {
         SANPHAM sp = new SANPHAM();
-
-        //string _localLink = ;
         public QLSP()
         {
             InitializeComponent();
@@ -57,42 +56,16 @@ namespace PhoneStore.Net.View
         public ICommand Filter { get; set; }
 
 
-
-        public class ListtoDataTableConverter
+        public QLSP()
         {
-            
+            InitializeComponent();
+            LoadData();
         }
 
-        public DataTable ToDataTable<T>(List<T> items)
-            {
-                DataTable dataTable = new DataTable(typeof(T).Name);
-                //Get all the properties
-                PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-                foreach (PropertyInfo prop in Props)
-                {
-                    //Setting column names as Property names
-                    dataTable.Columns.Add(prop.Name);
-                }
-                foreach (T item in items)
-                {
-                    var values = new object[Props.Length];
-                    for (int i = 0; i < Props.Length; i++)
-                    {
-                        //inserting property values to datatable rows
-                        values[i] = Props[i].GetValue(item, null);
-                    }
-                    dataTable.Rows.Add(values);
-                }
-                //put a breakpoint here and check datatable
-                return dataTable;
-            }
-        public void _LoadCsCommand(QLSP parameter)
-        {
-            listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
-            ListtoDataTableConverter converter = new ListtoDataTableConverter();
-            DataTable dt = ToDataTable(ListSP1);
-            parameter.ListViewProduct.ItemsSource = listSP;
-        }
+        
+
+
+        
         private void LoadData()
         {
             try
@@ -111,7 +84,7 @@ namespace PhoneStore.Net.View
         private void LoadData1()
 
         {
-            string databaseName = "QLDT.db";
+            string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
             SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
             _con.Open();
             string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
@@ -134,24 +107,7 @@ namespace PhoneStore.Net.View
             dtSanPham.ItemsSource = SANPHAMS;
         }
 
-        void _SearchCommand(QLSP paramater)
-        {
-            ObservableCollection<SANPHAM> temp = new ObservableCollection<SANPHAM>();
-            if (paramater.txbSearch.Text != "")
-            {
-                foreach (SANPHAM s in listSP)
-                {
-                    if (s.TENSP.ToLower().Contains(paramater.txbSearch.Text.ToLower()))
-                    {
-                        temp.Add(s);
-                    }
-                }
-                paramater.dtSanPham.ItemsSource = temp;
-            }
-            else
-                paramater.dtSanPham.ItemsSource = listSP;
-        }
-
+        
 
 
         private void EditNV(object sender, RoutedEventArgs e)
@@ -193,6 +149,29 @@ namespace PhoneStore.Net.View
             
             
             
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string keyword = string.Format("%{0}%", txbSearch.Text);
+            if (txbSearch.Text != "")
+            {
+                string sql = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
+                sql += "WHERE MASP LIKE @keyword";
+                sql += "OR TENSP LIKE @keyword";
+                sql += "OR GIA LIKE @keyword";
+                sql += "OR LOAISP LIKE @keyword";
+                sql += "OR SIZE LIKE @keyword";
+                sql += "OR SL LIKE @keyword";
+                //command.CommandType = CommandType.Text;
+
+                DataTable dataTable = DBConnect.DataProvider.Instance.Sql_select(sql);
+                dtSanPham.ItemsSource = dataTable.DefaultView;
+            }
+            else
+                LoadData();
+
+           
         }
     } 
 }

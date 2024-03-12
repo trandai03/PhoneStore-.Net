@@ -83,7 +83,6 @@ namespace PhoneStore.Net.ViewModel
                 if (existingCount > 0)
                 {
                     MessageBox.Show("Mã sản phẩm đã tồn tại !", "THÔNG BÁO");
-                    return;
                 }
                 else
                 {
