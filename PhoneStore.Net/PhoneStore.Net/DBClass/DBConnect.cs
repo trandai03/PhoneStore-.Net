@@ -4,6 +4,7 @@ using PhoneStore.Net.Model;
 using PhoneStore.Net.Controller;
 using System;
 using System.Windows;
+using System.Collections.Generic;
 
 namespace PhoneStore.Net.DBClass
 {
@@ -36,7 +37,31 @@ namespace PhoneStore.Net.DBClass
                 _con.Close();
                 return dt;
             }
+            public List<SANPHAM> selectQLSP()
 
+            {
+               
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                _con.Open();
+                string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
+                SQLiteCommand cmd = new SQLiteCommand(query, _con);
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                List<SANPHAM> SANPHAMS = new List<SANPHAM>();
+                while (reader.Read())
+                {
+                    SANPHAMS.Add(new SANPHAM()
+                    {
+                        MASP = reader.GetString(0),
+                        TENSP = reader.GetString(1),
+                        GIA = reader.GetInt32(2),
+                        SL = reader.GetInt32(3),
+                        LOAISP = reader.GetString(4),
+                        SIZE = reader.GetString(5),
+                    });
+                }
+
+                return SANPHAMS;
+            }
             public NGUOIDUNG checkUser(string username, string password)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
