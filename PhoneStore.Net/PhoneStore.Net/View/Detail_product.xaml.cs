@@ -23,10 +23,24 @@ namespace PhoneStore.Net.View
     /// </summary>
     public partial class Detail_product : Window
     {
+        public string TenSPValue { get; set; }
+        public string GiaSPValue { get; set; }
+        public string MotaValue { get; set; }
+        public string SLSPValue { get; set; }
+        public string LoaiSPValue { get; set; }
+        public string SizeValue { get; set; }
         public Detail_product()
         {
             InitializeComponent();
         }
-       
+        public void UpdateData()
+        {
+            TenSP.Text = TenSPValue;
+            GiaSP.Text = GiaSPValue;
+            Mota.Text = MotaValue;
+            SLSP.Text = SLSPValue;
+            LoaiSP.Text = LoaiSPValue;
+            Size.Text = SizeValue;
+        }
     }
 }

@@ -24,9 +24,7 @@ namespace PhoneStore.Net.ViewModel
     {
         private SQLiteConnection con;
         private string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
-        public ICommand Closewd { get; set; }
-        public ICommand Minimizewd { get; set; }
-        public ICommand MoveWindow { get; set; }
+        
         public ICommand UpdateProduct { get; set; }
         public ICommand GetName { get; set; }
         private string TenSP1;
@@ -34,33 +32,20 @@ namespace PhoneStore.Net.ViewModel
         public ICommand DeleteProduct { get; set; }
         public DetailProductView()
         {
-            Closewd = new RelayCommand<Detail_product>((p) => true, (p) => Close(p));
-            Minimizewd = new RelayCommand<Detail_product>((p) => true, (p) => Minimize(p));
-            MoveWindow = new RelayCommand<Detail_product>((p) => true, (p) => moveWindow(p));
+            
             GetName = new RelayCommand<Detail_product>((p) => true, (p) => _GetName(p));
             UpdateProduct = new RelayCommand<Detail_product>((p) => true, (p) => _UpdateProduct(p));
             DeleteProduct = new RelayCommand<Detail_product>((p) => true, (p) => _DeleteProduct(p));
             ConnectToDatabase();
         }
-
+       
         private void ConnectToDatabase()
         {
             con = new SQLiteConnection($"Data Source = {databaseName}; Version=3;");
             con.Open();
         }
 
-        void moveWindow(Detail_product p)
-        {
-            p.DragMove();
-        }
-        void Close(Detail_product p)
-        {
-            p.Close();
-        }
-        void Minimize(Detail_product p)
-        {
-            p.WindowState = WindowState.Minimized;
-        }
+        
         void _GetName(Detail_product p)
         {
             TenSP1 = p.TenSP.Text;

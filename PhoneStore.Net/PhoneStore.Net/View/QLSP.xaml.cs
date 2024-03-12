@@ -30,7 +30,11 @@ namespace PhoneStore.Net.View
     public partial class QLSP 
     {
         SANPHAM sp = new SANPHAM();
-        
+        public QLSP()
+        {
+            InitializeComponent();
+            LoadData();
+        }
         
 
 
@@ -46,7 +50,7 @@ namespace PhoneStore.Net.View
         {
             try
             {
-                string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
+                string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE, MOTA FROM SANPHAMs";
                 DataTable dataTable = DBConnect.DataProvider.Instance.Sql_select(query);
                 dtSanPham.ItemsSource = dataTable.DefaultView;
                 
@@ -63,7 +67,7 @@ namespace PhoneStore.Net.View
             string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
             SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
             _con.Open();
-            string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
+            string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE, MOTA FROM SANPHAMs";
             SQLiteCommand cmd = new SQLiteCommand(query,_con);
             SQLiteDataReader reader = cmd.ExecuteReader();
             List<SANPHAM> SANPHAMS  = new List<SANPHAM>();
@@ -132,12 +136,21 @@ namespace PhoneStore.Net.View
            
         }
 
-        private void dtSanPham_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-
-        }
-
         
+        private void dtSanPham_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            DataRowView selectedSanpham = (DataRowView)dtSanPham.SelectedItem;
+            Detail_product detail_sp = new Detail_product();
+
+            detail_sp.TenSPValue = selectedSanpham["TENSP"].ToString();
+            detail_sp.GiaSPValue = selectedSanpham["GIA"].ToString();
+            detail_sp.MotaValue = selectedSanpham["MOTA"].ToString();
+            detail_sp.SLSPValue = selectedSanpham["SL"].ToString();
+            detail_sp.LoaiSPValue = selectedSanpham["LOAISP"].ToString();
+            detail_sp.SizeValue = selectedSanpham["SIZE"].ToString();
+            detail_sp.UpdateData();
+            detail_sp.ShowDialog();
+        }
     } 
 }
 
