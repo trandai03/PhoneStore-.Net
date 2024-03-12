@@ -18,6 +18,8 @@ using PhoneStore.Net.DBClass;
 using PhoneStore.Net.Model;
 using static PhoneStore.Net.DBClass.DBConnect;
 using System.Collections.ObjectModel;
+using PhoneStore.Net.ViewModel;
+using System.Reflection;
 
 namespace PhoneStore.Net.View
 {
@@ -30,26 +32,65 @@ namespace PhoneStore.Net.View
         public QLSP()
         {
             InitializeComponent();
-            LoadData();
+            //listTK = new ObservableCollection<string>() { "Tên SP", "Giá SP" };
+            listSP1 = new ObservableCollection<SANPHAM>(DataProvider.Instance.selectQLSP());
+            listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
+            //AddPdPdCommand = new RelayCommand<QLSP>((p) => { return p == null ? false : true; }, (p) => _AddPdCommand(p));
+            SearchCommand = new RelayCommand<QLSP>((p) => { return p == null ? false : true; }, (p) => _SearchCommand(p));
+            LoadCsCommand = new RelayCommand<QLSP>((p) => true, (p) => _LoadCsCommand(p));
+
+            //Filter = new RelayCommand<QLSP>((p) => true, (p) => _Filter(p));
+            //LoadData();
         }
+        private ObservableCollection<SANPHAM> _listSP;
+        public ObservableCollection<SANPHAM> listSP { get => _listSP; set { _listSP = value; /*OnPropertyChanged();*/ } }
+        private ObservableCollection<SANPHAM> _listSP1;
+        public ObservableCollection<SANPHAM> listSP1 { get => _listSP1; set { _listSP1 = value; /*OnPropertyChanged();*/ } }
+        public ICommand SearchCommand { get; set; }
+        public ICommand DetailPdCommand { get; set; }
+        public ICommand AddPdPdCommand { get; set; }
+        public ICommand LoadCsCommand { get; set; }
+        private ObservableCollection<string> _listTK;
+        //public ObservableCollection<string> listTK { get => _listTK; set { _listTK = value; OnPropertyChanged(); } }
+        public ICommand Filter { get; set; }
 
 
 
-
-        public void createConection()
+        public class ListtoDataTableConverter
         {
-            //string _strConnect = "Data Source=./QLDT.db;Version=3;";
-
-            //_con.ConnectionString = str;
-
-
+            
         }
 
-        public void closeConnection()
+        public DataTable ToDataTable<T>(List<T> items)
+            {
+                DataTable dataTable = new DataTable(typeof(T).Name);
+                //Get all the properties
+                PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+                foreach (PropertyInfo prop in Props)
+                {
+                    //Setting column names as Property names
+                    dataTable.Columns.Add(prop.Name);
+                }
+                foreach (T item in items)
+                {
+                    var values = new object[Props.Length];
+                    for (int i = 0; i < Props.Length; i++)
+                    {
+                        //inserting property values to datatable rows
+                        values[i] = Props[i].GetValue(item, null);
+                    }
+                    dataTable.Rows.Add(values);
+                }
+                //put a breakpoint here and check datatable
+                return dataTable;
+            }
+        public void _LoadCsCommand(QLSP parameter)
         {
-
+            listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
+            ListtoDataTableConverter converter = new ListtoDataTableConverter();
+            DataTable dt = ToDataTable(ListSP1);
+            parameter.ListViewProduct.ItemsSource = listSP;
         }
-
         private void LoadData()
         {
             try
@@ -91,12 +132,25 @@ namespace PhoneStore.Net.View
             dtSanPham.ItemsSource = SANPHAMS;
         }
 
-        private void ComboBox_SelectionChanged()
+        void _SearchCommand(QLSP paramater)
         {
-
+            ObservableCollection<SANPHAM> temp = new ObservableCollection<SANPHAM>();
+            if (paramater.txbSearch.Text != "")
+            {
+                foreach (SANPHAM s in listSP)
+                {
+                    if (s.TENSP.ToLower().Contains(paramater.txbSearch.Text.ToLower()))
+                    {
+                        temp.Add(s);
+                    }
+                }
+                paramater.dtSanPham.ItemsSource = temp;
+            }
+            else
+                paramater.dtSanPham.ItemsSource = listSP;
         }
 
-        
+
 
         private void EditNV(object sender, RoutedEventArgs e)
         {
@@ -108,7 +162,35 @@ namespace PhoneStore.Net.View
         {
             NewProduct newProduct = new NewProduct();
             newProduct.ShowDialog();
+            newProduct.MaSp.Text = rdma();
             LoadData();
+        }
+        bool check(string m)
+        {
+            foreach (SANPHAM temp in DataProvider.Instance.selectQLSP())
+            {
+                if (temp.MASP == m)
+                    return true;
+            }
+            return false;
+        }
+        string rdma()
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "PD" + rand.Next(0, 10000).ToString();
+            } while (check(ma));
+            return ma;
+        }
+        void _AddPdCommand(NewProduct paramater)
+        {
+            NewProduct newProduct = new NewProduct();
+            newProduct.ShowDialog();
+            
+            
+            
         }
     } 
 }

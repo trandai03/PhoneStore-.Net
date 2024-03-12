@@ -25,7 +25,7 @@
             </Button.RenderTransform>
         </Button>
         <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="276,106,0,0" VerticalAlignment="Top" Width="98" Height="37" Background="#FF9B00FF" FontSize="14"/>
-        <TextBox x:Name="textSearch"
+        <TextBox x:Name="txbSearch"
       VerticalAlignment="Top"
       materialDesign:HintAssist.Hint="Tìm Kiếm"
       Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="83,106,448,0" />
@@ -58,6 +58,63 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-
+        <ListView x:Name="ListViewProduct" ItemsSource="{Binding listSP}"
+          SelectionMode="Single"
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+          ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  Margin="83,231,24,49"
+        >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Margin="10"
+                        Height="210"
+                        Width="170"
+                        Background="White"
+                        CornerRadius="15"
+                        >
+                        <StackPanel>
+                            
+                            <TextBlock
+                                    
+                                    FontSize="14"
+                                    HorizontalAlignment="Center"
+                                    Text="{Binding TENSP}"
+                                    />
+                            <TextBlock
+        
+        FontSize="14"
+        HorizontalAlignment="Center"
+        Text="{Binding TENSP}"
+        />
+                            <TextBlock
+        
+        FontSize="14"
+        HorizontalAlignment="Center"
+        Text="{Binding TENSP}"
+        />
+                            <TextBlock
+        
+        FontSize="14"
+        HorizontalAlignment="Center"
+        Text="{Binding TENSP}"
+        />
+                            <TextBlock
+                                    
+                                    FontSize="14"
+                                    HorizontalAlignment="Center"
+                                    Text="{Binding GIA,StringFormat={}{0:#.###} VNĐ}"
+                                    />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            
+        </ListView>
     </Grid>
 </Page>
