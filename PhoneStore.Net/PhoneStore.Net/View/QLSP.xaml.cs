@@ -27,8 +27,6 @@ namespace PhoneStore.Net.View
     public partial class QLSP : Page
     {
         SANPHAM sp = new SANPHAM();
-
-        //string _localLink = ;
         public QLSP()
         {
             InitializeComponent();
@@ -70,7 +68,7 @@ namespace PhoneStore.Net.View
         private void LoadData1()
 
         {
-            string databaseName = "QLDT.db";
+            string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
             SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
             _con.Open();
             string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
