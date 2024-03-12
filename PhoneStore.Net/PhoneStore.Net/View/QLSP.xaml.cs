@@ -42,6 +42,7 @@ namespace PhoneStore.Net.View
 
             //Filter = new RelayCommand<QLSP>((p) => true, (p) => _Filter(p));
             //LoadData();
+            LoadData();
         }
         private ObservableCollection<SANPHAM> _listSP;
         public ObservableCollection<SANPHAM> listSP { get => _listSP; set { _listSP = value; /*OnPropertyChanged();*/ } }
@@ -56,16 +57,14 @@ namespace PhoneStore.Net.View
         public ICommand Filter { get; set; }
 
 
-        public QLSP()
+        private void _LoadCsCommand(QLSP p)
         {
-            InitializeComponent();
-            LoadData();
+
         }
+        private void _SearchCommand(QLSP p)
+        {
 
-        
-
-
-        
+        }
         private void LoadData()
         {
             try
@@ -172,6 +171,11 @@ namespace PhoneStore.Net.View
                 LoadData();
 
            
+        }
+
+        private void dtSanPham_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
         }
     } 
 }
