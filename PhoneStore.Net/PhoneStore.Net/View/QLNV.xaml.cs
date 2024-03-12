@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using PhoneStore.Net.View;
 namespace PhoneStore.Net.View
 {
     /// <summary>
@@ -24,6 +24,12 @@ namespace PhoneStore.Net.View
         public QLNV()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddEmployee addEmployee = new AddEmployee();
+            addEmployee.ShowDialog();
         }
     }
    

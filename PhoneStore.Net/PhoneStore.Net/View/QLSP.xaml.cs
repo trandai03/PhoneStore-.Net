@@ -16,6 +16,8 @@ using System.Data.SQLite;
 using System.Data;
 using PhoneStore.Net.DBClass;
 using PhoneStore.Net.Model;
+using static PhoneStore.Net.DBClass.DBConnect;
+using System.Collections.ObjectModel;
 
 namespace PhoneStore.Net.View
 {
@@ -30,7 +32,7 @@ namespace PhoneStore.Net.View
         public QLSP()
         {
             InitializeComponent();
-            LoadData1();
+            LoadData();
         }
 
 
@@ -56,23 +58,8 @@ namespace PhoneStore.Net.View
             {
                 string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
                 DataTable dataTable = DBConnect.DataProvider.Instance.Sql_select(query);
-
-                if (dataTable != null && dataTable.Rows.Count > 0)
-                {
-                    dtSanPham.Columns.Clear();
-                    foreach (DataColumn column in dataTable.Columns)
-                    {
-                        DataGridTextColumn dataGridColumn = new DataGridTextColumn();
-                        dataGridColumn.Header = column.ColumnName;
-                        dataGridColumn.Binding = new Binding(column.ColumnName);
-                        dtSanPham.Columns.Add(dataGridColumn);
-                    }
-                    dtSanPham.ItemsSource = dataTable.DefaultView;
-                }
-                else
-                {
-                    MessageBox.Show("Không có dữ liệu để hiển thị.");
-                }
+                dtSanPham.ItemsSource = dataTable.DefaultView;
+                
             }
             catch (Exception ex)
             {
@@ -100,14 +87,30 @@ namespace PhoneStore.Net.View
                     SL = reader.GetInt32(3),
                     LOAISP = reader.GetString(4),
                     SIZE = reader.GetString(5),
-                    
-
-
-
                 });
             }
 
             dtSanPham.ItemsSource = SANPHAMS;
+        }
+
+        private void ComboBox_SelectionChanged()
+        {
+
+        }
+
+        
+
+        private void EditNV(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NewProduct newProduct = new NewProduct();
+            newProduct.ShowDialog();
+            LoadData();
         }
     } 
 }

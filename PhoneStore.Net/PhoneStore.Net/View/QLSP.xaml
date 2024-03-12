@@ -4,12 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PhoneStore.Net.View"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="665"
       Title="QLSP">
 
     <Grid Background="White">
-        <Button Content="Thêm" HorizontalAlignment="Left" Margin="674,132,0,0" VerticalAlignment="Top" Width="67" Height="26" Background="#FF9B00FF" RenderTransformOrigin="0.5,0.5">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="QUẢN LÝ SẢN PHẨM" HorizontalAlignment="Left" Margin="57,19,0,0" VerticalAlignment="Top" Width="510" Height="57" IsEnabled="False" FontSize="36" Background="White" Foreground="Black" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center"/>
+        <Button x:Name="buttonAdd" Content="Thêm" HorizontalAlignment="Left" Margin="584,110,0,0" VerticalAlignment="Top" Width="67" Height="42" Background="#FF9B00FF" RenderTransformOrigin="0.5,0.5" Click="Button_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -19,25 +24,24 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="336,126,0,0" VerticalAlignment="Top" Width="97" Height="30" Background="#FF9B00FF" FontSize="14"/>
-        
-        <Label Content="Danh sách Sản phẩm" HorizontalAlignment="Left" Margin="102,182,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16" FontWeight="Bold"/>
-
-        <Border  Margin="102,126,538,294" 
-        BorderThickness="1"
-        BorderBrush="Black"
-         Width="160"
-         Height="30"
-        >
-            <TextBlock Foreground="DarkGray" 
-               VerticalAlignment="Center" 
-               HorizontalAlignment="Right"
-               
-               Text="Search" Width="160" Height="30" FontSize="14"/>
-
-        </Border>
-        <ComboBox HorizontalAlignment="Left" Margin="507,127,0,0" VerticalAlignment="Top" Width="50" Height="30" Text="Lọc" IsEditable="True"/>
-        <DataGrid ItemsSource="{Binding }"  Name="dtSanPham" Margin="83,225,287,55">
+        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="276,106,0,0" VerticalAlignment="Top" Width="98" Height="37" Background="#FF9B00FF" FontSize="14"/>
+        <TextBox x:Name="textSearch"
+      VerticalAlignment="Top"
+      materialDesign:HintAssist.Hint="Tìm Kiếm"
+      Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="83,106,448,0" />
+        <Label Content="Danh sách Sản phẩm" HorizontalAlignment="Left" Margin="83,177,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16" FontWeight="Bold"/>
+        <ComboBox
+  materialDesign:HintAssist.Hint="Bộ Lọc" Margin="455,106,130,0" VerticalAlignment="Top" RenderTransformOrigin="1.446,-4.952"  Height="37">
+            <ComboBoxItem
+    Content="Android" />
+            <ComboBoxItem
+    Content="iOS" />
+            <ComboBoxItem
+    Content="Linux" />
+            <ComboBoxItem
+    Content="Windows" />
+        </ComboBox>
+        <DataGrid ItemsSource="{Binding dtSanPham }"  Name="dtSanPham" Margin="83,231,24,49">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MASP}"/>
                 <DataGridTextColumn Header="Tên SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding TENSP}"/>
@@ -45,6 +49,13 @@
                 <DataGridTextColumn Header="Còn Hàng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SL}"/>
                 <DataGridTextColumn Header="Loại " IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding LOAISP}"/>
                 <DataGridTextColumn Header="Size" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SIZE}"/>
+                <DataGridTemplateColumn Header="Options">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="EditNV">Show/Hide</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 

@@ -1,4 +1,5 @@
 ﻿using PhoneStore.Net.DBClass;
+using PhoneStore.Net.Model;
 using System.Data.SQLite;
 using System.Windows;
 
@@ -22,9 +23,10 @@ namespace PhoneStore.Net.View
 
             try
             {
-                if (DBConnect.DataProvider.Instance.checkUser(username, password))
+                NGUOIDUNG user = DBConnect.DataProvider.Instance.checkUser(username, password);
+                if (user != null)
                 {
-                    MainWindow main = new MainWindow();
+                    MainWindow main = new MainWindow(user);
                     main.Show();
                     this.Close();
                 }

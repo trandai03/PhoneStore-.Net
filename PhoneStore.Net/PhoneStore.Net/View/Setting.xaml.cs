@@ -1,6 +1,9 @@
 ﻿using Microsoft.Win32;
 using OpenTK.Graphics.OpenGL;
+using PhoneStore.Net.Controller;
+using PhoneStore.Net.DBClass;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -15,7 +18,7 @@ namespace PhoneStore.Net.View
         public Setting()
         {
             InitializeComponent();
-             this.FullNameTextBox.Text = MainWindow.user.TENND;
+            this.FullNameTextBox.Text = MainWindow.user.TENND;
             this.GenderComboBox.Text = MainWindow.user.GIOITINH;
             this.DateBox.SelectedDate = MainWindow.user.NGSINH;
             this.DateBox.Text = MainWindow.user.NGSINH.ToString();
@@ -23,6 +26,8 @@ namespace PhoneStore.Net.View
             this.AddressTextBox.Text = MainWindow.user.DIACHI;
             this.EmailTextBox.Text = MainWindow.user.MAIL;
             this.UserImage.Fill = new ImageBrush(MainWindow.user.AVA);
+            this.UsernameTextBox.Text = MainWindow.user.USERNAME;
+            this.PasswordTextBox.Text = MainWindow.user.PASS;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -75,6 +80,7 @@ namespace PhoneStore.Net.View
             MainWindow.user.DIACHI = this.AddressTextBox.Text;
             MainWindow.user.MAIL = this.EmailTextBox.Text;
 
+            DBConnect.DataProvider.Instance.updateUser(MainWindow.user);
 
             MessageBox.Show("Cập nhật thành công");
         }
@@ -89,6 +95,7 @@ namespace PhoneStore.Net.View
             if (result == true)
             {
                 string selectedFileName = openFileDialog.FileName;
+
                 BitmapImage image = new BitmapImage();
                 try
                 {
@@ -105,6 +112,27 @@ namespace PhoneStore.Net.View
                 MainWindow.user.AVA = image;
             }
             
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.UsernameTextBox.Text))
+            {
+                MessageBox.Show("Hãy điền tên đăng nhập");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(this.PasswordTextBox.Text))
+            {
+                MessageBox.Show("Hãy điền mật khẩu");
+                return;
+            }
+
+            MainWindow.user.USERNAME = this.UsernameTextBox.Text;
+            MainWindow.user.PASS = this.PasswordTextBox.Text;
+
+            DBConnect.DataProvider.Instance.changeUserLogin(MainWindow.user);
+            MessageBox.Show("Cập nhật thành công");
         }
     }
 }

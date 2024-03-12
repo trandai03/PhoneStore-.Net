@@ -142,6 +142,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\DatabaseService.cs" />
+    <Compile Include="Controller\Utility.cs" />
     <Compile Include="DBClass\DBConnect.cs" />
     <Compile Include="DBClass\Employee.cs" />
     <Compile Include="Model\CTHD.cs" />
