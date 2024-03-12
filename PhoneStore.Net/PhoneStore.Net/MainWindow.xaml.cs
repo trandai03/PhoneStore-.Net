@@ -27,9 +27,9 @@ namespace PhoneStore.Net
         public MainWindow(NGUOIDUNG u)
         {
             InitializeComponent();
-            user = u;
+            user = u;          
         }
-
+     
         private void HomePage_Click(object sender, RoutedEventArgs e)
         {
             this.Main.NavigationService.Navigate(new HomePage());
@@ -72,8 +72,14 @@ namespace PhoneStore.Net
 
         private void Minimize_Window(object sender, MouseButtonEventArgs e)
         {
-            this.WindowState.CompareTo(WindowState.Minimized);
+            this.WindowState = WindowState.Minimized;
         }
 
+        private void Dang_Xuat(object sender, RoutedEventArgs e)
+        {
+            Dang_Nhap d = new Dang_Nhap();
+            d.Show();
+            this.Close();
+        }
     }
 }

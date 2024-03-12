@@ -48,14 +48,6 @@
                              Content="Tổng quan" BorderBrush="White" Foreground="White">
                         </RadioButton>
 
-                        <RadioButton Uid="1"
-                                 x:Name="btnSale" 
-                                 Style="{StaticResource MaterialDesignTabRadioButton}"
-                                 Margin="4"
-                                 Width="300"
-                                 FontFamily="Times New Roman"
-                                 Content="Lịch sử kinh doanh" BorderBrush="White" Foreground="White">
-                        </RadioButton>
                     </StackPanel>
                 </Border>
             </Grid>
