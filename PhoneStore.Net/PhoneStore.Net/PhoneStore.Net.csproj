@@ -154,14 +154,15 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="ViewModel\AddEmployeeView.cs" />
     <Compile Include="ViewModel\AddProductView.cs" />
+    <Compile Include="ViewModel\DetailProductView.cs" />
     <Compile Include="View\AddEmployee.xaml.cs">
       <DependentUpon>AddEmployee.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Dang_Nhap.xaml.cs">
       <DependentUpon>Dang_Nhap.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Detail_phone.xaml.cs">
-      <DependentUpon>Detail_phone.xaml</DependentUpon>
+    <Compile Include="View\Detail_product.xaml.cs">
+      <DependentUpon>Detail_product.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Don_Hang.xaml.cs">
       <DependentUpon>Don_Hang.xaml</DependentUpon>
@@ -220,7 +221,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Detail_phone.xaml">
+    <Page Include="View\Detail_product.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PhoneStore.Net.View
 {
     /// <summary>
-    /// Interaction logic for Detail_phone.xaml
+    /// Interaction logic for Detail_product.xaml
     /// </summary>
-    public partial class Detail_phone : Page
+    public partial class Detail_product : Window
     {
-        public Detail_phone()
+        public Detail_product()
         {
             InitializeComponent();
         }
