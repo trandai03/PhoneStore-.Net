@@ -95,7 +95,7 @@ namespace PhoneStore.Net
                     }
                 case 2:
                     {                
-                        p.Main.NavigationService.Navigate(new Detail_phone());
+                        p.Main.NavigationService.Navigate(new Detail_product());
                         break;
                     }
                 case 3:
