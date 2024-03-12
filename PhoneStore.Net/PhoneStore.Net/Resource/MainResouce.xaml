@@ -4,4 +4,5 @@
 
     <viewmodel:AddEmployeeView x:Key="AddNhanVien"></viewmodel:AddEmployeeView>
     <viewmodel:AddProductView x:Key="AddSanPham"></viewmodel:AddProductView>
+    <viewmodel:DetailProductView x:Key="DetailSanPham"></viewmodel:DetailProductView>
 </ResourceDictionary>
