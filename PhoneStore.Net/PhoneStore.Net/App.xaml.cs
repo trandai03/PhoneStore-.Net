@@ -13,5 +13,9 @@ namespace PhoneStore.Net
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {          
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzE1NDgwMEAzMjM0MmUzMDJlMzBFc0RkTGMvUGpmS0xGbEE2V3pxNVZFaDIrTHVtWVRYeEFFMC9IV3V5OGFNPQ==\r\n");
+        }
     }
 }
