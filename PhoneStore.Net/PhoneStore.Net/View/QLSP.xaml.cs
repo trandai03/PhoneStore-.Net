@@ -126,6 +126,8 @@ namespace PhoneStore.Net.View
         private void dtSanPham_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
                 DataRowView selectedSanpham = (DataRowView)dtSanPham.SelectedItem;
+                if(selectedSanpham != null)
+                {
                 Detail_product detail_sp = new Detail_product();
                 detail_sp.MaSPValue = selectedSanpham["MASP"].ToString();
                 detail_sp.TenSPValue = selectedSanpham["TENSP"].ToString();
@@ -137,7 +139,12 @@ namespace PhoneStore.Net.View
                 detail_sp.HinhSPVALUE = selectedSanpham["HINHSP"].ToString();
                 detail_sp.UpdateData();
                 detail_sp.ShowDialog();
-            
+                }
+            else
+            {
+                MessageBox.Show("Hãy chọn lại ", "Thông báo ");
+            }
+                
         }
     } 
 }
