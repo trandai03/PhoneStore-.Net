@@ -1,4 +1,5 @@
-﻿using PhoneStore.Net.Model;
+﻿using MaterialDesignThemes.Wpf;
+using PhoneStore.Net.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,6 +30,10 @@ namespace PhoneStore.Net.View
         public string SLSPValue { get; set; }
         public string LoaiSPValue { get; set; }
         public string SizeValue { get; set; }
+        public string MaSPValue { get; set; }
+        public string HinhSPVALUE {  get; set; }
+
+        public string _localLink = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf(@"bin\Debug"));
         public Detail_product()
         {
             InitializeComponent();
@@ -41,6 +46,11 @@ namespace PhoneStore.Net.View
             SLSP.Text = SLSPValue;
             LoaiSP.Text = LoaiSPValue;
             Size.Text = SizeValue;
+            MaSP.Text = MaSPValue;
+            string tmp = _localLink + HinhSPVALUE;
+            Uri fileUri = new Uri(tmp);
+            HinhAnh.Source = new BitmapImage(fileUri);
         }
     }
+       
 }

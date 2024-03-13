@@ -10,33 +10,31 @@
         ResizeMode="NoResize"
         x:Name="DetailProductwd"
         DataContext= "{DynamicResource DetailSanPham}"
-        Title="Detail_product" Height="450" Width="690" WindowStartupLocation="CenterScreen">
-    
+        Title="Detail_product" Height="480" Width="690" WindowStartupLocation="CenterScreen">
+
     <Border
     Background="White"
     CornerRadius="15"
     BorderThickness="3"
     >
-
-        <i:Interaction.Triggers>
-            <i:EventTrigger EventName="MouseLeftButtonDown">
-                <i:InvokeCommandAction Command="{Binding MoveWindow}"
-                                   CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
-            </i:EventTrigger>
-            <i:EventTrigger EventName="Loaded">
-                <i:InvokeCommandAction Command="{Binding GetName}"
-                                   CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
-            </i:EventTrigger>
-        </i:Interaction.Triggers>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <Image 
-                x:Name="HinhAnh"
-                VerticalAlignment="Center"/>
+                <Image x:Name="HinhAnh"
+                    VerticalAlignment="Center"
+                     Source="{Binding linkimage}"
+                     Height="350"
+                     Width="300" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding AddImage}"
+                               CommandParameter="{Binding ElementName=HinhAnh}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -47,70 +45,87 @@
                     
                 </Grid>
                 <Grid Grid.Row="1">
-                    <StackPanel Orientation="Vertical"
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
                             Margin="15,20,0,0"
                             >
                         <TextBox 
                                 HorizontalAlignment="Left"
-                               FontSize="28"
+                               FontSize="25"
                                materialDesign:TextFieldAssist.DecorationVisibility="Visible"
                                BorderThickness="0"
                             
                                x:Name="TenSP"
                                />
-                        <TextBlock 
-                               FontSize="20"
-                               x:Name="GiaSP"
-                               />
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                            <TextBlock
+                                FontSize="14"
+                                VerticalAlignment="Center"
+                                Text="Mã sản phẩm : " Margin="0,0,0,5"
+                                />
+                            <TextBlock
+                                FontSize="14"
+                                VerticalAlignment="Center"
+                                x:Name="MaSP" Margin="0,0,0,5"
+                                /> 
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                            <TextBlock
+                                FontSize="14"
+                                VerticalAlignment="Center"
+                                Text="Giá sản phẩm : " Margin="0,0,0,5"
+                                />
+                            <TextBox 
+                                HorizontalAlignment="Left"
+                               FontSize="14"
+                               materialDesign:TextFieldAssist.DecorationVisibility="Visible"
+                               BorderThickness="0"
+                            x:Name="GiaSP"
+                               />       
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
                             <TextBlock
                             FontSize="14"
                             VerticalAlignment="Center"
-                            Text="Hãng: "
+                            Text="Hãng : "
                             />
-                            <TextBlock
-                            VerticalAlignment="Center"
+                            <TextBox 
+                                HorizontalAlignment="Left"
                                FontSize="14"
                                materialDesign:TextFieldAssist.DecorationVisibility="Visible"
-                               
-                               x:Name="LoaiSP"
-                               />
+                               BorderThickness="0"
+                            x:Name="LoaiSP"
+                               />   
                         </StackPanel>
-                        <TextBlock 
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                            <TextBlock
+                                FontSize="14"
+                                VerticalAlignment="Center"
+                                Text="Số lượng : "
+                                />  
+                            <TextBox 
+                                HorizontalAlignment="Left"
                                FontSize="14"
-                               Margin="0,0,0,10"
-                               x:Name="SLSP"
-                               />
-                        <StackPanel>
-                            <TextBlock  
-                                    Margin="0,-10,0,0"
+                               materialDesign:TextFieldAssist.DecorationVisibility="Visible"
+                               BorderThickness="0"
+                            x:Name="SLSP"
+                               />   
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,7">
+                            <TextBlock
+                                VerticalAlignment="Center"
                                     FontSize="14"
-                                    x:Name="Size"
-                                    Text="Dung lượng"
+                                    Text="Dung lượng : "
                                />
-                            <ItemsControl x:Name="kichco">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border
-                                    Margin="2"
-                                    Height="20"
-                                    Width="50"
-                                    Background="BlueViolet"
-                                    CornerRadius="10"
-                                    >
-                                            <TextBlock Text="{Binding SIZE}"
-                                                   VerticalAlignment="Center"
-                                                   HorizontalAlignment="Center"
-                                                   />
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <WrapPanel/>
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                            </ItemsControl>
+                            <TextBox 
+                                    HorizontalAlignment="Left"
+                                   FontSize="14"
+                                   materialDesign:TextFieldAssist.DecorationVisibility="Visible"
+                                   BorderThickness="0"
+                                x:Name="Size"
+                                   />       
+
                         </StackPanel>
                         <Expander
                         x:Name="Info"
@@ -131,7 +146,7 @@
                             Width="230"
                             BorderThickness="0"
                             x:Name="btncapnhat"
-                            Visibility="Visible"
+                            Visibility="Visible" 
                             >
                             <Button.Background>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">

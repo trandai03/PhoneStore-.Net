@@ -65,13 +65,16 @@ namespace PhoneStore.Net.ViewModel
                 Uri fileUri = new Uri(linkimage);
                 img.Source = new BitmapImage(fileUri);
             }
+            
         }
         void _AddProduct(NewProduct p)
         {
-            if (string.IsNullOrEmpty(p.MaSp.Text) || string.IsNullOrEmpty(p.TenSp.Text) || string.IsNullOrEmpty(p.LoaiSp.Text) || string.IsNullOrEmpty(p.GiaSp.Text) || string.IsNullOrEmpty(p.SizeSp.Text) || string.IsNullOrEmpty(p.SlSp.Text))
+            
+            if (string.IsNullOrEmpty(p.MaSp.Text) || string.IsNullOrEmpty(p.TenSp.Text) || string.IsNullOrEmpty(p.LoaiSp.Text) || string.IsNullOrEmpty(p.GiaSp.Text) || string.IsNullOrEmpty(p.SizeSp.Text) || string.IsNullOrEmpty(p.SlSp.Text) )
             {
                 MessageBox.Show("Bạn chưa nhập đủ thông tin.", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            
             else
             {
                 string checkExistQuery = "SELECT COUNT(*) FROM SANPHAMs WHERE MASP = @masp";
@@ -101,8 +104,11 @@ namespace PhoneStore.Net.ViewModel
                             return;
                         }
 
-                        string link_sp = "/Resource/ImgProduct/" + "product_" + p.MaSp.Text + ((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString();
-                        
+                        string fileName = Path.GetFileName(linkimage);
+                        string link_sp = "/Resource/ImgProduct/" + fileName;
+
+
+
                         string query = "INSERT INTO SANPHAMs(MASP, TENSP, GIA, MOTA, SL, LOAISP, SIZE, HINHSP) VALUES(@masp, @tensp, @gia, @mota, @sl, @loaisp, @size, @hinhsp)";
                         SQLiteCommand command = new SQLiteCommand(query, con);
                         command.Parameters.AddWithValue("@masp", p.MaSp.Text);
@@ -126,7 +132,7 @@ namespace PhoneStore.Net.ViewModel
                         p.HinhAnh.Source = new BitmapImage(fileUri);
                     }
                 }
-                
+                p.Close();
             }
         }
     }

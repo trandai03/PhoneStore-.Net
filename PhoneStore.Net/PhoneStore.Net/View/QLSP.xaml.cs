@@ -36,23 +36,11 @@ namespace PhoneStore.Net.View
             LoadData();
         }
         
-
-
-        public QLSP()
-        {
-            InitializeComponent();
-            LoadData();
-        }
-
-        
-
-
-        
-        private void LoadData()
+        public void LoadData()
         {
             try
             {
-                string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE, MOTA FROM SANPHAMs";
+                string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE, MOTA, HINHSP FROM SANPHAMs";
                 DataTable dataTable = DBConnect.DataProvider.Instance.Sql_select(query);
                 dtSanPham.ItemsSource = dataTable.DefaultView;
                 
@@ -90,12 +78,10 @@ namespace PhoneStore.Net.View
         }
 
      
-        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NewProduct newProduct = new NewProduct();
             newProduct.ShowDialog();
-            newProduct.MaSp.Text = rdma();
             LoadData();
         }
         bool check(string m)
@@ -134,24 +120,24 @@ namespace PhoneStore.Net.View
             {
                 MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message);
             }
-
-           
         }
 
         
         private void dtSanPham_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            DataRowView selectedSanpham = (DataRowView)dtSanPham.SelectedItem;
-            Detail_product detail_sp = new Detail_product();
-
-            detail_sp.TenSPValue = selectedSanpham["TENSP"].ToString();
-            detail_sp.GiaSPValue = selectedSanpham["GIA"].ToString();
-            detail_sp.MotaValue = selectedSanpham["MOTA"].ToString();
-            detail_sp.SLSPValue = selectedSanpham["SL"].ToString();
-            detail_sp.LoaiSPValue = selectedSanpham["LOAISP"].ToString();
-            detail_sp.SizeValue = selectedSanpham["SIZE"].ToString();
-            detail_sp.UpdateData();
-            detail_sp.ShowDialog();
+                DataRowView selectedSanpham = (DataRowView)dtSanPham.SelectedItem;
+                Detail_product detail_sp = new Detail_product();
+                detail_sp.MaSPValue = selectedSanpham["MASP"].ToString();
+                detail_sp.TenSPValue = selectedSanpham["TENSP"].ToString();
+                detail_sp.GiaSPValue = string.Format("{0:0,0}", selectedSanpham["GIA"].ToString()) + " VNĐ";
+                detail_sp.MotaValue = selectedSanpham["MOTA"].ToString();
+                detail_sp.SLSPValue = selectedSanpham["SL"].ToString();
+                detail_sp.LoaiSPValue = selectedSanpham["LOAISP"].ToString();
+                detail_sp.SizeValue = selectedSanpham["SIZE"].ToString();
+                detail_sp.HinhSPVALUE = selectedSanpham["HINHSP"].ToString();
+                detail_sp.UpdateData();
+                detail_sp.ShowDialog();
+            
         }
     } 
 }

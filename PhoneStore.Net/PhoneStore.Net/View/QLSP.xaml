@@ -49,7 +49,8 @@
                 <DataGridTextColumn Header="Còn Hàng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SL}"/>
                 <DataGridTextColumn Header="Loại " IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding LOAISP}"/>
                 <DataGridTextColumn Header="Size" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SIZE}"/>
-                <DataGridTextColumn Header="Size" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MOTA}"/>
+                <DataGridTextColumn Header="Mô tả " IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MOTA}"/>
+                
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

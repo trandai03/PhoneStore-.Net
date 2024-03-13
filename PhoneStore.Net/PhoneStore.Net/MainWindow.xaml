@@ -20,6 +20,7 @@
     <Border  
             Background="#17181F"
             CornerRadius="40">
+        
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="225"></ColumnDefinition>

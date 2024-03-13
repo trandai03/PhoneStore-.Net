@@ -77,7 +77,7 @@ namespace PhoneStore.Net.DBClass
                
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
                 _con.Open();
-                string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
+                string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE, MOTA, HINHSP FROM SANPHAMs";
                 SQLiteCommand cmd = new SQLiteCommand(query, _con);
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 List<SANPHAM> SANPHAMS = new List<SANPHAM>();
@@ -91,6 +91,8 @@ namespace PhoneStore.Net.DBClass
                         SL = reader.GetInt32(3),
                         LOAISP = reader.GetString(4),
                         SIZE = reader.GetString(5),
+                        MOTA = reader.GetString(6),
+                        HINHSP = reader.GetString(7),
                     });
                 }
 
