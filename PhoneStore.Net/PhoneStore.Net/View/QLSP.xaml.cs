@@ -36,7 +36,9 @@ namespace PhoneStore.Net.View
             LoadData();
         }
         
-        public void LoadData()
+
+        
+        private void LoadData()
         {
             try
             {
@@ -126,6 +128,8 @@ namespace PhoneStore.Net.View
         private void dtSanPham_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
                 DataRowView selectedSanpham = (DataRowView)dtSanPham.SelectedItem;
+                if(selectedSanpham != null)
+                {
                 Detail_product detail_sp = new Detail_product();
                 detail_sp.MaSPValue = selectedSanpham["MASP"].ToString();
                 detail_sp.TenSPValue = selectedSanpham["TENSP"].ToString();
@@ -137,7 +141,27 @@ namespace PhoneStore.Net.View
                 detail_sp.HinhSPVALUE = selectedSanpham["HINHSP"].ToString();
                 detail_sp.UpdateData();
                 detail_sp.ShowDialog();
-            
+                }
+            else
+            {
+                MessageBox.Show("Hãy chọn lại ", "Thông báo ");
+            }
+                
+        }
+
+        private void cbxChon1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+            if (cbxChon1.SelectedIndex==0)
+            {
+                LoadData();
+                Console.WriteLine(cbxChon1.SelectedItem.ToString());
+            }
+            else
+            {
+                DataTable dataTable = DBConnect.DataProvider.Instance.FilterSP(cbxChon1.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last());
+                dtSanPham.ItemsSource = dataTable.DefaultView;
+            }
         }
     } 
 }

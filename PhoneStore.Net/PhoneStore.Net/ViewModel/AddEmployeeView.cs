@@ -28,17 +28,12 @@ namespace PhoneStore.Net.ViewModel
         public string linkaddimage { get => _linkaddimage; set { _linkaddimage = value; } }
         public ICommand AddNDCommand { get; set; }
         public ICommand AddImage { get; set; }
-        public ICommand Closewd { get; set; }
-        public ICommand Minimizewd { get; set; }
-
        
         public AddEmployeeView()
         {
             linkaddimage = _localLink + "/Resource/Image/addava.png";
             AddNDCommand = new RelayCommand<AddEmployee>((p) => true, (p) => _AddND(p));
             AddImage = new RelayCommand<ImageBrush>((p) => true, (p) => _AddImage(p));
-            Closewd = new RelayCommand<AddEmployee>((p) => true, (p) => Close(p));
-            Minimizewd = new RelayCommand<AddEmployee>((p) => true, (p) => Minimize(p));
             ConnectToDatabase();
         }
         private void ConnectToDatabase()
@@ -46,15 +41,7 @@ namespace PhoneStore.Net.ViewModel
             con = new SQLiteConnection($"Data Source = {databaseName}; Version=3;");
             con.Open();
         }
-        void Close(AddEmployee p)
-        {
-            linkaddimage = _localLink + "/Resource/Image/addava.png";
-            p.Close();
-        }
-        void Minimize(AddEmployee p)
-        {
-            p.WindowState = WindowState.Minimized;
-        }
+        
         void _AddImage(ImageBrush img)
         {
             OpenFileDialog open = new OpenFileDialog();
@@ -68,28 +55,50 @@ namespace PhoneStore.Net.ViewModel
             Uri fileUri = new Uri(linkaddimage);
             img.ImageSource = new BitmapImage(fileUri);
         }
+        bool check_SDT(string s)
+        {
+            for(int i = 0; i < s.Length; i++)
+            {
+                if (!char.IsDigit(s[i]))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         void _AddND(AddEmployee addNDView)
         {
             MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn thêm người dùng ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
-                if (String.IsNullOrEmpty(addNDView.MaND.Text) || String.IsNullOrEmpty(addNDView.TenND.Text) || String.IsNullOrEmpty(addNDView.SDT.Text) || String.IsNullOrEmpty(addNDView.GT.Text) || String.IsNullOrEmpty(addNDView.QTV.Text) || addNDView.NS.SelectedDate == null)
+                if (String.IsNullOrEmpty(addNDView.MaND.Text) || String.IsNullOrEmpty(addNDView.TenND.Text) || String.IsNullOrEmpty(addNDView.SDT.Text) || String.IsNullOrEmpty(addNDView.GT.Text) || String.IsNullOrEmpty(addNDView.QTV.Text) || addNDView.NS.SelectedDate == null || String.IsNullOrEmpty(addNDView.User.Text) || String.IsNullOrEmpty(addNDView.Password.Text))
                 {
                     MessageBox.Show("Bạn chưa nhập đầy đủ thông tin !", "THÔNG BÁO");
                     return;
                 }
+
                 string checkExistQuery = "SELECT COUNT(*) FROM NGUOIDUNGs WHERE MAND = @mand";
                 SQLiteCommand checkExistCommand = new SQLiteCommand(checkExistQuery, con);
                 checkExistCommand.Parameters.AddWithValue("@mand", addNDView.MaND.Text);
-                
                 int existingCount = Convert.ToInt32(checkExistCommand.ExecuteScalar());
-
                 if (existingCount > 0)
                 {
                     MessageBox.Show("Mã người dùng đã tồn tại!", "THÔNG BÁO");
                     return;
                 }
                 checkExistCommand.ExecuteNonQuery();
+
+                string check_query = "SELECT COUNT(*) FROM NGUOIDUNGs WHERE USERNAME = @user";
+                SQLiteCommand checkCommand = new SQLiteCommand(check_query, con);
+                checkCommand.Parameters.AddWithValue("@user", addNDView.User.Text);
+                int dem = Convert.ToInt32(checkCommand.ExecuteScalar());
+                if (dem > 0)
+                {
+                    MessageBox.Show("User đã tồn tại!", "THÔNG BÁO");
+                    return;
+                }
+                checkCommand.ExecuteNonQuery();
+
                 string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
                 Regex reg = new Regex(match);
                 if (!reg.IsMatch(addNDView.Mail.Text))
@@ -97,10 +106,9 @@ namespace PhoneStore.Net.ViewModel
                     MessageBox.Show("Email không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                string match1 = @"^((09(\d){8})|(086(\d){7})|(088(\d){7})|(089(\d){7})|(01(\d){9}))$";
-                Regex reg1 = new Regex(match1);
-                if (!reg1.IsMatch(addNDView.SDT.Text))
-                {
+                
+                string tmp = addNDView.SDT.Text;
+                if(tmp.Length != 10 || tmp[0] != '0' || check_SDT(tmp) == false) {
                     MessageBox.Show("Số điện thoại không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
@@ -121,7 +129,7 @@ namespace PhoneStore.Net.ViewModel
                     check = false;
                 }
 
-                string query = "INSERT INTO NGUOIDUNGs(MAND, TENND, NGSINH, SDT, DIACHI, MAIL, QTV, TTND, GIOITINH, USERNAME, AVA) VALUES(@mand, @ten, @ngaysinh, @sdt, @diachi, @mail, @qtv, @ttnd, @gioitinh, @username, @ava)";
+                string query = "INSERT INTO NGUOIDUNGs(MAND, TENND, NGSINH, SDT, DIACHI, MAIL, QTV, TTND, GIOITINH, USERNAME, AVA, PASS) VALUES(@mand, @ten, @ngaysinh, @sdt, @diachi, @mail, @qtv, @ttnd, @gioitinh, @username, @ava, @pass)";
                 SQLiteCommand command = new SQLiteCommand(query, con);
                 command.Parameters.AddWithValue("@mand", addNDView.MaND.Text);
                 command.Parameters.AddWithValue("@ten", addNDView.TenND.Text);
@@ -132,7 +140,8 @@ namespace PhoneStore.Net.ViewModel
                 command.Parameters.AddWithValue("@gioitinh", addNDView.GT.Text);
                 command.Parameters.AddWithValue("@qtv", check);
                 command.Parameters.AddWithValue("@ttnd", true);
-                command.Parameters.AddWithValue("@username", addNDView.MaND.Text);
+                command.Parameters.AddWithValue("@username", addNDView.User.Text);
+                command.Parameters.AddWithValue("@pass", addNDView.Password.Text);
                 command.Parameters.AddWithValue("@ava", link_img_temp);
                 command.ExecuteNonQuery();
                 MessageBox.Show("Thêm nhân viên mới thành công !", "THÔNG BÁO");
@@ -144,6 +153,8 @@ namespace PhoneStore.Net.ViewModel
                 addNDView.Mail.Text = "";
                 addNDView.GT.Text = "";
                 addNDView.QTV.Text = "";
+                addNDView.User.Text = "";
+                addNDView.Password.Text = "";
                 linkaddimage = _localLink + "/Resource/Image/addava.png";
                 Uri fileUri = new Uri(linkaddimage);
                 addNDView.HinhAnh1.ImageSource = new BitmapImage(fileUri);
