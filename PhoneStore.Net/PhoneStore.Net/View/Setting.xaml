@@ -186,7 +186,6 @@
                                  Style="{StaticResource MaterialDesignFilledTextBox}"
                                  VerticalAlignment="Top" AcceptsReturn="True"
                                  TextWrapping="Wrap" HorizontalAlignment="Left"
-                                 IsEnabled="False"
                                  materialDesign:HintAssist.Hint="Mật khẩu"
                                  
                                  FontSize="15" FontFamily="Time New Romans"
