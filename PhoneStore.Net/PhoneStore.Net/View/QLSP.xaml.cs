@@ -42,7 +42,7 @@ namespace PhoneStore.Net.View
         {
             try
             {
-                string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE, MOTA, HINHSP FROM SANPHAMs";
+                string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE, MOTA, HINHSP FROM SANPHAMs where SL >=0";
                 DataTable dataTable = DBConnect.DataProvider.Instance.Sql_select(query);
                 dtSanPham.ItemsSource = dataTable.DefaultView;
                 
