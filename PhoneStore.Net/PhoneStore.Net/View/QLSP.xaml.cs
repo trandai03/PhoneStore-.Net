@@ -36,7 +36,9 @@ namespace PhoneStore.Net.View
             LoadData();
         }
         
-        public void LoadData()
+
+        
+        private void LoadData()
         {
             try
             {
@@ -145,6 +147,21 @@ namespace PhoneStore.Net.View
                 MessageBox.Show("Hãy chọn lại ", "Thông báo ");
             }
                 
+        }
+
+        private void cbxChon1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+            if (cbxChon1.SelectedIndex==0)
+            {
+                LoadData();
+                Console.WriteLine(cbxChon1.SelectedItem.ToString());
+            }
+            else
+            {
+                DataTable dataTable = DBConnect.DataProvider.Instance.FilterSP(cbxChon1.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last());
+                dtSanPham.ItemsSource = dataTable.DefaultView;
+            }
         }
     } 
 }
