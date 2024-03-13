@@ -66,9 +66,8 @@ namespace PhoneStore.Net.ViewModel
             {
                 string query = "UPDATE SANPHAMs SET TENSP = @tensp, GIA = @gia, MOTA = @mota, SL = @sl, LOAISP = @loai, SIZE = @size, HINHSP = @hinhsp WHERE MASP = @masp";
                 
-                string fileName = Path.GetFileName(linkimage);
+                string fileName = Path.GetFileName(p.tmp);
                 string link_sp = "/Resource/ImgProduct/" + fileName;
-
                 SQLiteCommand command = new SQLiteCommand(query, con);
                 command.Parameters.AddWithValue("@tensp", p.TenSP.Text);
                 command.Parameters.AddWithValue("@gia", p.GiaSP.Text);
@@ -89,6 +88,7 @@ namespace PhoneStore.Net.ViewModel
                 Uri fileUri = new Uri(_localLink + "/Resource/Image/add.png");
                 p.HinhAnh.Source = new BitmapImage(fileUri);
                 MessageBox.Show("Cập nhật sản phẩm thành công !", "THÔNG BÁO");
+                p.Close();
             }
         }
         void _DeleteProduct(Detail_product p)

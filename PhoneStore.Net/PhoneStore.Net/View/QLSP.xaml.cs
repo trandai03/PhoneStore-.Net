@@ -141,10 +141,11 @@ namespace PhoneStore.Net.View
                 detail_sp.HinhSPVALUE = selectedSanpham["HINHSP"].ToString();
                 detail_sp.UpdateData();
                 detail_sp.ShowDialog();
+                LoadData();
                 }
             else
             {
-                MessageBox.Show("Hãy chọn lại ", "Thông báo ");
+                
             }
                 
         }

@@ -34,6 +34,7 @@ namespace PhoneStore.Net.View
         public string HinhSPVALUE {  get; set; }
 
         public string _localLink = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf(@"bin\Debug"));
+        public string tmp {  get; set; }
         public Detail_product()
         {
             InitializeComponent();
@@ -47,7 +48,7 @@ namespace PhoneStore.Net.View
             LoaiSP.Text = LoaiSPValue;
             Size.Text = SizeValue;
             MaSP.Text = MaSPValue;
-            string tmp = _localLink + HinhSPVALUE;
+            tmp = _localLink + HinhSPVALUE;
             Uri fileUri = new Uri(tmp);
             HinhAnh.Source = new BitmapImage(fileUri);
         }
