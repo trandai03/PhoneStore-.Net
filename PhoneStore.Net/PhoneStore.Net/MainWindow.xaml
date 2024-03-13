@@ -53,49 +53,328 @@
 
                 <Grid Grid.Row="1">
                     <StackPanel>
-                        <Button Background="DeepSkyBlue" Foreground="White" Margin="0,0,0,25"   
-                                Content="TRANG CHỦ" FontSize="20"           
-                                FontFamily="Times New Roman" FontWeight="Bold" 
-                                Cursor="Hand" Click="HomePage_Click">
-                        </Button>
+                        <RadioButton IsChecked="True" Width="200" Click="HomePage_Click" Cursor="Hand">
+                            <RadioButton.Style>
+                                <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
+                                    <Style.Setters>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="RadioButton">
+                                                    <Border Width="155" Height="40"
+                                                            CornerRadius="10" Margin="0,0,0,15"
+                                                            HorizontalAlignment="Stretch"
+                                                            VerticalAlignment="Stretch"
+                                                            Background="{TemplateBinding Background}">  
 
-                        <Button  Content="ĐƠN HÀNG" FontSize="16" Background="Transparent" 
-                                 Foreground="White" Margin="0,0,0,25"
-                                 FontFamily="Times New Roman" FontWeight="Bold" 
-                                 Cursor="Hand" Click="Don_Hang">
-                        </Button>
+                                                        <DockPanel>
+                                                            <materialDesign:PackIcon   
+                                                                 Kind="Home" Width="25"
+                                                                 Height="25" Margin="6" 
+                                                                 VerticalAlignment="Center"/>
 
-                        <Button Content="SẢN PHẨM" FontSize="16" Background="Transparent" 
-                                Foreground="White" Margin="0,0,0,25" 
-                                FontFamily="Times New Roman" FontWeight="Bold" 
-                                Click="San_Pham">
-                        </Button>
+                                                            <TextBlock 
+                                                                 Text="TRANG CHỦ" FontSize="15"                                                
+                                                                 FontFamily="Times New Roman"
+                                                                 HorizontalAlignment="Left"
+                                                                 VerticalAlignment="Center"
+                                                                 FontWeight="Bold"/>    
+                                                        </DockPanel>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Style.Setters>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter Property="Background" Value="ForestGreen"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
+                        <RadioButton IsChecked="True" Width="200" Click="Don_Hang" Cursor="Hand">
+                            <RadioButton.Style>
+                                <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
+                                    <Style.Setters>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="RadioButton">
+                                                    <Border Width="155" Height="40"
+                                                            CornerRadius="10" Margin="0,0,0,15"
+                                                            HorizontalAlignment="Stretch"
+                                                            VerticalAlignment="Stretch"
+                                                            Background="{TemplateBinding Background}">           
+                                                        <DockPanel>
+                                                            <materialDesign:PackIcon   
+                                                                Kind="CartPlus" Width="25"
+                                                                Height="25"  Margin="6"
+                                                                VerticalAlignment="Center"/>
+                                                            <TextBlock 
+                                                                Text="ĐƠN HÀNG" FontSize="15"
+                                                                FontWeight="Bold" 
+                                                                FontFamily="Times New Roman"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"
+                                                               />     
+                                                        </DockPanel>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Style.Setters>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter Property="Background" Value="ForestGreen"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
 
-                        <Button Content="NHẬP HÀNG" FontSize="16" Background="Transparent" 
-                            Foreground="White" Margin="0,0,0,25"
-                            FontFamily="Times New Roman" FontWeight="Bold" Click="Nhap_Hang">
-                        </Button>
+                        <RadioButton IsChecked="True" Width="200" Click="San_Pham" Cursor="Hand">
+                            <RadioButton.Style>
+                                <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
+                                    <Style.Setters>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="RadioButton">
+                                                    <Border Width="155" Height="40"
+                                                            CornerRadius="10" Margin="0,0,0,15"
+                                                            HorizontalAlignment="Stretch"
+                                                            VerticalAlignment="Stretch"
+                                                            Background="{TemplateBinding Background}">
+                                                        <DockPanel>
+                                                            <materialDesign:PackIcon   
+                                                                Kind="Cellphone" Width="25"
+                                                                Height="25" Margin="6"
+                                                                VerticalAlignment="Center"/>
+                                                            <TextBlock 
+                                                                Text="SẢN PHẨM" FontSize="15"
+                                                                FontWeight="Bold"
+                                                                FontFamily="Times New Roman"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"/>
+                                                        </DockPanel>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Style.Setters>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter Property="Background" Value="ForestGreen"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
 
-                        <Button Content="THỐNG KÊ" FontSize="16" Background="Transparent" 
-                            Foreground="White" Margin="0,0,0,25"
-                            FontFamily="Times New Roman" FontWeight="Bold" Click="Thong_Ke">
-                        </Button>
+                        <RadioButton IsChecked="True" Width="200" Click="Nhap_Hang" Cursor="Hand">
+                            <RadioButton.Style>
+                                <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
+                                    <Style.Setters>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="RadioButton">
+                                                    <Border Width="155" Height="40"
+                                                            CornerRadius="10" Margin="0,0,0,15"
+                                                            HorizontalAlignment="Stretch"
+                                                            VerticalAlignment="Stretch"
+                                                            Background="{TemplateBinding Background}">
+                                                        <DockPanel>
+                                                            <materialDesign:PackIcon   
+                                                                Kind="Warehouse" Width="25"
+                                                                Height="25" Margin="6"
+                                                                VerticalAlignment="Center"/>        
+                                                            <TextBlock 
+                                                                Text="NHẬP HÀNG" FontSize="15"
+                                                                FontWeight="Bold"
+                                                                FontFamily="Times New Roman"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"/>
+                                                        </DockPanel>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Style.Setters>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter Property="Background" Value="ForestGreen"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
 
-                        <Button Content="QUẢN LÝ" FontSize="16"  Background="Transparent" 
-                            Foreground="White" Margin="0,0,0,25"
-                            FontFamily="Times New Roman" FontWeight="Bold" Click="Quan_Ly">
-                        </Button>
+                        <RadioButton IsChecked="True" Width="200" Click="Thong_Ke" Cursor="Hand">
+                            <RadioButton.Style>
+                                <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
+                                    <Style.Setters>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="RadioButton">
+                                                    <Border Width="155" Height="40"
+                                                            CornerRadius="10"  Margin="0,0,0,15"
+                                                            HorizontalAlignment="Stretch"
+                                                            VerticalAlignment="Stretch"
+                                                            Background="{TemplateBinding Background}">   
+                                                        <DockPanel>
+                                                            <materialDesign:PackIcon   
+                                                                Kind="ChartLine" Width="25"
+                                                                Height="25" Margin="6"
+                                                                VerticalAlignment="Center"/>
+                                                            <TextBlock 
+                                                                Text="THỐNG KÊ" FontSize="15"
+                                                                FontWeight="Bold"
+                                                                FontFamily="Times New Roman"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"/>
+                                                        </DockPanel>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Style.Setters>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter Property="Background" Value="ForestGreen"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
 
-                        <Button Content="CÀI ĐẶT" FontSize="16" Background="Transparent" 
-                            Foreground="White" Margin="0,0,0,25"
-                            FontFamily="Times New Roman" FontWeight="Bold" Click="Cai_Dat">
-                        </Button>
+                        <RadioButton IsChecked="True" Width="200" Click="Quan_Ly" Cursor="Hand">
+                            <RadioButton.Style>
+                                <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
+                                    <Style.Setters>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="RadioButton">
+                                                    <Border Width="155" Height="40"
+                                                            CornerRadius="10" Margin="0,0,0,15"
+                                                            HorizontalAlignment="Stretch"
+                                                            VerticalAlignment="Stretch"
+                                                            Background="{TemplateBinding Background}">
+                                                        <DockPanel>
+                                                            <materialDesign:PackIcon   
+                                                                Kind="AccountCog" Width="25"
+                                                                Height="25" Margin="6"
+                                                                VerticalAlignment="Center"/>
+                                                            <TextBlock 
+                                                                Text="QUẢN LÝ" FontSize="15"
+                                                                FontWeight="Bold"
+                                                                FontFamily="Times New Roman"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"/>        
+                                                        </DockPanel>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Style.Setters>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter Property="Background" Value="ForestGreen"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
+
+                        <RadioButton IsChecked="True" Width="200" Click="Cai_Dat" Cursor="Hand">
+                            <RadioButton.Style>
+                                <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
+                                    <Style.Setters>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="RadioButton">
+                                                    <Border Width="155" Height="40"
+                                                            CornerRadius="10"
+                                                            HorizontalAlignment="Stretch"
+                                                            VerticalAlignment="Stretch"
+                                                            Background="{TemplateBinding Background}">       
+                                                        <DockPanel>
+                                                            <materialDesign:PackIcon   
+                                                                Kind="Settings" Width="25"
+                                                                Height="25"  Margin="6"
+                                                                VerticalAlignment="Center"/>
+                                                            <TextBlock 
+                                                                Text="CÀI ĐẶT" FontSize="15"
+                                                                FontWeight="Bold"
+                                                                FontFamily="Times New Roman"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"/>    
+                                                        </DockPanel>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Style.Setters>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter Property="Background" Value="ForestGreen"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
                     </StackPanel>
 
                     <Grid Grid.Row="2" VerticalAlignment="Bottom">
-                        <Button Content="ĐĂNG XUẤT" FontSize="16" Background="Transparent" 
-                                Foreground="White" FontFamily="Times New Roman" 
-                                Margin="10,6,10,-6" FontWeight="Bold" Click="Dang_Xuat">
+                        <Button Width="200" Click="Dang_Xuat">
+                            <Button.Style>
+                                <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
+                                    <Style.Setters>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Width="155" Height="40"
+                                                            CornerRadius="10"
+                                                            HorizontalAlignment="Stretch"
+                                                            VerticalAlignment="Stretch"
+                                                            Background="{TemplateBinding Background}">   
+                                                        <DockPanel>
+                                                            <materialDesign:PackIcon   
+                                                                Kind="LogoutVariant" Width="25"
+                                                                Height="25" Margin="6"
+                                                                VerticalAlignment="Center"/>    
+                                                            <TextBlock 
+                                                                Text="ĐĂNG XUẤT" FontSize="15"
+                                                                FontWeight="Bold"
+                                                                FontFamily="Times New Roman"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"/>
+                                                        </DockPanel>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Style.Setters>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Background" Value="ForestGreen"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
                         </Button>
                     </Grid>
                 </Grid>
@@ -112,22 +391,24 @@
 
                 <Grid Grid.Row="0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,25,0">
-                        <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" Height="24" Width="24" Margin="0,0,8,0"
+                        <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" 
+                                                 Height="24" Width="24" Margin="0,0,8,0"
                                                  MouseDoubleClick="Minimize_Window"
                                                  Cursor="Hand">
                         </materialDesign:PackIcon>
-                        <materialDesign:PackIcon Kind="CloseThick" Foreground="White" Height="24" Width="24"
+                        <materialDesign:PackIcon Kind="CloseThick" Foreground="White" 
+                                                 Height="24" Width="24"
                                                  MouseDoubleClick="Close_Window" Cursor="Hand">
                         </materialDesign:PackIcon>
                     </StackPanel>
 
                     <DockPanel>
                         <Border
-                        Height="40"
-                        Width="40"
-                        Background="White"
-                        CornerRadius="50"
-                        Margin="6">
+                            Height="40"
+                            Width="40"
+                            Background="White"
+                            CornerRadius="50"
+                            Margin="6">
 
                             <Ellipse Height="40" Width="40" VerticalAlignment="Top">
                                 <Ellipse.Fill>
@@ -159,7 +440,14 @@
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <Calendar HorizontalAlignment="Center" VerticalAlignment="Top" Width="184"/>
+                    <Grid>
+                        <Calendar
+                            materialDesign:CalendarAssist.HeaderBackground="ForestGreen"
+                            materialDesign:CalendarAssist.HeaderForeground="WhiteSmoke"
+                            Background="Transparent"          
+                            Foreground="White"
+                            Width="180"/>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>

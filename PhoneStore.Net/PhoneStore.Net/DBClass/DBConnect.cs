@@ -145,7 +145,7 @@ namespace PhoneStore.Net.DBClass
 
                 var reader = command.ExecuteReader();
 
-                if (reader != null)
+                if (reader.HasRows)
                 {
                     NGUOIDUNG u = new NGUOIDUNG();
                     while (reader.Read())
