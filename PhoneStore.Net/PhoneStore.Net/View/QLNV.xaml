@@ -44,12 +44,12 @@ materialDesign:HintAssist.Hint="Bộ Lọc" Margin="455,106,130,0" VerticalAlign
         </ComboBox>
         <DataGrid ItemsSource="{Binding dtSanPham }"  Name="dtSanPham" Margin="83,231,98,49">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Mã SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MASP}"/>
-                <DataGridTextColumn Header="Tên SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding TENSP}"/>
-                <DataGridTextColumn Header="Gía Bán" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding GIABAN}"/>
-                <DataGridTextColumn Header="Còn Hàng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SL}"/>
-                <DataGridTextColumn Header="Loại " IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding LOAISP}"/>
-                <DataGridTextColumn Header="Size" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SIZE}"/>
+                
+                <DataGridTextColumn Header="Họ và Tên" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding TENSP}"/>
+                <DataGridTextColumn Header="Giới tính" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding GIABAN}"/>
+                <DataGridTextColumn Header="Địa chỉ" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SL}"/>
+                <DataGridTextColumn Header="SĐT " IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding LOAISP}"/>
+                <DataGridTextColumn Header="Chức vụ" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SIZE}"/>
             </DataGrid.Columns>
         </DataGrid>
 

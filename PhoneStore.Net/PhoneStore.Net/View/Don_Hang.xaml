@@ -8,9 +8,12 @@
       d:DesignHeight="550" d:DesignWidth="665"
       Title="Page1">
 
-    <Grid Background="White" Margin="0,0,-91,0">
-        <Label Content="QUẢN LÝ ĐƠN HÀNG" HorizontalAlignment="Left" Margin="57,19,0,0" VerticalAlignment="Top" Width="707" Height="57" IsEnabled="False" FontSize="36" Background="White" Foreground="Black" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center"/>
-        <Button Content="Thêm" HorizontalAlignment="Left" Margin="616,133,0,0" VerticalAlignment="Top" Width="67" Height="26" Background="#FF9B00FF" RenderTransformOrigin="0.5,0.5">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="QUẢN LÝ ĐƠN HÀNG" HorizontalAlignment="Left" Margin="57,19,0,0" VerticalAlignment="Top" Width="510" Height="57" IsEnabled="False" FontSize="36" Background="White" Foreground="Black" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center"/>
+        <Button x:Name="buttonAdd" Content="Thêm" HorizontalAlignment="Left" Margin="584,110,0,0" VerticalAlignment="Top" Width="67" Height="33" Background="#FF9B00FF" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -20,57 +23,28 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="336,126,0,0" VerticalAlignment="Top" Width="97" Height="30" Background="#FF9B00FF" FontSize="14"/>
-        <Grid ShowGridLines="True" Margin="102,238,36,29">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <TextBlock Text="Mã ĐH" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False"/>
-            <TextBlock Text="Khách Hàng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="1"/>
-            <TextBlock Text="Ngày" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="2"/>
-            <TextBlock Text="Giá" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="3"/>
-            <TextBlock Text="Số Lượng " FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" IsEnabled="False" Grid.Column="4" Height="42" Width="67" TextWrapping="Wrap"/>
-            <Button Grid.Column="5" Content="Sửa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="10,0,0,0"/>
-            <Button Grid.Column="5" Content="Xóa" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Bottom" Width="36" BorderThickness="0,0,0,0" Padding="0,4,0,4" UseLayoutRounding="True" Margin="55,0,0,15"/>
-        </Grid>
-        <Label Content="Danh sách nhân viên" HorizontalAlignment="Left" Margin="102,195,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="buttonSearch" Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="276,106,0,0" VerticalAlignment="Top" Width="98" Height="37" Background="#FF9B00FF" FontSize="14" Click="Button_Click_1"/>
+        <TextBox x:Name="txbSearch"
+    VerticalAlignment="Top"
+    materialDesign:HintAssist.Hint="Tìm Kiếm"
+    Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="83,106,448,0" />
+        <Label Content="Danh sách Đơn Hàng" HorizontalAlignment="Left" Margin="83,177,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16" FontWeight="Bold"/>
+        <ComboBox x:Name="cbxChon1"
+materialDesign:HintAssist.Hint="Khuyến Mãi" Margin="455,106,130,0" VerticalAlignment="Top" RenderTransformOrigin="1.446,-4.952"  Height="37" SelectionChanged="cbxChon1_SelectionChanged_1">
 
-        <Border  Margin="86,124,0,0" 
-            BorderThickness="1"
-            BorderBrush="Black"
-             Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False"
-            >
-            <TextBox
-             x:Name="txbSearch"
-             Width="250"
-             Height="40"
-             Margin="10,0,0,0"
-             BorderBrush="White"
-             Foreground="White"
-             FontSize="16"
-             FontWeight="SemiBold"
-             materialDesign:HintAssist.Hint="Tìm Kiếm"
-             
-             materialDesign:HintAssist.Foreground="White"
-             materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-             materialDesign:TextFieldAssist.TextBoxViewMargin="10,3,0,0"
-             BorderThickness="2"
-             VerticalAlignment="Center" CaretBrush="White" >
-                
-            </TextBox>
+            <ComboBoxItem Content="Tất cả"/>
+            <ComboBoxItem Content="Có khuyến mãi"/>
+            <ComboBoxItem Content="Không có Khuyến Mãi"/>
+        </ComboBox>
+        <DataGrid ItemsSource="{Binding dtDonHang }" AutoGenerateColumns="False"  Name="dtDonHang" Margin="83,229,56,51"     >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Số HD" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SOHD}"/>
+                <DataGridTextColumn Header="Mã Khách Hàng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MAKH}"/>
+                <DataGridTextColumn Header="Ngày Bán" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding NGHD}"/>
+                <DataGridTextColumn Header="Trị Giá" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding TRIGIA}"/>
+                <DataGridTextColumn Header="Khuyến Mãi" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding KHUYENMAI}"/>
 
-        </Border>
-        <ComboBox HorizontalAlignment="Left" Margin="507,127,0,0" VerticalAlignment="Top" Width="50" Height="30" Text="Lọc" IsEditable="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
