@@ -11,6 +11,7 @@ namespace PhoneStore.Net.View
         {
             InitializeComponent();
         }
+
         
         private void DangNhapClick(object sender, RoutedEventArgs e)
         {
@@ -35,6 +36,16 @@ namespace PhoneStore.Net.View
             {
                 MessageBox.Show(error.Message);
             }
+        }
+
+        private void Minimize_Window(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void Close_Window(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            this.Close();
         }
     }
 }

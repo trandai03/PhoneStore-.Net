@@ -3,9 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       
-      Height="570" Width="700" 
+      Height="550" Width="700" 
       WindowStyle="None"
       ResizeMode="NoResize"
       Background="Transparent"
@@ -48,7 +49,15 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <StackPanel HorizontalAlignment="Right" Margin="0,10,20,0" Orientation="Horizontal">
-
+                            <materialDesign:PackIcon Kind="WindowMinimize" Foreground="Black" 
+                                                     Height="24" Width="24" Margin="0,0,8,0"
+                                                     MouseDoubleClick="Minimize_Window"
+                                                     Cursor="Hand">     
+                            </materialDesign:PackIcon>
+                            <materialDesign:PackIcon Kind="CloseThick" Foreground="Black" 
+                                                     Height="24" Width="24"
+                                                     MouseDoubleClick="Close_Window" Cursor="Hand">
+                            </materialDesign:PackIcon>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-10">
                             <TextBlock FontSize="24"  Foreground="BlueViolet" FontFamily="Segoe UI Semibold" HorizontalAlignment="Center">CHÀO MỪNG</TextBlock>
@@ -60,30 +69,34 @@
                             <TextBox
                              Text="{Binding Username}"
                              Name="UsernameTextBox"
+                             Style="{StaticResource MaterialDesignFilledTextBox}"
+                             materialDesign:HintAssist.Hint="TÊN ĐĂNG NHẬP"
+                             FontFamily="Times New Roman"
                              Background="White"
                              Height="48"
                              Width="250"
-                             FontSize="12"
-                             FontWeight="Bold"
-                             
+                             FontSize="14"
+                             FontWeight="Bold"                         
                              VerticalAlignment="Top"
                              AcceptsReturn="True"
                              TextWrapping="Wrap"
                              MaxWidth="400"
-                             Margin="0,0,0,10"
-                             
+                             Margin="0,0,0,10"                          
                              />
+                            
                             <PasswordBox x:Name="PasswordTextBox"
-                             
+                             Style="{StaticResource MaterialDesignFilledPasswordBox}"
                              VerticalAlignment="Top"
                              Background="White"
                              Margin="0,0,0,40"
                              Height="48"
                              Width="250"
-                             FontSize="12"
+                             FontSize="14"
+                             FontFamily="Times New Roman"
                              FontWeight="Bold"
-                             
+                             materialDesign:HintAssist.Hint="MẬT KHẨU"               
                              />
+                            
                             <Button
                              Content="ĐĂNG NHẬP"
                              Height="47"
