@@ -94,7 +94,7 @@
                                 </Style>
                             </RadioButton.Style>
                         </RadioButton>
-                        <RadioButton IsChecked="True" Width="200" Click="Don_Hang" Cursor="Hand">
+                        <RadioButton IsChecked="False" Width="200" Click="Don_Hang" Cursor="Hand">
                             <RadioButton.Style>
                                 <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
                                     <Style.Setters>
@@ -135,7 +135,7 @@
                             </RadioButton.Style>
                         </RadioButton>
 
-                        <RadioButton IsChecked="True" Width="200" Click="San_Pham" Cursor="Hand">
+                        <RadioButton IsChecked="False" Width="200" Click="San_Pham" Cursor="Hand">
                             <RadioButton.Style>
                                 <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
                                     <Style.Setters>
@@ -175,7 +175,7 @@
                             </RadioButton.Style>
                         </RadioButton>
 
-                        <RadioButton IsChecked="True" Width="200" Click="Nhap_Hang" Cursor="Hand">
+                        <RadioButton IsChecked="False" Width="200" Click="Nhap_Hang" Cursor="Hand">
                             <RadioButton.Style>
                                 <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
                                     <Style.Setters>
@@ -215,7 +215,7 @@
                             </RadioButton.Style>
                         </RadioButton>
 
-                        <RadioButton IsChecked="True" Width="200" Click="Thong_Ke" Cursor="Hand">
+                        <RadioButton IsChecked="False" Width="200" Click="Thong_Ke" Cursor="Hand">
                             <RadioButton.Style>
                                 <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
                                     <Style.Setters>
@@ -255,7 +255,7 @@
                             </RadioButton.Style>
                         </RadioButton>
 
-                        <RadioButton IsChecked="True" Width="200" Click="Quan_Ly" Cursor="Hand">
+                        <RadioButton IsChecked="False" Width="200" Click="Quan_Ly" Cursor="Hand">
                             <RadioButton.Style>
                                 <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
                                     <Style.Setters>
@@ -295,7 +295,7 @@
                             </RadioButton.Style>
                         </RadioButton>
 
-                        <RadioButton IsChecked="True" Width="200" Click="Cai_Dat" Cursor="Hand">
+                        <RadioButton IsChecked="False" Width="200" Click="Cai_Dat" Cursor="Hand">
                             <RadioButton.Style>
                                 <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
                                     <Style.Setters>
