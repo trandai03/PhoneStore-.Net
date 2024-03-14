@@ -299,9 +299,33 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resource\avatar\Dang_Nhaap.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\avatar\GoldGoat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\add.png" />
+    <Resource Include="Resource\Image\addava.png" />
+    <Resource Include="Resource\Image\Dang_Nhaap.jpg" />
+    <Resource Include="Resource\Image\Login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\ImgProduct\product_PD1423.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD1722.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD3573.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD3926.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD4566.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD4896.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD6316.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD6375.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD6553.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD6622.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD7289.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD862.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD8708.jpg" />
+    <Resource Include="Resource\ImgProduct\product_PD9969.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

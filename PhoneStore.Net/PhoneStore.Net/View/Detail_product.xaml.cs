@@ -19,9 +19,6 @@ using static PhoneStore.Net.View.QLSP;
 
 namespace PhoneStore.Net.View
 {
-    /// <summary>
-    /// Interaction logic for Detail_product.xaml
-    /// </summary>
     public partial class Detail_product : Window
     {
         public string TenSPValue { get; set; }

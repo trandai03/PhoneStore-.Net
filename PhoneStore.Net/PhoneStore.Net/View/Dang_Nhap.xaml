@@ -4,7 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="650"
+      
+      Height="570" Width="700" 
       WindowStyle="None"
       ResizeMode="NoResize"
       Background="Transparent"
@@ -28,15 +29,17 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <StackPanel Margin="25">
-                        <TextBlock FontSize="26" FontFamily="Segoe UI Semibold" >PHẦN MỀM</TextBlock>
-                        <TextBlock FontSize="26"  Foreground="#17181F" FontFamily="Segoe UI Semibold">QUẢN LÝ BÁN HÀNG</TextBlock>
+                        <TextBlock FontSize="26" FontFamily="Segoe UI Semibold" HorizontalAlignment="Center" Foreground="AliceBlue">PHẦN MỀM</TextBlock>
+                        <TextBlock FontSize="26"  Foreground="AliceBlue" FontFamily="Segoe UI Semibold" HorizontalAlignment="Center">QUẢN LÝ BÁN HÀNG</TextBlock>
                     </StackPanel>
                 </Grid>
-                <Image Source="/Resource/Image/Dang_Nhaap.jpg" HorizontalAlignment="Center" Height="252" VerticalAlignment="Top" Width="370" Margin="0,124,0,0" Grid.RowSpan="2" Stretch="Fill"/>
+                <Grid Grid.Row="1">
+                    <Image Source="/Resource/avatar/Dang_Nhaap.jpg" HorizontalAlignment="Left" Height="367" VerticalAlignment="Top" Width="359" Margin="15,-17,0,0" Stretch="Fill"/>
+                </Grid>
             </Grid>
-            <Border Grid.Column="1" Background="AliceBlue"
+            <Border Background="AliceBlue"
                  CornerRadius="0,30,30,0"
-                 BorderThickness="0"
+                 BorderThickness="0" Grid.ColumnSpan="2" Margin="383,0,0,0"
                  >
                 <Grid>
                     <Grid.RowDefinitions>
@@ -48,7 +51,7 @@
 
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-10">
-                            <TextBlock FontSize="24"  Foreground="BlueViolet" FontFamily="Segoe UI Semibold">CHÀO MỪNG</TextBlock>
+                            <TextBlock FontSize="24"  Foreground="BlueViolet" FontFamily="Segoe UI Semibold" HorizontalAlignment="Center">CHÀO MỪNG</TextBlock>
                             <TextBlock FontSize="24"  Foreground="BlueViolet" FontFamily="Segoe UI Semibold"> TRỞ LẠI VỚI PHONE.VN</TextBlock>
                         </StackPanel>
                     </Grid>
@@ -69,8 +72,6 @@
                              MaxWidth="400"
                              Margin="0,0,0,10"
                              
-                             
-                            
                              />
                             <PasswordBox x:Name="PasswordTextBox"
                              
