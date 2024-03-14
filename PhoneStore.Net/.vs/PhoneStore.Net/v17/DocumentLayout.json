@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\",
   "Documents": [
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\phonestore.net\\view\\setting.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\view\\setting.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -43,6 +44,28 @@
       "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\view\\qlsp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+=======
+      "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|e:\\gitdesktop\\phonestore.net\\phonestore.net\\phonestore.net\\view\\setting.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\view\\setting.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|e:\\gitdesktop\\phonestore.net\\phonestore.net\\phonestore.net\\view\\dang_nhap.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\view\\dang_nhap.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\phonestore.net\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\phonestore.net\\model\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\model\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\phonestore.net\\view\\qlsp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\view\\qlsp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+>>>>>>> Stashed changes
       "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\phonestore.net\\model\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\model\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -67,6 +90,7 @@
       "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\model\\cthd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\phonestore.net\\view\\detail_phone.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:phonestore.net\\view\\detail_phone.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -85,6 +109,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|e:\\gitdesktop\\phonestore.net\\phonestore.net\\phonestore.net\\resource\\image\\resource1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:phonestore.net\\resource\\image\\resource1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+=======
+      "AbsoluteMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\phonestore.net\\view\\detail_phone.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0C482575-67FA-444A-9B79-92DC9D2179A3}|PhoneStore.Net\\PhoneStore.Net.csproj|solutionrelative:phonestore.net\\view\\detail_phone.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+>>>>>>> Stashed changes
     }
   ],
   "DocumentGroupContainers": [
@@ -94,7 +122,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 934,
+<<<<<<< Updated upstream
           "SelectedChildIndex": 8,
+=======
+          "SelectedChildIndex": 3,
+>>>>>>> Stashed changes
           "Children": [
             {
               "$type": "Bookmark",
@@ -107,10 +139,26 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+<<<<<<< Updated upstream
+=======
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Setting.xaml",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\Setting.xaml",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\View\\Setting.xaml",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\Setting.xaml",
+              "RelativeToolTip": "PhoneStore.Net\\View\\Setting.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-11T14:51:42.447Z",
+              "EditorCaption": ""
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+<<<<<<< Updated upstream
               "Title": "QLSP.xaml",
               "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\QLSP.xaml",
               "RelativeDocumentMoniker": "PhoneStore.Net\\View\\QLSP.xaml",
@@ -145,6 +193,8 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+=======
+>>>>>>> Stashed changes
               "Title": "Dang_Nhap.xaml",
               "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\Dang_Nhap.xaml",
               "RelativeDocumentMoniker": "PhoneStore.Net\\View\\Dang_Nhap.xaml",
@@ -153,6 +203,7 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-03-09T16:43:02.778Z",
               "EditorCaption": ""
+<<<<<<< Updated upstream
             },
             {
               "$type": "Document",
@@ -234,10 +285,121 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-03-09T16:41:39.381Z",
               "EditorCaption": ""
+=======
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.xaml",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\App.xaml",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\App.xaml",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\App.xaml",
+              "RelativeToolTip": "PhoneStore.Net\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-09T16:41:39.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserSetting.cs",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\UserSetting.cs",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\Model\\UserSetting.cs",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\UserSetting.cs",
+              "RelativeToolTip": "PhoneStore.Net\\Model\\UserSetting.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T16:06:43.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PHIEUNHAP.cs",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\PHIEUNHAP.cs",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\Model\\PHIEUNHAP.cs",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\PHIEUNHAP.cs",
+              "RelativeToolTip": "PhoneStore.Net\\Model\\PHIEUNHAP.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T16:05:50.978Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "KHACHHANG.cs",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\KHACHHANG.cs",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\Model\\KHACHHANG.cs",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\KHACHHANG.cs",
+              "RelativeToolTip": "PhoneStore.Net\\Model\\KHACHHANG.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T16:05:49.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CTPN.cs",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\CTPN.cs",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\Model\\CTPN.cs",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\CTPN.cs",
+              "RelativeToolTip": "PhoneStore.Net\\Model\\CTPN.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T16:05:48.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "QLSP.xaml.cs",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\QLSP.xaml.cs",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\View\\QLSP.xaml.cs",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\QLSP.xaml.cs",
+              "RelativeToolTip": "PhoneStore.Net\\View\\QLSP.xaml.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAArwBgAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T16:05:21.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Model\\SANPHAM.cs",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\SANPHAM.cs",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\Model\\SANPHAM.cs",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\SANPHAM.cs",
+              "RelativeToolTip": "PhoneStore.Net\\Model\\SANPHAM.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAIA8wDEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T16:05:43.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NGUOIDUNG.cs",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\NGUOIDUNG.cs",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\Model\\NGUOIDUNG.cs",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\NGUOIDUNG.cs",
+              "RelativeToolTip": "PhoneStore.Net\\Model\\NGUOIDUNG.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T16:07:28.237Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CTHD.cs",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\CTHD.cs",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\Model\\CTHD.cs",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\CTHD.cs",
+              "RelativeToolTip": "PhoneStore.Net\\Model\\CTHD.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-09T16:05:47.653Z"
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
+<<<<<<< Updated upstream
               "Title": "UserSetting.cs",
               "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\Model\\UserSetting.cs",
               "RelativeDocumentMoniker": "PhoneStore.Net\\Model\\UserSetting.cs",
@@ -360,6 +522,23 @@
           "SelectedChildIndex": -1,
           "Children": [
             {
+=======
+              "Title": "Detail_phone.xaml",
+              "DocumentMoniker": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\Detail_phone.xaml",
+              "RelativeDocumentMoniker": "PhoneStore.Net\\View\\Detail_phone.xaml",
+              "ToolTip": "E:\\GitDesktop\\PhoneStore.Net\\PhoneStore.Net\\PhoneStore.Net\\View\\Detail_phone.xaml",
+              "RelativeToolTip": "PhoneStore.Net\\View\\Detail_phone.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-09T16:04:27.21Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 393,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+>>>>>>> Stashed changes
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             }
