@@ -13,8 +13,8 @@
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Content="QUẢN LÝ SẢN PHẨM" HorizontalAlignment="Left" Margin="57,19,0,0" VerticalAlignment="Top" Width="510" Height="57" IsEnabled="False" FontSize="36" Background="White" Foreground="Black" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center"/>
-        <Button Content="Thêm" HorizontalAlignment="Left" Margin="584,110,0,0" VerticalAlignment="Top" Width="67" Height="42" Background="#FF9B00FF" RenderTransformOrigin="0.5,0.5">
+        <Label Content="QUẢN LÝ NHẬP HÀNG" HorizontalAlignment="Left" Margin="57,19,0,0" VerticalAlignment="Top" Width="510" Height="57" IsEnabled="False" FontSize="36" Background="White" Foreground="Black" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center"/>
+        <Button Content="Thêm" HorizontalAlignment="Left" Margin="583,104,0,0" VerticalAlignment="Top" Width="67" Height="37" Background="#FF9B00FF" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -29,7 +29,7 @@
     VerticalAlignment="Top"
     materialDesign:HintAssist.Hint="Tìm Kiếm"
     Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="83,106,448,0" />
-        <Label Content="Danh sách Sản phẩm" HorizontalAlignment="Left" Margin="83,177,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Danh sách Nhập Hàng" HorizontalAlignment="Left" Margin="83,177,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16" FontWeight="Bold"/>
         <ComboBox
 materialDesign:HintAssist.Hint="Bộ Lọc" Margin="455,106,130,0" VerticalAlignment="Top" RenderTransformOrigin="1.446,-4.952"  Height="37">
             <ComboBoxItem

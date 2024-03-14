@@ -30,17 +30,14 @@ namespace PhoneStore.Net.View
 
         private void LoadData()
         {
-            try
-            {
+            
                 string query = "SELECT SOHD ,MAKH , NGHD , TRIGIA , KHUYENMAI    FROM HOADONs";
                 DataTable dataTable = DBConnect.DataProvider.Instance.Sql_select(query);
                 dtDonHang.ItemsSource = dataTable.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message);
-            }
+                Console.WriteLine(dataTable.DefaultView);
+                MessageBox.Show(dataTable.DefaultView.ToString());
+           
+            
         }
 
 

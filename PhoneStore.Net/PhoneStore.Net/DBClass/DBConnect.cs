@@ -6,6 +6,7 @@ using System;
 using System.Windows;
 using System.Collections.Generic;
 using System.Windows.Controls;
+using System.Data.SqlClient;
 
 namespace PhoneStore.Net.DBClass
 {
@@ -34,12 +35,61 @@ namespace PhoneStore.Net.DBClass
                 DataTable dt = new DataTable();
                 SQLiteCommand cmd = new SQLiteCommand(sql_querry, _con);
                 SQLiteDataReader reader = cmd.ExecuteReader();
+                Console.WriteLine(reader.ToString());
                 dt.Load(reader);
                 _con.Close();
                 return dt;
             }
+            public DataTable LoadDH(string sql)
+            {
+                
+                
+                    using (SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;"))
+                    {
+                        _con.Open();
+                        DataTable dt = new DataTable();
+                        using (SQLiteCommand cmd = new SQLiteCommand(sql, _con))
+                        {
+                            using (SQLiteDataReader reader = cmd.ExecuteReader())
+                            {
+                                // Add columns to DataTable based on reader schema
+                                for (int i = 0; i < reader.FieldCount; i++)
+                                {
+                                    dt.Columns.Add(reader.GetName(i), reader.GetFieldType(i));
+                                }
 
-            public DataTable Sql_selectSearch(string txbSearch)
+                                while (reader.Read())
+                                {
+                                    DataRow row = dt.NewRow();
+                                    for (int i = 0; i < reader.FieldCount; i++)
+                                    {
+                                        try
+                                        {
+                                            // Attempt to convert datetime strings if necessary
+                                            if (reader.GetFieldType(i) == typeof(string) && reader.GetName(i).ToLower().Contains("date"))
+                                            {
+                                                row[i] = DateTime.Parse(reader.GetValue(i).ToString());
+                                            }
+                                            else
+                                            {
+                                                row[i] = reader.GetValue(i);
+                                            }
+                                        }
+                                        catch (FormatException)
+                                        {
+                                            // Handle parsing errors (e.g., log the error or set a default value)
+                                            row[i] = null; // Or any other appropriate default value
+                                        }
+                                    }
+                                    dt.Rows.Add(row);
+                                }
+                            }
+                        }
+                        return dt;
+                    }
+                
+            }
+            public DataTable SearchSP(string txbSearch)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
                 string sql = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
@@ -53,6 +103,31 @@ namespace PhoneStore.Net.DBClass
                 DataTable dt = new DataTable();
                 SQLiteCommand cmd = new SQLiteCommand(sql, _con);
                 cmd.CommandType =  CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                string keyword = string.Format("%{0}%", txbSearch);
+                Console.WriteLine(keyword);
+                cmd.Parameters.AddWithValue("@keyword", keyword);
+                _con.Open();
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                dt.Load(reader);
+                _con.Close();
+                return dt;
+            }
+            public DataTable SearchNV(string txbSearch)
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                string sql = "SELECT TENND , GIOITINH , DIACHI , SDT  , MAIL FROM NGUOIDUNGs";
+                sql += " WHERE TENND LIKE @keyword";
+                sql += " OR GIOITINH LIKE @keyword";
+                sql += " OR DIACHI LIKE @keyword";
+                sql += " OR SDT LIKE @keyword";
+                sql += " OR MAIL LIKE @keyword";
+                
+
+                DataTable dt = new DataTable();
+                SQLiteCommand cmd = new SQLiteCommand(sql, _con);
+                cmd.CommandType = CommandType.Text;
                 cmd.CommandText = sql;
                 cmd.Parameters.Clear();
                 string keyword = string.Format("%{0}%", txbSearch);

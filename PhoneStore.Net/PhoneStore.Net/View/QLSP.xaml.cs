@@ -112,7 +112,7 @@ namespace PhoneStore.Net.View
             try{
                 if (txbSearch.Text != "")
                 {
-                    DataTable dataTable = DBConnect.DataProvider.Instance.Sql_selectSearch(txbSearch.Text);
+                    DataTable dataTable = DBConnect.DataProvider.Instance.SearchSP(txbSearch.Text);
                     dtSanPham.ItemsSource = dataTable.DefaultView;
                 }
                 else
