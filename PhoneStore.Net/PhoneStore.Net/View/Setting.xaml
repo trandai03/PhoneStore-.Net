@@ -177,17 +177,16 @@
                                  materialDesign:HintAssist.Hint="Tên đăng nhập"
                                  FontFamily="Time New Romans" FontSize="15"
                                  HorizontalContentAlignment="Center"
-                                 IsEnabled="False"
+                                 IsEnabled="True"
                                  Name="UsernameTextBox">
                         </TextBox>
-
+                   
                         <TextBox Margin="30,20,0,0" Width="190"
                                  Style="{StaticResource MaterialDesignFilledTextBox}"
                                  VerticalAlignment="Top" AcceptsReturn="True"
                                  TextWrapping="Wrap" HorizontalAlignment="Left"
-                                 IsEnabled="False"
-                                 materialDesign:HintAssist.Hint="Mật khẩu"
-                                 
+                                 IsEnabled="True"
+                                 materialDesign:HintAssist.Hint="Mật khẩu"                                 
                                  FontSize="15" FontFamily="Time New Romans"
                                  VerticalContentAlignment="Bottom"
                                  HorizontalContentAlignment="Center"
