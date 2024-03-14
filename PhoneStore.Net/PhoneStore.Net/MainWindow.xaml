@@ -15,7 +15,7 @@
         WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
-        Height="600" Width="1074">
+        Height="600" Width="1127">
     
     <Border  
             Background="#17181F"
@@ -445,8 +445,7 @@
                             materialDesign:CalendarAssist.HeaderBackground="ForestGreen"
                             materialDesign:CalendarAssist.HeaderForeground="WhiteSmoke"
                             Background="Transparent"          
-                            Foreground="White"
-                            Width="180"/>
+                            Foreground="White"/>
                     </Grid>
                 </Grid>
             </Grid>

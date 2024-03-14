@@ -24,7 +24,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="276,106,0,0" VerticalAlignment="Top" Width="98" Height="37" Background="#FF9B00FF" FontSize="14"/>
+        <Button Content="Tìm Kiếm" HorizontalAlignment="Left" Margin="276,106,0,0" VerticalAlignment="Top" Width="98" Height="37" Background="#FF9B00FF" FontSize="14" Click="Button_Click"/>
         <TextBox x:Name="textSearch"
     VerticalAlignment="Top"
     materialDesign:HintAssist.Hint="Tìm Kiếm"
@@ -41,14 +41,12 @@ materialDesign:HintAssist.Hint="Bộ Lọc" Margin="455,106,130,0" VerticalAlign
             <ComboBoxItem
   Content="Windows" />
         </ComboBox>
-        <DataGrid ItemsSource="{Binding dtSanPham }"  Name="dtSanPham" Margin="83,231,98,49">
+        <DataGrid ItemsSource="{Binding dtNhapHang }"  Name="dtNhapHang" Margin="83,231,130,49" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Mã SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MASP}"/>
-                <DataGridTextColumn Header="Tên SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding TENSP}"/>
-                <DataGridTextColumn Header="Gía Bán" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding GIABAN}"/>
-                <DataGridTextColumn Header="Còn Hàng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SL}"/>
-                <DataGridTextColumn Header="Loại " IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding LOAISP}"/>
-                <DataGridTextColumn Header="Size" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SIZE}"/>
+                <DataGridTextColumn Header="Mã Phiếu Nhập" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MAPN}"/>
+                <DataGridTextColumn Header="Người Nhập" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MAND}"/>
+                <DataGridTextColumn Header="Ngày Nhập" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding NGAYNHAP}"/>
+                
             </DataGrid.Columns>
         </DataGrid>
 

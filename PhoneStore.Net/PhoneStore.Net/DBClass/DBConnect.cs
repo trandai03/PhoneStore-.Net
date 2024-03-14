@@ -117,13 +117,37 @@ namespace PhoneStore.Net.DBClass
             public DataTable SearchNV(string txbSearch)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                string sql = "SELECT MAPN ,MAND , NGAYNHAP FROM PHIEUNHAPs";
+                sql += " WHERE MAPN LIKE @keyword";
+                sql += " OR MAND LIKE @keyword";
+                sql += " OR DIACHI LIKE @keyword";
+                
+                
+
+                DataTable dt = new DataTable();
+                SQLiteCommand cmd = new SQLiteCommand(sql, _con);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                string keyword = string.Format("%{0}%", txbSearch);
+                Console.WriteLine(keyword);
+                cmd.Parameters.AddWithValue("@keyword", keyword);
+                _con.Open();
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                dt.Load(reader);
+                _con.Close();
+                return dt;
+            }
+            public DataTable SearchNH(string txbSearch)
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
                 string sql = "SELECT TENND , GIOITINH , DIACHI , SDT  , MAIL FROM NGUOIDUNGs";
                 sql += " WHERE TENND LIKE @keyword";
                 sql += " OR GIOITINH LIKE @keyword";
                 sql += " OR DIACHI LIKE @keyword";
                 sql += " OR SDT LIKE @keyword";
                 sql += " OR MAIL LIKE @keyword";
-                
+
 
                 DataTable dt = new DataTable();
                 SQLiteCommand cmd = new SQLiteCommand(sql, _con);

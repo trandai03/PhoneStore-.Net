@@ -1,5 +1,7 @@
-﻿using System;
+﻿using PhoneStore.Net.DBClass;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,41 @@ namespace PhoneStore.Net.View
         public QLNH()
         {
             InitializeComponent();
+            LoadData();
+        }
+        private void LoadData()
+        {
+            try
+            {
+                string query = "SELECT MAPN ,MAND , NGAYNHAP FROM PHIEUNHAPs ";
+                DataTable dataTable = DBConnect.DataProvider.Instance.Sql_select(query);
+                dtNhapHang.ItemsSource = dataTable.DefaultView;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message);
+            }
+        }
+
+        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (textSearch.Text != "")
+                {
+                    DataTable dataTable = DBConnect.DataProvider.Instance.SearchNV(textSearch.Text);
+                    dtNhapHang.ItemsSource = dataTable.DefaultView;
+                }
+                else
+                    LoadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message);
+            }
         }
     }
 }
