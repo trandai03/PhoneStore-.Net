@@ -65,12 +65,12 @@ namespace PhoneStore.Net.ViewModel
                 Uri fileUri = new Uri(linkimage);
                 img.Source = new BitmapImage(fileUri);
             }
-            
+
         }
         void _AddProduct(NewProduct p)
         {
-            
-            if (string.IsNullOrEmpty(p.MaSp.Text) || string.IsNullOrEmpty(p.TenSp.Text) || string.IsNullOrEmpty(p.LoaiSp.Text) || string.IsNullOrEmpty(p.GiaSp.Text) || string.IsNullOrEmpty(p.SizeSp.Text) || string.IsNullOrEmpty(p.SlSp.Text) )
+
+            if (string.IsNullOrEmpty(p.MaSp.Text) || string.IsNullOrEmpty(p.TenSp.Text) || string.IsNullOrEmpty(p.LoaiSp.Text) || string.IsNullOrEmpty(p.GiaSp.Text) || string.IsNullOrEmpty(p.SizeSp.Text) || string.IsNullOrEmpty(p.SlSp.Text) || linkimage == _localLink + "/Resource/Image/add.png")
             {
                 MessageBox.Show("Bạn chưa nhập đủ thông tin.", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Error);
             }

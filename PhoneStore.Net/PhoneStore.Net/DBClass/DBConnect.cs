@@ -59,13 +59,48 @@ namespace PhoneStore.Net.DBClass
                 Console.WriteLine(keyword);
                 cmd.Parameters.AddWithValue("@keyword", keyword);
                 _con.Open();
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                dt.Load(reader);
+                _con.Close();
+                return dt;
+            }
+            public DataTable searchDH(string txbSearch)
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                string sql = "SELECT SOHD ,MAKH , NGHD , TRIGIA , KHUYENMAI    FROM HOADONs";
+                sql += " WHERE SOHD LIKE @keyword";
+                sql += " OR MAKH LIKE @keyword";
+                sql += " OR TRIGIA LIKE @keyword";
+                sql += " OR KHUYENMAI LIKE @keyword";
                 
-                
-                //command.CommandType = CommandType.Text;
-                //SQLiteCommand cmd = new SQLiteCommand(sql); 
 
-                
-                
+                DataTable dt = new DataTable();
+                SQLiteCommand cmd = new SQLiteCommand(sql, _con);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                string keyword = string.Format("%{0}%", txbSearch);
+                Console.WriteLine(keyword);
+                cmd.Parameters.AddWithValue("@keyword", keyword);
+                _con.Open();
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                dt.Load(reader);
+                _con.Close();
+                return dt;
+            }
+            public DataTable FilterSP(string cxbChon)
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                string sql = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs WHERE LOAISP = @keyword";
+                DataTable dt = new DataTable();
+                SQLiteCommand cmd = new SQLiteCommand(sql, _con);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                string keyword = string.Format("{0}", cxbChon);
+                Console.WriteLine(keyword);
+                cmd.Parameters.AddWithValue("@keyword", keyword);
+                _con.Open();
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 dt.Load(reader);
                 _con.Close();
@@ -110,7 +145,7 @@ namespace PhoneStore.Net.DBClass
 
                 var reader = command.ExecuteReader();
 
-                if (reader != null)
+                if (reader.HasRows)
                 {
                     NGUOIDUNG u = new NGUOIDUNG();
                     while (reader.Read())
