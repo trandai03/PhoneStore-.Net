@@ -5,21 +5,17 @@ using System.Windows;
 
 namespace PhoneStore.Net.View
 {
-    /// <summary>
-    /// Interaction logic for Dang_Nhap.xaml
-    /// </summary>
     public partial class Dang_Nhap : Window
     {
         public Dang_Nhap()
         {
             InitializeComponent();
         }
-
+        
         private void DangNhapClick(object sender, RoutedEventArgs e)
         {
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Password;
-
 
             try
             {
