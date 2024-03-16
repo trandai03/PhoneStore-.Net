@@ -113,6 +113,7 @@ namespace PhoneStore.Net.ViewModel
                 p.MaSP.Text = "";
                 Uri fileUri = new Uri(_localLink + "/Resource/Image/add.png");
                 p.HinhAnh.Source = new BitmapImage(fileUri);
+                p.Close();
             }
         }
     }

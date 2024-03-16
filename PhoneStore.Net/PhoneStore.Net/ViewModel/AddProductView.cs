@@ -65,7 +65,29 @@ namespace PhoneStore.Net.ViewModel
                 Uri fileUri = new Uri(linkimage);
                 img.Source = new BitmapImage(fileUri);
             }
+        }
+        bool check(string m, NewProduct p)
+        {
+            SQLiteConnection con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+            con.Open();
+            string checkExistQuery = "SELECT COUNT(*) FROM SANPHAMs WHERE MASP = @masp";
+            SQLiteCommand checkExistCommand = new SQLiteCommand(checkExistQuery, con);
+            checkExistCommand.Parameters.AddWithValue("@masp", p.MaSp.Text);
 
+            int dem = Convert.ToInt32(checkExistCommand.ExecuteScalar());
+            checkExistCommand.ExecuteNonQuery();
+            if (dem > 0) return true;
+            else return false;
+        }
+        string rdma(NewProduct p)
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "SP" + rand.Next(0, 10000).ToString();
+            } while (check(ma, p));
+            return ma;
         }
         void _AddProduct(NewProduct p)
         {
@@ -105,7 +127,6 @@ namespace PhoneStore.Net.ViewModel
 
                         string fileName = Path.GetFileName(linkimage);
                         string link_sp = "/Resource/ImgProduct/" + fileName;
-
 
 
                         string query = "INSERT INTO SANPHAMs(MASP, TENSP, GIA, MOTA, SL, LOAISP, SIZE, HINHSP) VALUES(@masp, @tensp, @gia, @mota, @sl, @loaisp, @size, @hinhsp)";

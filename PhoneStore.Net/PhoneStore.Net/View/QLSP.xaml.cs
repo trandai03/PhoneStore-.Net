@@ -30,13 +30,12 @@ namespace PhoneStore.Net.View
     public partial class QLSP 
     {
         SANPHAM sp = new SANPHAM();
+        string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
         public QLSP()
         {
             InitializeComponent();
             LoadData();
         }
-        
-
         
         private void LoadData()
         {
@@ -56,7 +55,6 @@ namespace PhoneStore.Net.View
         private void LoadData1()
 
         {
-            string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
             SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
             _con.Open();
             string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE, MOTA FROM SANPHAMs";
@@ -83,26 +81,31 @@ namespace PhoneStore.Net.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NewProduct newProduct = new NewProduct();
+            newProduct.MaSp.Text = rdma(newProduct);
             newProduct.ShowDialog();
             LoadData();
         }
-        bool check(string m)
+        bool check(string m, NewProduct p)
         {
-            foreach (SANPHAM temp in DataProvider.Instance.selectQLSP())
-            {
-                if (temp.MASP == m)
-                    return true;
-            }
-            return false;
+            SQLiteConnection con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+            con.Open();
+            string checkExistQuery = "SELECT COUNT(*) FROM SANPHAMs WHERE MASP = @masp";
+            SQLiteCommand checkExistCommand = new SQLiteCommand(checkExistQuery, con);
+            checkExistCommand.Parameters.AddWithValue("@masp", p.MaSp.Text);
+
+            int dem = Convert.ToInt32(checkExistCommand.ExecuteScalar());
+            checkExistCommand.ExecuteNonQuery();
+            if (dem > 0) return true;
+            else return false;
         }
-        string rdma()
+        string rdma(NewProduct p)
         {
             string ma;
             do
             {
                 Random rand = new Random();
-                ma = "PD" + rand.Next(0, 10000).ToString();
-            } while (check(ma));
+                ma = "SP" + rand.Next(0, 10000).ToString();
+            } while (check(ma, p));
             return ma;
         }
 
@@ -130,6 +133,7 @@ namespace PhoneStore.Net.View
                 DataRowView selectedSanpham = (DataRowView)dtSanPham.SelectedItem;
                 if(selectedSanpham != null)
                 {
+                
                 Detail_product detail_sp = new Detail_product();
                 detail_sp.MaSPValue = selectedSanpham["MASP"].ToString();
                 detail_sp.TenSPValue = selectedSanpham["TENSP"].ToString();
