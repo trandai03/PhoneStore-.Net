@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace PhoneStore.Net.View
     /// 
     public partial class QLNV : Page
     {
+        string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
         public QLNV()
         {
             InitializeComponent();
@@ -46,9 +48,33 @@ namespace PhoneStore.Net.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddEmployee addEmployee = new AddEmployee();
+            addEmployee.MaND.Text = rdma(addEmployee);
             addEmployee.ShowDialog();
+            LoadData();
         }
+        bool check(string m, AddEmployee p)
+        {
+            SQLiteConnection con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+            con.Open();
+            string checkExistQuery = "SELECT COUNT(*) FROM NGUOIDUNGs WHERE MAND = @mand";
+            SQLiteCommand checkExistCommand = new SQLiteCommand(checkExistQuery, con);
+            checkExistCommand.Parameters.AddWithValue("@mand", p.MaND.Text);
 
+            int dem = Convert.ToInt32(checkExistCommand.ExecuteScalar());
+            checkExistCommand.ExecuteNonQuery();
+            if (dem > 0) return true;
+            else return false;
+        }
+        string rdma(AddEmployee p)
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "ND" + rand.Next(0, 10000).ToString();
+            } while (check(ma, p));
+            return ma;
+        }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             try

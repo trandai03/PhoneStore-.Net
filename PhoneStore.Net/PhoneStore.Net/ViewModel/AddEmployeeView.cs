@@ -66,6 +66,27 @@ namespace PhoneStore.Net.ViewModel
             }
             return true;
         }
+        bool check(string m, AddEmployee p)
+        {
+            string checkExistQuery = "SELECT COUNT(*) FROM NGUOIDUNGs WHERE MAND = @mand";
+            SQLiteCommand checkExistCommand = new SQLiteCommand(checkExistQuery, con);
+            checkExistCommand.Parameters.AddWithValue("@mand", p.MaND.Text);
+
+            int dem = Convert.ToInt32(checkExistCommand.ExecuteScalar());
+            checkExistCommand.ExecuteNonQuery();
+            if (dem > 0) return true;
+            else return false;
+        }
+        string rdma(AddEmployee p)
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "ND" + rand.Next(0, 10000).ToString();
+            } while (check(ma, p));
+            return ma;
+        }
         void _AddND(AddEmployee addNDView)
         {
             MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn thêm người dùng ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
@@ -77,16 +98,6 @@ namespace PhoneStore.Net.ViewModel
                     return;
                 }
 
-                string checkExistQuery = "SELECT COUNT(*) FROM NGUOIDUNGs WHERE MAND = @mand";
-                SQLiteCommand checkExistCommand = new SQLiteCommand(checkExistQuery, con);
-                checkExistCommand.Parameters.AddWithValue("@mand", addNDView.MaND.Text);
-                int existingCount = Convert.ToInt32(checkExistCommand.ExecuteScalar());
-                if (existingCount > 0)
-                {
-                    MessageBox.Show("Mã người dùng đã tồn tại!", "THÔNG BÁO");
-                    return;
-                }
-                checkExistCommand.ExecuteNonQuery();
 
                 string check_query = "SELECT COUNT(*) FROM NGUOIDUNGs WHERE USERNAME = @user";
                 SQLiteCommand checkCommand = new SQLiteCommand(check_query, con);

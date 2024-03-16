@@ -81,6 +81,7 @@
                                 materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
                                 Width="190"
                                 Style="{StaticResource MaterialDesignFilledTextBox}"
+                                IsEnabled="False"
                                 VerticalAlignment="Top"
                                 AcceptsReturn="True"
                                 TextWrapping="Wrap"
