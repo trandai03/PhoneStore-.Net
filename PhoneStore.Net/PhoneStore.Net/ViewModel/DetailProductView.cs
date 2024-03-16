@@ -31,9 +31,9 @@ namespace PhoneStore.Net.ViewModel
         public string linkimage { get => _linkimage; set { _linkimage = value; } }
         public ICommand UpdateProduct { get; set; }
         public ICommand AddImage { get; set; }
-        private string TenSP1;
         public ICommand Loadwd { get; set; }
         public ICommand DeleteProduct { get; set; }
+        public string getImage;
         public DetailProductView()
         {
             UpdateProduct = new RelayCommand<Detail_product>((p) => true, (p) => _UpdateProduct(p));
@@ -47,7 +47,6 @@ namespace PhoneStore.Net.ViewModel
             con = new SQLiteConnection($"Data Source = {databaseName}; Version=3;");
             con.Open();
         }
-
         void _AddImage(Image img)
         {
             OpenFileDialog open = new OpenFileDialog();
@@ -56,6 +55,10 @@ namespace PhoneStore.Net.ViewModel
             {
                 linkimage = open.FileName;
             };
+            if(linkimage == null)
+            {
+                linkimage = _localLink + "/Resource/Image/add.png";
+            }
                 Uri fileUri = new Uri(linkimage);
                 img.Source = new BitmapImage(fileUri);
         }

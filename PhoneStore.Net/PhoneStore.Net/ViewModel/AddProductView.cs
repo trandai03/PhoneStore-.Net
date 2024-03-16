@@ -83,12 +83,11 @@ namespace PhoneStore.Net.ViewModel
 
                 int existingCount = Convert.ToInt32(checkExistCommand.ExecuteScalar());
                 checkExistCommand.ExecuteNonQuery();
-                if (existingCount > 0)
+                if(existingCount > 0)
                 {
                     MessageBox.Show("Mã sản phẩm đã tồn tại !", "THÔNG BÁO");
+                    return;
                 }
-                else
-                {
                     MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn thêm sản phẩm mới ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
                     if (h == MessageBoxResult.Yes)
                     {
@@ -131,7 +130,7 @@ namespace PhoneStore.Net.ViewModel
                         Uri fileUri = new Uri(_localLink + "/Resource/Image/add.png");
                         p.HinhAnh.Source = new BitmapImage(fileUri);
                     }
-                }
+                
                 p.Close();
             }
         }
