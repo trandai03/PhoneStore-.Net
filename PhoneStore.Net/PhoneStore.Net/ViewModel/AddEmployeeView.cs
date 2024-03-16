@@ -92,7 +92,7 @@ namespace PhoneStore.Net.ViewModel
             MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn thêm người dùng ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
-                if (String.IsNullOrEmpty(addNDView.MaND.Text) || String.IsNullOrEmpty(addNDView.TenND.Text) || String.IsNullOrEmpty(addNDView.SDT.Text) || String.IsNullOrEmpty(addNDView.GT.Text) || String.IsNullOrEmpty(addNDView.QTV.Text) || addNDView.NS.SelectedDate == null || String.IsNullOrEmpty(addNDView.User.Text) || String.IsNullOrEmpty(addNDView.Password.Text))
+                if (String.IsNullOrEmpty(addNDView.MaND.Text) || String.IsNullOrEmpty(addNDView.TenND.Text) || String.IsNullOrEmpty(addNDView.SDT.Text) || String.IsNullOrEmpty(addNDView.GT.Text) || String.IsNullOrEmpty(addNDView.QTV.Text) || addNDView.NS.SelectedDate == null || String.IsNullOrEmpty(addNDView.User.Text) || String.IsNullOrEmpty(addNDView.Password.Text) || linkaddimage == _localLink + "/Resource/Image/addava.png")
                 {
                     MessageBox.Show("Bạn chưa nhập đầy đủ thông tin !", "THÔNG BÁO");
                     return;
@@ -124,11 +124,8 @@ namespace PhoneStore.Net.ViewModel
                     return;
                 }
 
-                string link_img_temp = "";
-                if (linkaddimage == "/Resource/Image/addava.png")
-                    link_img_temp = "/Resource/Image/addava.png";
-                else
-                    link_img_temp = "/Resource/Ava/" + addNDView.MaND.Text + ((linkaddimage.Contains(".jpg")) ? ".jpg" : ".png").ToString();
+                string fileName = Path.GetFileName(linkaddimage);
+                string link_img_temp = "/Resource/avatar/" + fileName;
 
                 bool check = true ;
                 if(addNDView.QTV.Text == "Quản lý")
@@ -170,6 +167,7 @@ namespace PhoneStore.Net.ViewModel
                 Uri fileUri = new Uri(linkaddimage);
                 addNDView.HinhAnh1.ImageSource = new BitmapImage(fileUri);
             }
+            addNDView.Close();
         }
     }
 }

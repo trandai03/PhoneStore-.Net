@@ -162,6 +162,9 @@
     <Compile Include="View\Dang_Nhap.xaml.cs">
       <DependentUpon>Dang_Nhap.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Detail_NhanVien.xaml.cs">
+      <DependentUpon>Detail_NhanVien.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Detail_product.xaml.cs">
       <DependentUpon>Detail_product.xaml</DependentUpon>
     </Compile>
@@ -219,6 +222,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Dang_Nhap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Detail_NhanVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -326,6 +333,9 @@
     <Resource Include="Resource\ImgProduct\product_PD862.jpg" />
     <Resource Include="Resource\ImgProduct\product_PD8708.jpg" />
     <Resource Include="Resource\ImgProduct\product_PD9969.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\avatar\Login1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

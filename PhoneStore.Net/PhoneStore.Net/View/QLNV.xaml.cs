@@ -19,10 +19,6 @@ using PhoneStore.Net.Model;
 using PhoneStore.Net.View;
 namespace PhoneStore.Net.View
 {
-    /// <summary>
-    /// Interaction logic for QLNV.xaml
-    /// </summary>
-    /// 
     public partial class QLNV : Page
     {
         string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
@@ -35,7 +31,7 @@ namespace PhoneStore.Net.View
         {
             try
             {
-                string query = "SELECT TENND , GIOITINH , DIACHI , SDT  , MAIL FROM NGUOIDUNGs";
+                string query = "SELECT MAND, TENND, GIOITINH , NGSINH, DIACHI , SDT, MAIL, USERNAME, PASS, QTV, AVA FROM NGUOIDUNGs";
                 DataTable dataTable = DBConnect.DataProvider.Instance.Sql_select(query);
                 dtNhanVien.ItemsSource = dataTable.DefaultView;
 
@@ -90,6 +86,34 @@ namespace PhoneStore.Net.View
             catch (Exception ex)
             {
                 MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message);
+            }
+        }
+
+        private void dtNhanVien_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataRowView selectedNhanvien = (DataRowView)dtNhanVien.SelectedItem;
+            if (selectedNhanvien != null)
+            {
+
+                Detail_NhanVien detail_nv = new Detail_NhanVien();
+                detail_nv.MaNDValue = selectedNhanvien["MAND"].ToString();
+                detail_nv.TenNDValue = selectedNhanvien["TENND"].ToString();
+                detail_nv.NSValue = (DateTime)selectedNhanvien["NGSINH"];
+                detail_nv.GTValue = selectedNhanvien["GIOITINH"].ToString();
+                detail_nv.SDTValue = selectedNhanvien["SDT"].ToString();
+                detail_nv.DiaChiValue = selectedNhanvien["DIACHI"].ToString();
+                detail_nv.UserValue = selectedNhanvien["USERNAME"].ToString();
+                detail_nv.PassValue = selectedNhanvien["PASS"].ToString();
+                detail_nv.QTVValue = (bool)selectedNhanvien["QTV"];
+                detail_nv.MailValue = selectedNhanvien["MAIL"].ToString();
+                detail_nv.AvaValue = selectedNhanvien["AVA"].ToString();
+                detail_nv.UpdateData();
+                detail_nv.ShowDialog();
+                LoadData();
+            }
+            else
+            {
+
             }
         }
     }

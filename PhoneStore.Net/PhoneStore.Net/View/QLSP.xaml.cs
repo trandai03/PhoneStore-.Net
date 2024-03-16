@@ -24,9 +24,6 @@ using Xamarin.Forms;
 
 namespace PhoneStore.Net.View
 {
-    /// <summary>
-    /// Interaction logic for QLSP.xaml
-    /// </summary>
     public partial class QLSP 
     {
         SANPHAM sp = new SANPHAM();
