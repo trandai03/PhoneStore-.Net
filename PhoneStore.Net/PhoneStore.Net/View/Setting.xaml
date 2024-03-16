@@ -74,7 +74,7 @@
                         <Button HorizontalAlignment="Center" Margin="0,185,0,0" 
                                 VerticalAlignment="Center" BorderBrush="BlanchedAlmond"
                                 Content="Thay Đổi Ảnh" Width="150" Height="40"
-                                Background="LightSkyBlue" Foreground="Black" Click="Button_Click_2">
+                                Background="ForestGreen" Foreground="Black" Click="Button_Click_2">
                         </Button>
 
                         <Grid Grid.Column="1" Margin="0,0,0,0.333" Grid.RowSpan="2">
@@ -151,7 +151,7 @@
                 <Button Width="390" Margin="219,278,35,15"
                         Content="Cập nhât thông tin"
                         Foreground="Black"
-                        Background="LightSkyBlue"
+                        Background="ForestGreen"
                         FontFamily="Time New Romans" Click="Button_Click"/>
             </Grid>
 
@@ -195,7 +195,7 @@
 
                         <Button VerticalAlignment="Top" Margin="30,20" 
                                 Height="42" Content="Đổi mật khẩu" Width="128"
-                                Foreground="Black" Background="LightSkyBlue" Click="Button_Click_1">
+                                Foreground="Black" Background="ForestGreen" Click="Button_Click_1">
                         </Button>
                     </StackPanel>
                 </StackPanel>
