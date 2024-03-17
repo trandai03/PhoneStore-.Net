@@ -1,11 +1,12 @@
 ﻿<Page x:Class="PhoneStore.Net.View.Phieu_nhap_hang"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:PhoneStore.Net.View"
-      mc:Ignorable="d" d:DesignWidth="800"
-      Title="Phieu_nhap_hang" Height="512">
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Phieu_nhap_hang">
 
     <Border
         x:Name="xx"
@@ -22,9 +23,9 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <StackPanel 
-                        Orientation="Horizontal" 
-                        HorizontalAlignment="Right" 
+                <StackPanel
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Margin="0,0,10,0"
                         >
@@ -70,16 +71,17 @@
                                 <TextBlock
                             Margin="8,0,0,0"
                             Text="THỜI GIAN"
-                            
+                           
                         />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
                                     <TextBox
                                 x:Name="Ngay"
                                 HorizontalAlignment="Left"
-                                
+                             AcceptsReturn="True"
+                               
                                 BorderThickness="0"
                                
-                                IsEnabled="False"
+                                IsEnabled="True"
                                
                             ></TextBox>
                                 </Border>
@@ -91,12 +93,14 @@
                            
                         />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                    <TextBox IsEnabled="False"
+                                    <TextBox
+                                        IsReadOnly="False"
                             x:Name="MaPN"
                             HorizontalAlignment="Left"
-                            
+                             AcceptsReturn="True"
+                           
                             BorderThickness="0"
-                            
+                           
                             ></TextBox>
                                 </Border>
                             </StackPanel>
@@ -115,21 +119,21 @@
                             <TextBlock
                         Margin="0,10,0,5"
                         Text="CHI TIẾT PHIẾU NHẬP"
-                        
+                       
                         HorizontalAlignment="Center"
                         />
                             <StackPanel Orientation="Vertical">
                                 <TextBlock
                             Margin="8,0,0,0"
                             Text="TÊN SP | DUNG LƯỢNG"
-                          
+                         
                         />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
                                     <ComboBox
                                 Margin="4,0,0,0"
                                 x:Name="SP"
                                 BorderThickness="0"
-                                
+                               
                                 ItemsSource="{Binding LSP}"
                                 >
                                         <ComboBox.ItemTemplate>
@@ -140,13 +144,13 @@
                                                 Text="|"
                                                 Margin="4,0,4,0"
                                                 />
-                                                    <TextBlock 
+                                                    <TextBlock
                                                 Text="{Binding SIZE}"/>
                                                     <TextBlock
                                                 Text="|"
                                                 Margin="4,0,4,0"
                                                 />
-                                                    <TextBlock 
+                                                    <TextBlock
                                                 Text="{Binding SL}"/>
                                                 </StackPanel>
                                             </DataTemplate>
@@ -163,13 +167,13 @@
                                     <TextBlock
                             Margin="8,0,0,0"
                             Text="SỐ LƯỢNG"
-                            
+                           
                             />
                                     <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
                                         <TextBox
                                     x:Name="SL"
                                     HorizontalAlignment="Left"
-                                    
+                                   
                                     BorderThickness="0"
                                    
                                 ></TextBox>
@@ -187,9 +191,9 @@
                                         <TextBox
                                     x:Name="DG" IsEnabled="False"
                                     HorizontalAlignment="Left"
-                                    
+                                   
                                     BorderThickness="0"
-                                    
+                                   
                                 ></TextBox>
                                     </Border>
                                 </StackPanel>
@@ -261,7 +265,7 @@
                             HorizontalAlignment="Left"
                             Text="TÊN SP"
                             VerticalAlignment="Center"
-                            
+                           
                             FontSize="12"
                         />
                             </Grid>
@@ -280,7 +284,7 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             MaxWidth="150"
-                            
+                           
                             FontSize="12"
                         />
                             </Grid>
@@ -290,13 +294,13 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             MaxWidth="150"
-                            
+                           
                             FontSize="12"
                         />
                             </Grid>
                         </Grid>
                     </Border>
-                    <ListView x:Name="ListViewSP" 
+                    <ListView x:Name="ListViewSP"
                   SelectionMode="Single"
                   ScrollViewer.VerticalScrollBarVisibility="Hidden"
                   Height="56"
@@ -323,7 +327,7 @@
                         Text="{Binding MaSp}"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        
+                       
                         FontSize="12"
                         />
                                         </Grid>
@@ -333,7 +337,7 @@
                                         HorizontalAlignment="Left"
                                         Text="{Binding TenSP}"
                                         VerticalAlignment="Center"
-                                        
+                                       
                                         FontSize="12"
                                     />
                                         </Grid>
@@ -342,7 +346,7 @@
                                         Text="{Binding Size}"
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Center"
-                                        
+                                       
                                         FontSize="12"
                                     />
                                         </Grid>
@@ -358,11 +362,11 @@
                                         </Grid>
                                         <Grid Grid.Column="4">
                                             <TextBlock
-                                      
+                                     
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Center"
                                         MaxWidth="150"
-                                        
+                                       
                                         FontSize="12"
                                     />
                                         </Grid>
@@ -393,7 +397,7 @@
                     <TextBlock
                 Foreground="Black"
                 Text="TỔNG TIỀN: "
-                
+               
                 FontSize="16"
                 />
                 </Grid>
@@ -401,7 +405,7 @@
                     <TextBlock
                 Foreground="Black"
                 x:Name="TT"
-                
+               
                 FontSize="16"
                 />
                 </Grid>
@@ -410,7 +414,7 @@
                     Content="XÁC NHẬN"
                     FontSize="16"
                     Background="AliceBlue"
-                    x:Name="ttbtn" Margin="41,0,38,14" Grid.Column="3" Foreground="#DD000000"
+                    x:Name="ttbtn" Margin="41,0,38,14" Grid.Column="3" Foreground="#DD000000" Click="XacNhan"
                         />
                 <Button                            
                     BorderThickness="0"

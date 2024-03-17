@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PhoneStore.Net.DBClass;
+using PhoneStore.Net.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +29,15 @@ namespace PhoneStore.Net.View
 
         private void deletebtn_Click(object sender, RoutedEventArgs e)
         {
+        }
 
+        public void XacNhan(object sender, RoutedEventArgs e)
+        {
+            PHIEUNHAP phieu = new PHIEUNHAP();
+            phieu.MAPN = int.Parse(MaPN.Text);
+            phieu.MAND = "1";
+            phieu.NGAYNHAP = DateTime.Parse(Ngay.Text);
+            DBConnect.DataProvider.Instance.NhapPhieu(phieu);
         }
     }
 }

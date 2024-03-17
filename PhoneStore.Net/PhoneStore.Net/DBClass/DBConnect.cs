@@ -7,12 +7,13 @@ using System.Windows;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Data.SqlClient;
+using PhoneStore.Net.View;
 
 namespace PhoneStore.Net.DBClass
 {
     internal class DBConnect
     {
-        public class DataProvider 
+        public class DataProvider
         {
             string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
             SQLiteConnection _con = new SQLiteConnection();
@@ -27,7 +28,7 @@ namespace PhoneStore.Net.DBClass
                 }
                 private set { DataProvider.instance = value; }
             }
-            
+
             public DataTable Sql_select(string sql_querry)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
@@ -103,7 +104,7 @@ namespace PhoneStore.Net.DBClass
                 sql += " OR HINHSP LIKE @keyword";
                 DataTable dt = new DataTable();
                 SQLiteCommand cmd = new SQLiteCommand(sql, _con);
-                cmd.CommandType =  CommandType.Text;
+                cmd.CommandType = CommandType.Text;
                 cmd.CommandText = sql;
                 cmd.Parameters.Clear();
                 string keyword = string.Format("%{0}%", txbSearch);
@@ -172,7 +173,6 @@ namespace PhoneStore.Net.DBClass
                 sql += " OR MAKH LIKE @keyword";
                 sql += " OR TRIGIA LIKE @keyword";
                 sql += " OR KHUYENMAI LIKE @keyword";
-                
 
                 DataTable dt = new DataTable();
                 SQLiteCommand cmd = new SQLiteCommand(sql, _con);
@@ -188,6 +188,7 @@ namespace PhoneStore.Net.DBClass
                 _con.Close();
                 return dt;
             }
+
             public DataTable FilterSP(string cxbChon)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
@@ -206,10 +207,9 @@ namespace PhoneStore.Net.DBClass
                 _con.Close();
                 return dt;
             }
-            public List<SANPHAM> selectQLSP()
 
+            public List<SANPHAM> selectQLSP()
             {
-               
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
                 _con.Open();
                 string query = "SELECT * FROM SANPHAMs";
@@ -233,6 +233,7 @@ namespace PhoneStore.Net.DBClass
 
                 return SANPHAMS;
             }
+
             public NGUOIDUNG checkUser(string username, string password)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
@@ -253,7 +254,8 @@ namespace PhoneStore.Net.DBClass
                         try
                         {
                             u.MAND = reader.GetString(0);
-                        }catch (Exception ex) { }
+                        }
+                        catch (Exception ex) { }
                         try
                         {
                             u.TENND = reader.GetString(1);
@@ -349,10 +351,7 @@ namespace PhoneStore.Net.DBClass
         }
 
         public static string StartupPath { get; }
-        
-        
-        
-        
+
         public DBConnect() { }
     }
 }
