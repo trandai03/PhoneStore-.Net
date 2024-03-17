@@ -86,12 +86,12 @@ namespace PhoneStore.Net.View
         {
             SQLiteConnection con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
             con.Open();
-            string checkExistQuery = "SELECT COUNT(*) FROM SANPHAMs WHERE MASP = @masp";
-            SQLiteCommand checkExistCommand = new SQLiteCommand(checkExistQuery, con);
-            checkExistCommand.Parameters.AddWithValue("@masp", p.MaSp.Text);
+            string query = "SELECT COUNT(*) FROM SANPHAMs WHERE MASP = @masp";
+            SQLiteCommand cmd = new SQLiteCommand(query, con);
+            cmd.Parameters.AddWithValue("@masp", p.MaSp.Text);
 
-            int dem = Convert.ToInt32(checkExistCommand.ExecuteScalar());
-            checkExistCommand.ExecuteNonQuery();
+            int dem = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.ExecuteNonQuery();
             if (dem > 0) return true;
             else return false;
         }
