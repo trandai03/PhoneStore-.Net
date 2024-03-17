@@ -29,6 +29,7 @@ namespace PhoneStore.Net.DBClass
             
             public DataTable Sql_select(string sql_querry)
             {
+                Console.WriteLine($"Data Source={databaseName}");
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
                 _con.Open();
                 DataTable dt = new DataTable();
@@ -88,6 +89,12 @@ namespace PhoneStore.Net.DBClass
                 _con.Close();
                 return dt;
             }
+
+            public DataTable NhapDH()
+            {
+                return null;
+            }
+
             public DataTable FilterSP(string cxbChon)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
