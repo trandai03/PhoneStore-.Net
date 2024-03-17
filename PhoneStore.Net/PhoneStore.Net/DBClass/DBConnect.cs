@@ -6,12 +6,13 @@ using System;
 using System.Windows;
 using System.Collections.Generic;
 using System.Windows.Controls;
+using PhoneStore.Net.View;
 
 namespace PhoneStore.Net.DBClass
 {
     internal class DBConnect
     {
-        public class DataProvider 
+        public class DataProvider
         {
             string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
             SQLiteConnection _con = new SQLiteConnection();
@@ -26,10 +27,9 @@ namespace PhoneStore.Net.DBClass
                 }
                 private set { DataProvider.instance = value; }
             }
-            
+
             public DataTable Sql_select(string sql_querry)
             {
-                Console.WriteLine($"Data Source={databaseName}");
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
                 _con.Open();
                 DataTable dt = new DataTable();
@@ -38,6 +38,22 @@ namespace PhoneStore.Net.DBClass
                 dt.Load(reader);
                 _con.Close();
                 return dt;
+            }
+
+            public void NhapPhieu(PHIEUNHAP phieu)
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                _con.Open();
+                string query = $"INSERT INTO PHIEUNHAPs (MAPN, MAND, NGAYNHAP) VALUES ({phieu.MAPN}, '{phieu.MAND}', '{phieu.NGAYNHAP.ToString("yyyy-MM-dd HH:mm:ss")}');";
+
+                Console.WriteLine(query);
+                SQLiteCommand cmd = new SQLiteCommand(query, _con);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = query;
+                cmd.Parameters.Clear();
+                cmd.ExecuteNonQuery();
+
+                _con.Close();
             }
 
             public DataTable Sql_selectSearch(string txbSearch)
@@ -50,30 +66,6 @@ namespace PhoneStore.Net.DBClass
                 sql += " OR LOAISP LIKE @keyword";
                 sql += " OR SIZE LIKE @keyword";
                 sql += " OR SL LIKE @keyword";
-
-                DataTable dt = new DataTable();
-                SQLiteCommand cmd = new SQLiteCommand(sql, _con);
-                cmd.CommandType =  CommandType.Text;
-                cmd.CommandText = sql;
-                cmd.Parameters.Clear();
-                string keyword = string.Format("%{0}%", txbSearch);
-                Console.WriteLine(keyword);
-                cmd.Parameters.AddWithValue("@keyword", keyword);
-                _con.Open();
-                SQLiteDataReader reader = cmd.ExecuteReader();
-                dt.Load(reader);
-                _con.Close();
-                return dt;
-            }
-            public DataTable searchDH(string txbSearch)
-            {
-                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
-                string sql = "SELECT SOHD ,MAKH , NGHD , TRIGIA , KHUYENMAI    FROM HOADONs";
-                sql += " WHERE SOHD LIKE @keyword";
-                sql += " OR MAKH LIKE @keyword";
-                sql += " OR TRIGIA LIKE @keyword";
-                sql += " OR KHUYENMAI LIKE @keyword";
-                
 
                 DataTable dt = new DataTable();
                 SQLiteCommand cmd = new SQLiteCommand(sql, _con);
@@ -90,9 +82,28 @@ namespace PhoneStore.Net.DBClass
                 return dt;
             }
 
-            public DataTable NhapDH()
+            public DataTable searchDH(string txbSearch)
             {
-                return null;
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                string sql = "SELECT SOHD ,MAKH , NGHD , TRIGIA , KHUYENMAI    FROM HOADONs";
+                sql += " WHERE SOHD LIKE @keyword";
+                sql += " OR MAKH LIKE @keyword";
+                sql += " OR TRIGIA LIKE @keyword";
+                sql += " OR KHUYENMAI LIKE @keyword";
+
+                DataTable dt = new DataTable();
+                SQLiteCommand cmd = new SQLiteCommand(sql, _con);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                string keyword = string.Format("%{0}%", txbSearch);
+                Console.WriteLine(keyword);
+                cmd.Parameters.AddWithValue("@keyword", keyword);
+                _con.Open();
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                dt.Load(reader);
+                _con.Close();
+                return dt;
             }
 
             public DataTable FilterSP(string cxbChon)
@@ -113,10 +124,9 @@ namespace PhoneStore.Net.DBClass
                 _con.Close();
                 return dt;
             }
-            public List<SANPHAM> selectQLSP()
 
+            public List<SANPHAM> selectQLSP()
             {
-               
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
                 _con.Open();
                 string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE, MOTA, HINHSP FROM SANPHAMs";
@@ -140,6 +150,7 @@ namespace PhoneStore.Net.DBClass
 
                 return SANPHAMS;
             }
+
             public NGUOIDUNG checkUser(string username, string password)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
@@ -160,7 +171,8 @@ namespace PhoneStore.Net.DBClass
                         try
                         {
                             u.MAND = reader.GetString(0);
-                        }catch (Exception ex) { }
+                        }
+                        catch (Exception ex) { }
                         try
                         {
                             u.TENND = reader.GetString(1);
@@ -256,10 +268,7 @@ namespace PhoneStore.Net.DBClass
         }
 
         public static string StartupPath { get; }
-        
-        
-        
-        
+
         public DBConnect() { }
     }
 }
