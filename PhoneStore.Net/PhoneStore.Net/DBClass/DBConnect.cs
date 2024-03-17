@@ -92,14 +92,15 @@ namespace PhoneStore.Net.DBClass
             public DataTable SearchSP(string txbSearch)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
-                string sql = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs";
+                string sql = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE, MOTA, HINHSP FROM SANPHAMs";
                 sql += " WHERE MASP LIKE @keyword";
                 sql += " OR TENSP LIKE @keyword";
                 sql += " OR GIA LIKE @keyword";
                 sql += " OR LOAISP LIKE @keyword";
                 sql += " OR SIZE LIKE @keyword";
                 sql += " OR SL LIKE @keyword";
-
+                sql += " OR MOTA LIKE @keyword";
+                sql += " OR HINHSP LIKE @keyword";
                 DataTable dt = new DataTable();
                 SQLiteCommand cmd = new SQLiteCommand(sql, _con);
                 cmd.CommandType =  CommandType.Text;
@@ -190,7 +191,7 @@ namespace PhoneStore.Net.DBClass
             public DataTable FilterSP(string cxbChon)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
-                string sql = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE FROM SANPHAMs WHERE LOAISP = @keyword";
+                string sql = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE, MOTA, HINHSP FROM SANPHAMs WHERE LOAISP = @keyword";
                 DataTable dt = new DataTable();
                 SQLiteCommand cmd = new SQLiteCommand(sql, _con);
                 cmd.CommandType = CommandType.Text;

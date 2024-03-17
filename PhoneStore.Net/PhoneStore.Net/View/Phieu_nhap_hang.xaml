@@ -4,9 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PhoneStore.Net.View"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Phieu_nhap_hang">
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="Phieu_nhap_hang" Height="512">
 
     <Border
         x:Name="xx"
@@ -300,7 +299,7 @@
                     <ListView x:Name="ListViewSP" 
                   SelectionMode="Single"
                   ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                  Height="220"
+                  Height="56"
                 >
                         <ListView.ItemTemplate>
                             <DataTemplate>
