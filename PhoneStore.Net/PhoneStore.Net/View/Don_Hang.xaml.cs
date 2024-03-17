@@ -25,9 +25,10 @@ namespace PhoneStore.Net.View
         public Don_Hang()
         {
             InitializeComponent();
+            Language = System.Windows.Markup.XmlLanguage.GetLanguage("vi-VN");
             LoadData();
         }
-
+        
         private void LoadData()
         {
             
