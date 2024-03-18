@@ -249,21 +249,6 @@ namespace PhoneStore.Net.DBClass
                 return SANPHAMS;
             }
 
-            public void NhapPhieu(PHIEUNHAP phieu)
-            {
-                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
-                _con.Open();
-                string query = $"INSERT INTO PHIEUNHAPs (MAPN, MAND, NGAYNHAP) VALUES ({phieu.MAPN}, '{phieu.MAND}', '{phieu.NGAYNHAP.ToString("yyyy-MM-dd HH:mm:ss")}');";
-
-                Console.WriteLine(query);
-                SQLiteCommand cmd = new SQLiteCommand(query, _con);
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = query;
-                cmd.Parameters.Clear();
-                cmd.ExecuteNonQuery();
-
-                _con.Close();
-            }
             
             public NGUOIDUNG checkUser(string username, string password)
             {
