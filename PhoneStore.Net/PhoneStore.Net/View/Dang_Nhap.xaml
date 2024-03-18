@@ -35,7 +35,7 @@
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <Image Source="/Resource/avatar/Dang_Nhaap.jpg" HorizontalAlignment="Left" Height="367" VerticalAlignment="Top" Width="359" Margin="15,-17,0,0" Stretch="Fill"/>
+                    <Image Source="/Resource/avatar/Dang_Nhaap.jpg" HorizontalAlignment="Left" Height="265" VerticalAlignment="Top" Width="380" Stretch="Fill"/>
                 </Grid>
             </Grid>
             <Border Background="AliceBlue"
@@ -52,7 +52,7 @@
                             <materialDesign:PackIcon Kind="WindowMinimize" Foreground="Black" 
                                                      Height="24" Width="24" Margin="0,0,8,0"
                                                      MouseDoubleClick="Minimize_Window"
-                                                     Cursor="Hand">     
+                                                     Cursor="Hand">
                             </materialDesign:PackIcon>
                             <materialDesign:PackIcon Kind="CloseThick" Foreground="Black" 
                                                      Height="24" Width="24"
@@ -83,7 +83,7 @@
                              MaxWidth="400"
                              Margin="0,0,0,10"                          
                              />
-                            
+
                             <PasswordBox x:Name="PasswordTextBox"
                              Style="{StaticResource MaterialDesignFilledPasswordBox}"
                              VerticalAlignment="Top"
@@ -96,7 +96,7 @@
                              FontWeight="Bold"
                              materialDesign:HintAssist.Hint="MẬT KHẨU"               
                              />
-                            
+
                             <Button
                              Content="ĐĂNG NHẬP"
                              Height="47"
