@@ -134,12 +134,16 @@ namespace PhoneStore.Net.DBClass
             public DataTable SearchNV(string txbSearch)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
-                string sql = "SELECT MAPN ,MAND , NGAYNHAP FROM PHIEUNHAPs";
-                sql += " WHERE MAPN LIKE @keyword";
-                sql += " OR MAND LIKE @keyword";
+                string sql = "SELECT MAND, TENND, GIOITINH , NGSINH, DIACHI , SDT, MAIL, USERNAME, PASS, QTV, AVA FROM NGUOIDUNGs";
+                sql += " WHERE MAND LIKE @keyword";
+                sql += " OR TENND LIKE @keyword";
+                sql += " OR GIOITINH LIKE @keyword";
                 sql += " OR DIACHI LIKE @keyword";
+                sql += " OR SDT LIKE @keyword";
+                sql += " OR MAIL LIKE @keyword";
                 
-                
+
+
 
                 DataTable dt = new DataTable();
                 SQLiteCommand cmd = new SQLiteCommand(sql, _con);
@@ -247,22 +251,6 @@ namespace PhoneStore.Net.DBClass
                 }
 
                 return SANPHAMS;
-            }
-
-            public void NhapPhieu(PHIEUNHAP phieu)
-            {
-                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
-                _con.Open();
-                string query = $"INSERT INTO PHIEUNHAPs (MAPN, MAND, NGAYNHAP) VALUES ({phieu.MAPN}, '{phieu.MAND}', '{phieu.NGAYNHAP.ToString("yyyy-MM-dd HH:mm:ss")}');";
-
-                Console.WriteLine(query);
-                SQLiteCommand cmd = new SQLiteCommand(query, _con);
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = query;
-                cmd.Parameters.Clear();
-                cmd.ExecuteNonQuery();
-
-                _con.Close();
             }
             
             public NGUOIDUNG checkUser(string username, string password)

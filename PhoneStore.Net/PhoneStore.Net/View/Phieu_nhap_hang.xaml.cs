@@ -20,7 +20,7 @@ namespace PhoneStore.Net.View
     /// <summary>
     /// Interaction logic for Phieu_nhap_hang.xaml
     /// </summary>
-    public partial class Phieu_nhap_hang : Page
+    public partial class Phieu_nhap_hang : Window
     {
         public Phieu_nhap_hang()
         {
