@@ -46,9 +46,9 @@
                     <ColumnDefinition/>
 
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,363,-19">
+                <Grid Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,363,36">
                     <Border
-                    Margin="20,0,20,-27"
+                    Margin="20,0,20,-37"
                     Background="White"
                     CornerRadius="15"
                     >
@@ -71,21 +71,13 @@
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBox
-                                            Height="30"
-                                            x:Name="MaND"
-                                            Width="290"
-                                            BorderThickness="2"
-                                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                            materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-    
-                                            materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                                            materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet"
-                                        />
+                                    <ComboBox x:Name="MaND"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,0,0,0">
+                                        
+                                    </ComboBox>
                                 </StackPanel>
 
                             </StackPanel>
-                            <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Vertical" Margin="0,5,0,0">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock
                                         Margin="8,0,0,0"
@@ -110,7 +102,7 @@
 
                             </StackPanel>
                             <StackPanel Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                                     <TextBlock
                                         Margin="8,0,0,0"
                                         Text="TÊN KHÁCH HÀNG"
@@ -134,7 +126,7 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                                     <TextBlock
                                         Margin="8,0,0,0"
                                         Text="SỐ ĐIỆN THOẠI"
@@ -156,7 +148,7 @@
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                                     <TextBlock
                                         Margin="8,0,0,0"
                                         Text="SỐ HÓA ĐƠN"
@@ -177,27 +169,7 @@
 />
                                 </StackPanel>
                             </StackPanel>
-                            <StackPanel Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock
-                                        Margin="8,0,0,0"
-                                        Text="NGÀY HÓA ĐƠN"
-                                        />
-                                </StackPanel>
-
-                                <StackPanel Orientation="Horizontal">
-                                    
-                                        <DatePicker   
-                                            materialDesign:HintAssist.Foreground="Black"
-                                            materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
-                                            Foreground="Black" x:Name="NgayHD"
-                                            
-                                            Focusable="False"
-                                             Style="{StaticResource MaterialDesignFilledDatePicker}" Width="286"/>          
-                                    
-                                    
-                                </StackPanel>
-                            </StackPanel>
+                            
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -227,21 +199,14 @@
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBox
-                                        Height="30"
-                                        x:Name="MaSP"
-                                        Width="290"
-                                        BorderThickness="2"
-                                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                        materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-    
-                                        materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                                        materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet" 
-                                    />
+                                    <ComboBox x:Name="MaSP"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,0,0,0" SelectionChanged="MaSP_SelectionChanged">
+
+                                    </ComboBox>
+                                    
                                 </StackPanel>
 
                             </StackPanel>
-                            <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Vertical" Margin="0,5,0,0">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock
                                         Margin="8,0,0,0"
@@ -258,14 +223,14 @@
                                         BorderThickness="2"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-    
+                                        
                                         materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
                                         materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet"
                                     />
                                 </StackPanel>
 
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                                 <StackPanel Orientation="Vertical">
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock
@@ -279,7 +244,7 @@
                                         <TextBox
                                             Height="30"
                                             x:Name="SL"
-                                            Width="132"
+                                            Width="280"
                                             BorderThickness="2"
                                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                             materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
@@ -290,30 +255,7 @@
                                     </StackPanel>
 
                                 </StackPanel>
-                                <StackPanel Orientation="Vertical">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock
-                                            Margin="18,0,0,0"
-                                            Text="KHUYẾN MÃI"
-                                            />
-
-                                    </StackPanel>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBox
-                                            Height="30"
-                                            x:Name="km"
-                                            Width="132"
-                                            BorderThickness="2"
-                                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                            materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-    
-                                            materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                                            materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet" Margin="15,0,0,0"
-                                        />
-                                    </StackPanel>
-
-                                </StackPanel>
+                                
                             </StackPanel>
                             <StackPanel
                                 Margin="20"
@@ -372,7 +314,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
-                <ComboBox x:Name="combobox1" HorizontalAlignment="Left" Margin="596,70,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="combobox1_SelectionChanged"/>
+                
             </Grid>
             <Grid Grid.Row="4"
                       Margin="0,4,0,0"

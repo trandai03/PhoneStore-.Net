@@ -1,7 +1,9 @@
 ﻿using PhoneStore.Net.DBClass;
+using PhoneStore.Net.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +24,7 @@ namespace PhoneStore.Net.View
     /// </summary>
     public partial class Don_Hang : Page
     {
+        string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
         public Don_Hang()
         {
             InitializeComponent();
@@ -82,10 +85,74 @@ namespace PhoneStore.Net.View
 
             }
         }
+        private List<HOADON> List_HD()
+        {
+            SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+            _con.Open();
+            string query = "SELECT * FROM HOADONs";
+            SQLiteCommand cmd = new SQLiteCommand(query, _con);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            List<HOADON> HDs = new List<HOADON>();
+            while (reader.Read())
+            {
+                HDs.Add(new HOADON()
+                {
+                    SOHD = reader.GetInt32(0),
+                    NGHD = reader.GetDateTime(3),
+                    TRIGIA = reader.GetInt32(4),
+                });
+            }
+            _con.Close();
+            return HDs;
+        }
+        string rdma_SOHD()
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = rand.Next(0, 10000).ToString();
+            } while (check_SOHD(ma));
+            return ma;
+        }
+        bool check_SOHD(string s)
+        {
 
+            foreach (HOADON x in List_HD())
+            {
+                if (x.SOHD.ToString() == s)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        bool check_MAKH(string s)
+        {
+            foreach (KHACHHANG x in DBConnect.DataProvider.Instance.List_KH())
+            {
+                if (x.MAKH == s)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        string rdma_MAKH()
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "KH" + rand.Next(0, 10000).ToString();
+            } while (check_MAKH(ma));
+            return ma;
+        }
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
             Nhap_hoa_don nhap = new Nhap_hoa_don();
+            nhap.MaKH.Text = rdma_MAKH();
+            nhap.SoHD.Text = rdma_SOHD();
             nhap.ShowDialog();
         }
     }
