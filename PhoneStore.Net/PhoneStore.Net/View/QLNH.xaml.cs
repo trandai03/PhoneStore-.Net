@@ -1,4 +1,5 @@
-﻿using PhoneStore.Net.DBClass;
+﻿using MaterialDesignThemes.Wpf;
+using PhoneStore.Net.DBClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -60,6 +61,12 @@ namespace PhoneStore.Net.View
             {
                 MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message);
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Phieu_nhap_hang phieu = new Phieu_nhap_hang();
+            phieu.ShowDialog();
         }
     }
 }

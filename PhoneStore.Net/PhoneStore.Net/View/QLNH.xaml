@@ -14,7 +14,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Label Content="QUẢN LÝ NHẬP HÀNG" HorizontalAlignment="Left" Margin="57,19,0,0" VerticalAlignment="Top" Width="510" Height="57" IsEnabled="False" FontSize="36" Background="White" Foreground="Black" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center"/>
-        <Button Content="Thêm" HorizontalAlignment="Left" Margin="583,104,0,0" VerticalAlignment="Top" Width="67" Height="37" Background="#FF9B00FF" RenderTransformOrigin="0.5,0.5">
+        <Button Content="Thêm" HorizontalAlignment="Left" Margin="583,104,0,0" VerticalAlignment="Top" Width="67" Height="37" Background="#FF9B00FF" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

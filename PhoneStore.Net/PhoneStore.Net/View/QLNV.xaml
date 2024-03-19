@@ -42,9 +42,10 @@
             <ComboBoxItem
                   Content="Windows" />
         </ComboBox>
-        <DataGrid ItemsSource="{Binding dtNhanVien }"  Name="dtNhanVien" Margin="83,231,57,49" AutoGenerateColumns="False" SelectionChanged="dtNhanVien_SelectionChanged">
+        <DataGrid ItemsSource="{Binding dtNhanVien }"  Name="dtNhanVien" Margin="83,231,29,49" AutoGenerateColumns="False" SelectionChanged="dtNhanVien_SelectionChanged">
             <DataGrid.Columns>
-                
+                <DataGridTextColumn Header="Mã Nhân Viên" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MAND}"/>
+
                 <DataGridTextColumn Header="Họ và Tên" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding TENND}"/>
                 <DataGridTextColumn Header="Giới tính" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding GIOITINH}"/>
                 <DataGridTextColumn Header="Địa chỉ" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding DIACHI}"/>

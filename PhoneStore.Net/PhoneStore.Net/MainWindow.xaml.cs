@@ -77,9 +77,14 @@ namespace PhoneStore.Net
 
         private void Dang_Xuat(object sender, RoutedEventArgs e)
         {
-            Dang_Nhap d = new Dang_Nhap();
-            d.Show();
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Xác nhận đăng xuất", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes) {
+                
+                Dang_Nhap d = new Dang_Nhap();
+                d.Show();
+                this.Close();             
+            }
+
         }
     }
 }

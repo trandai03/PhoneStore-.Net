@@ -1,4 +1,4 @@
-﻿<Page x:Class="PhoneStore.Net.View.Phieu_nhap_hang"
+﻿<Window x:Class="PhoneStore.Net.View.Phieu_nhap_hang"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -425,4 +425,4 @@
             </Grid>
         </Grid>
     </Border>
-</Page>
+</Window>

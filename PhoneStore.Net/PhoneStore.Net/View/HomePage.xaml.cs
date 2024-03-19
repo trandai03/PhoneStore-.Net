@@ -63,8 +63,8 @@ namespace PhoneStore.Net.View
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={databaseName};Version=3;"))
             {
                 connection.Open();
-                //string Query = $"SELECT COUNT(*) FROM HOADONs WHERE strftime('%d', NGHD) = '{DateTime.Now.Day}' AND strftime('%m', NGHD) = '{DateTime.Now.Month}' AND strftime('%Y', NGHD) = '{DateTime.Now.Year}'";
-                string Query = $"SELECT COUNT(*) FROM HOADONs";
+                string Query = $"SELECT COUNT(*) FROM HOADONs WHERE HOADONs.NGHD = DATE('{DateTime.Now:yyyy-MM-dd}')";
+
                 using (SQLiteCommand command = new SQLiteCommand(Query, connection))
                 {
                     int count = Convert.ToInt32(command.ExecuteScalar());
@@ -78,8 +78,7 @@ namespace PhoneStore.Net.View
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={databaseName};Version=3;"))
             {
                 connection.Open();
-                //string Query = $"SELECT SUM(TRIGIA) FROM HOADONs WHERE strftime('%d', NGHD) = '{DateTime.Now.Day}' AND strftime('%m', NGHD) = '{DateTime.Now.Month}' AND strftime('%Y', NGHD) = '{DateTime.Now.Year}'";
-                string Query = $"SELECT SUM(TRIGIA) FROM HOADONs";
+                string Query = $"SELECT SUM(TRIGIA) FROM HOADONs WHERE HOADONs.NGHD = DATE('{DateTime.Now:yyyy-MM-dd}')";
 
                 using (SQLiteCommand command = new SQLiteCommand(Query, connection))
                 {
@@ -96,8 +95,8 @@ namespace PhoneStore.Net.View
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={databaseName};Version=3;"))
             {
                 connection.Open();
-                //string Query = $"SELECT SUM(CTHDs.SL) FROM CTHDs JOIN HOADONs ON CTHDs.SOHD = HOADONs.SOHD WHERE strftime('%d', HOADONs.NGHD) = '{DateTime.Now.Day}' AND strftime('%m', HOADONs.NGHD) = '{DateTime.Now.Month}' AND strftime('%Y', HOADONs.NGHD) = '{DateTime.Now.Year}'";
-                string Query = $"SELECT SUM(CTHDs.SL) FROM CTHDs JOIN HOADONs ON CTHDs.SOHD = HOADONs.SOHD";
+                string Query = $"SELECT SUM(CTHDs.SL) FROM CTHDs JOIN HOADONs ON CTHDs.SOHD = HOADONs.SOHD WHERE HOADONs.NGHD = DATE('{DateTime.Now:yyyy-MM-dd}')";
+
                 using (SQLiteCommand command = new SQLiteCommand(Query, connection))
                 {
                     object result = command.ExecuteScalar();
