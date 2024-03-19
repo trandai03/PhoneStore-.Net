@@ -322,7 +322,7 @@
                             <DataGridTextColumn Header="Dung lượng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SIZE}"/>
 
                             <DataGridTextColumn Header="Số lượng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SL}"/>
-                            <DataGridTextColumn Header="Thành Tiền" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SIZE}"/>
+                            <DataGridTextColumn Header="Thành Tiền" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding THANHTIEN}"/>
 
                         </DataGrid.Columns>
                     </DataGrid>

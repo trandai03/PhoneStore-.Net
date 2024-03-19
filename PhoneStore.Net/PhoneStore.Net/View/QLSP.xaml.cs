@@ -134,7 +134,7 @@ namespace PhoneStore.Net.View
                 Detail_product detail_sp = new Detail_product();
                 detail_sp.MaSPValue = selectedSanpham["MASP"].ToString();
                 detail_sp.TenSPValue = selectedSanpham["TENSP"].ToString();
-                detail_sp.GiaSPValue = string.Format("{0:0,0}", selectedSanpham["GIA"].ToString()) + " VNĐ";
+                detail_sp.GiaSPValue = selectedSanpham["GIA"].ToString();
                 detail_sp.MotaValue = selectedSanpham["MOTA"].ToString();
                 detail_sp.SLSPValue = selectedSanpham["SL"].ToString();
                 detail_sp.LoaiSPValue = selectedSanpham["LOAISP"].ToString();

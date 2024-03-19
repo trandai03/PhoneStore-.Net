@@ -16,6 +16,7 @@ namespace PhoneStore.Net.View
     {
         private SQLiteConnection con;
         private string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
+        
         public Nhap_hoa_don()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace PhoneStore.Net.View
         {
             try
             {
-                string query = "SELECT MASP, TENSP,GIA,SL,LOAISP,SIZE, MOTA, HINHSP FROM SANPHAMs where SL > 0";
+                string query = "SELECT s1.MASP, s1.TENSP, s1.SIZE, s1.GIA, ct.SL, ct.SOHD, (s1.GIA * ct.SL) AS THANHTIEN FROM SANPHAMs AS s1 INNER JOIN CTHDs AS ct ON s1.MASP = ct.MASP";
                 DataTable dataTable = Sql_select(query);
                 dtHoaDon.ItemsSource = dataTable.DefaultView;
             }
@@ -69,12 +70,37 @@ namespace PhoneStore.Net.View
             _con.Close();
             return NDs;
         }
+
+        private List<SANPHAM> List_SP()
+        {
+            SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+            _con.Open();
+            string query = "SELECT * FROM SANPHAMs";
+            SQLiteCommand cmd = new SQLiteCommand(query, _con);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            List<SANPHAM> SPs = new List<SANPHAM>();
+            while (reader.Read())
+            {
+                SPs.Add(new SANPHAM()
+                {
+                    MASP = reader.GetString(0),
+                    TENSP = reader.GetString(1),
+                    GIA = reader.GetInt32(2),
+                    SL = reader.GetInt32(5),
+                    LOAISP = reader.GetString(6),
+                    SIZE = reader.GetString(7),
+                }) ;
+            }
+            _con.Close();
+            return SPs;
+        }
         private DataTable Sql_select(string sql_querry)
         {
             SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
             _con.Open();
             DataTable dt = new DataTable();
             SQLiteCommand cmd = new SQLiteCommand(sql_querry, _con);
+            cmd.Parameters.AddWithValue("@sohd", SoHD.Text);
             SQLiteDataReader reader = cmd.ExecuteReader();
             Console.WriteLine(reader.ToString());
             dt.Load(reader);
@@ -104,13 +130,19 @@ namespace PhoneStore.Net.View
         }
         private void addbtn_Click(object sender, RoutedEventArgs e)
         {
+            string query = "INSERT INTO CTHDs(SOHD, MASP, SL) VALUES(@sohd, @masp, @sl)";
+            SQLiteCommand command = new SQLiteCommand(query, con);
+            command.Parameters.AddWithValue("@sohd", SoHD.Text);
+            command.Parameters.AddWithValue("@masp", MaSP.Text);
+            command.Parameters.AddWithValue("@sl", SL.Text);
+            MessageBox.Show("Them thanh cong");
+            command.ExecuteNonQuery();
             LoadData();
         }
 
         private void deletebtn_Click(object sender, RoutedEventArgs e)
         {
             
-
         }
 
         private void ttbtn_Click(object sender, RoutedEventArgs e)
