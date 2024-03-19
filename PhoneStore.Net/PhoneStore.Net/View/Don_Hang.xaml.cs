@@ -37,7 +37,7 @@ namespace PhoneStore.Net.View
                 DataTable dataTable = DBConnect.DataProvider.Instance.Sql_select(query);
                 dtDonHang.ItemsSource = dataTable.DefaultView;
                 Console.WriteLine(dataTable.DefaultView);
-                MessageBox.Show(dataTable.DefaultView.ToString());
+                
             }
             catch(Exception ex)
             {

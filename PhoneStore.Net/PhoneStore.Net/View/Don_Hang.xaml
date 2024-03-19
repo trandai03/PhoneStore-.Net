@@ -40,7 +40,7 @@ materialDesign:HintAssist.Hint="Khuyến Mãi" Margin="455,106,130,0" VerticalAl
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Số HD" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SOHD}"/>
                 <DataGridTextColumn Header="Mã Khách Hàng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MAKH}"/>
-                <DataGridTextColumn Header="Ngày Bán" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding NGHD}"/>
+                <DataGridTextColumn Header="Ngày Bán" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding NGHD ,StringFormat=dd/MM/yyyy }"/>
                 <DataGridTextColumn Header="Trị Giá" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding TRIGIA}"/>
                 <DataGridTextColumn Header="Khuyến Mãi" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding KHUYENMAI}"/>
 

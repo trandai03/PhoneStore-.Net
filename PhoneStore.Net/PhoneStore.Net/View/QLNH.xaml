@@ -45,7 +45,7 @@ materialDesign:HintAssist.Hint="Bộ Lọc" Margin="455,106,130,0" VerticalAlign
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã Phiếu Nhập" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MAPN}"/>
                 <DataGridTextColumn Header="Người Nhập" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MAND}"/>
-                <DataGridTextColumn Header="Ngày Nhập" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding NGAYNHAP}"/>
+                <DataGridTextColumn Header="Ngày Nhập" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding NGAYNHAP ,StringFormat=dd/MM/yyyy }"/>
                 
             </DataGrid.Columns>
         </DataGrid>
