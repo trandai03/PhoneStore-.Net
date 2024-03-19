@@ -372,6 +372,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
+                <ComboBox x:Name="combobox1" HorizontalAlignment="Left" Margin="596,70,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="combobox1_SelectionChanged"/>
             </Grid>
             <Grid Grid.Row="4"
                       Margin="0,4,0,0"

@@ -83,6 +83,10 @@ namespace PhoneStore.Net.View
             }
         }
 
-        
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Nhap_hoa_don nhap = new Nhap_hoa_don();
+            nhap.ShowDialog();
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace PhoneStore.Net.View
             InitializeComponent();
             ConnectToDatabase();
             LoadData();
+            Load_CombboBox();
         }
         private void ConnectToDatabase()
         {
@@ -45,7 +46,25 @@ namespace PhoneStore.Net.View
             }
         }
         
+        public void Load_CombboBox()
+        {
+            SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+            _con.Open();
+            string query = "SELECT MASP  FROM SANPHAMs";
+            SQLiteCommand cmd = new SQLiteCommand(query, _con);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string masp = reader.GetString(0);
+                combobox1.Items.Add(masp);
+            }
+            _con.Close();
+        }
+        private void combobox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+            DG.Text = combobox1.SelectedItem.ToString();
+        }
         private List<SANPHAM> List_SP()
         {
             SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
