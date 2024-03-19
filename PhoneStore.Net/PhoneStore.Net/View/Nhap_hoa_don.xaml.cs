@@ -45,7 +45,25 @@ namespace PhoneStore.Net.View
                 MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message);
             }
         }
-        
+
+        private void MaSP_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(MaSP.SelectedItem != null)
+            {
+                foreach (SANPHAM x in List_SP())
+                {
+                    if (x.MASP == MaSP.SelectedItem.ToString())
+                    {
+                        DG.Text = x.GIA.ToString();
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("KHONG");
+            }
+
+        }
         public void Load_CombboBox()
         {
             SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
@@ -56,15 +74,20 @@ namespace PhoneStore.Net.View
             while (reader.Read())
             {
                 string masp = reader.GetString(0);
-                combobox1.Items.Add(masp);
+                MaSP.Items.Add(masp);
+            }
+            string sql = "SELECT MAND FROM NGUOIDUNGs";
+            SQLiteCommand command = new SQLiteCommand(sql, _con);
+            SQLiteDataReader read = command.ExecuteReader();
+            while (read.Read())
+            {
+                string mand = read.GetString(0);
+                MaND.Items.Add(mand);
             }
             _con.Close();
         }
-        private void combobox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-            DG.Text = combobox1.SelectedItem.ToString();
-        }
+        
         private List<SANPHAM> List_SP()
         {
             SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
@@ -122,31 +145,50 @@ namespace PhoneStore.Net.View
             _con.Close();
             return dt;
         }
+
+        string rdma_SOHD()
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "HD" + rand.Next(0, 10000).ToString();
+            } while (check_SOHD(ma));
+            return ma;
+        }
         bool check_SOHD(string s)
         {
-            int dem = 0;
+            
             foreach(HOADON x in List_HD())
             {
                 if(x.SOHD.ToString() == s)
                 {
-                    dem++;
+                    return true;
                 }
             }
-            return dem == 1;
+            return false;
         }
         bool check_MAKH(string s)
         {
-            int dem = 0;
             foreach (KHACHHANG x in DBConnect.DataProvider.Instance.List_KH())
             {
                 if (x.MAKH == s)
                 {
-                    dem++;
+                    return true;
                 }
             }
-            return dem == 1;
+            return false;
         }
-
+        string rdma_MAKH()
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "KH" + rand.Next(0, 10000).ToString();
+            } while (check_MAKH(ma));
+            return ma;
+        }
         private void addbtn_Click(object sender, RoutedEventArgs e)
         {
             if (MaSP.Text == "")
@@ -175,21 +217,12 @@ namespace PhoneStore.Net.View
                 MessageBox.Show("Bạn chưa chọn khách hàng !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if(MaND.Text == "")
+            if(MaND.SelectedItem == null)
             {
                 MessageBox.Show("Bạn chưa chọn người dùng !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if(km.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập khuyển mãi !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if(NgayHD.SelectedDate == null)
-            {
-                MessageBox.Show("Bạn chưa nhập ngày hóa đơn !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            
             SANPHAM temp = null;
             bool ok = false;
             foreach(SANPHAM x in List_SP())
@@ -205,6 +238,7 @@ namespace PhoneStore.Net.View
                 MessageBox.Show("Không tồn tại mã sản phẩm này", "Thông báo");
                 return;
             }
+
             if(temp.SL >= int.Parse(SL.Text))
             {
                 MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn thêm sản phẩm này ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
@@ -218,18 +252,19 @@ namespace PhoneStore.Net.View
                         cmd.Parameters.AddWithValue("@sdt", SDT.Text);
                         cmd.ExecuteNonQuery();
                     }
-                    if(check_SOHD(SoHD.Text) == false)
+                    if (check_SOHD(SoHD.Text) == false)
                     {
                         string sql = "INSERT INTO HOADONs(SOHD, NGHD, TRIGIA, MAND, MAKH, KHUYENMAI) VALUES(@sohd, @nghd, @trigia, @mand, @makh, @km)";
                         SQLiteCommand cmd = new SQLiteCommand(sql, con);
                         cmd.Parameters.AddWithValue("@sohd", SoHD.Text);
-                        cmd.Parameters.AddWithValue("@nghd", NgayHD.SelectedDate);
+                        cmd.Parameters.AddWithValue("@nghd", DateTime.Now);
                         cmd.Parameters.AddWithValue("@trigia", 0);
                         cmd.Parameters.AddWithValue("@mand", MaND.Text);
                         cmd.Parameters.AddWithValue("@makh", MaKH.Text);
-                        cmd.Parameters.AddWithValue("@km", km.Text);
+                        cmd.Parameters.AddWithValue("@km", 0);
                         cmd.ExecuteNonQuery();
                     }
+                    
                     string query = "INSERT INTO CTHDs(SOHD, MASP, SL) VALUES(@sohd, @masp, @sl)";
                     SQLiteCommand command = new SQLiteCommand(query, con);
                     command.Parameters.AddWithValue("@sohd", SoHD.Text);
@@ -238,6 +273,7 @@ namespace PhoneStore.Net.View
                     MessageBox.Show("Them thanh cong", "THÔNG BÁO");
                     command.ExecuteNonQuery();
                     MaSP.Text = "";
+                    DG.Text = "";
                     SL.Text = "";
                     LoadData();
                 }
@@ -282,10 +318,8 @@ namespace PhoneStore.Net.View
                 SQLiteCommand command = new SQLiteCommand(query, con);
                 command.Parameters.AddWithValue("@sohd", SoHD.Text);
                 command.Parameters.AddWithValue("@mand", MaND.Text);
-                command.Parameters.AddWithValue("@makh", MaKH.Text);
-                command.Parameters.AddWithValue("@nghd", NgayHD.Text);
                 command.Parameters.AddWithValue("@dongia", DG.Text);
-                command.Parameters.AddWithValue("@km", km.Text);
+                command.Parameters.AddWithValue("@km", 0);
                 command.ExecuteNonQuery();
                 MessageBox.Show("Thêm hóa đơn thành công !", "THÔNG BÁO");
             }
