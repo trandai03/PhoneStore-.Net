@@ -226,7 +226,34 @@ namespace PhoneStore.Net.DBClass
                 _con.Close();
                 return dt;
             }
+            public DataTable FilterDH(int cxbChon)
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                string sql = "SELECT SOHD ,MAKH , NGHD , TRIGIA , KHUYENMAI    FROM HOADONs"; ;
+                if(cxbChon == 1)
+                {
+                     sql = "SELECT SOHD ,MAKH , NGHD , TRIGIA , KHUYENMAI    FROM HOADONs WHERE KHUYENMAI > 0";
+                }
+                else if(cxbChon ==2)
+                {
+                     sql = "SELECT SOHD ,MAKH , NGHD , TRIGIA , KHUYENMAI    FROM HOADONs WHERE KHUYENMAI = 0";
 
+                }
+                
+                DataTable dt = new DataTable();
+                SQLiteCommand cmd = new SQLiteCommand(sql, _con);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sql;
+                cmd.Parameters.Clear();
+                string keyword = string.Format("{0}", cxbChon);
+                Console.WriteLine(keyword);
+                cmd.Parameters.AddWithValue("@keyword", keyword);
+                _con.Open();
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                dt.Load(reader);
+                _con.Close();
+                return dt;
+            }
             public List<SANPHAM> selectQLSP()
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");

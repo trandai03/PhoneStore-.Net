@@ -51,12 +51,7 @@ namespace PhoneStore.Net.View
         }
 
 
-        private void cbxChon1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-
-            DataTable dataTable = DBConnect.DataProvider.Instance.FilterSP(cbxChon1.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last());
-            dtDonHang.ItemsSource = dataTable.DefaultView;
-        }
+        
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -76,15 +71,7 @@ namespace PhoneStore.Net.View
             }
         }
 
-        private void cbxChon1_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-            DataTable dataTable = DBConnect.DataProvider.Instance.FilterSP(cbxChon1.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last());
-            dtDonHang.ItemsSource = dataTable.DefaultView;
-            switch (cbxChon1.SelectedIndex.ToString())
-            {
-
-            }
-        }
+        
         private List<HOADON> List_HD()
         {
             SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
@@ -155,5 +142,21 @@ namespace PhoneStore.Net.View
             nhap.SoHD.Text = rdma_SOHD();
             nhap.ShowDialog();
         }
+
+        private void cbxChon1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbxChon1.SelectedIndex != 0)
+            {
+                
+                DataTable dataTable = DBConnect.DataProvider.Instance.FilterDH(cbxChon1.SelectedIndex);
+                dtDonHang.ItemsSource = dataTable.DefaultView;
+            }
+            else
+            {
+                LoadData();
+            }
+        }
+
+        
     }
 }
