@@ -7,8 +7,8 @@
       xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" ResizeMode="NoResize"
-      Title="Nhap_hoa_don" Height="650" 
-      Width="727" WindowStartupLocation="CenterScreen">
+      Title="Nhap_hoa_don" Height="814" 
+      Width="776" WindowStartupLocation="CenterScreen">
 
     <Border x:Name="xx" CornerRadius="15" Background="AliceBlue">
 
@@ -40,14 +40,15 @@
                 VerticalAlignment="Center"
                 />
             </Grid>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="2" Margin="0,0,0,303" Grid.RowSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
+                <Grid Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,363,-19">
                     <Border
-                    Margin="20,0,20,0"
+                    Margin="20,0,20,-27"
                     Background="White"
                     CornerRadius="15"
                     >
@@ -89,7 +90,7 @@
                                     <TextBlock
                                         Margin="8,0,0,0"
                                         Text="MÃ KH"
-                                        />  
+                                        />
 
                                 </StackPanel>
 
@@ -109,17 +110,17 @@
 
                             </StackPanel>
                             <StackPanel Orientation="Vertical">
-                                    <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
                                     <TextBlock
                                         Margin="8,0,0,0"
-                                        Text="THỜI GIAN"
-                                        />  
+                                        Text="TÊN KHÁCH HÀNG"
+                                        />
                                 </StackPanel>
 
-                            <StackPanel Orientation="Horizontal">
-                                <TextBox
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox
                                     Height="30"
-                                    x:Name="NgayHD"
+                                    x:Name="TenKH"
                                     Width="290"
                                     BorderThickness="2"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -128,16 +129,38 @@
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
                                     materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet"
                             />
-                            </StackPanel>
+                                </StackPanel>
 
-                        </StackPanel>
+                            </StackPanel>
 
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock
                                         Margin="8,0,0,0"
+                                        Text="SỐ ĐIỆN THOẠI"
+                                        />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox
+                                        Height="30"
+                                        x:Name="SDT"
+                                        Width="290"
+                                        BorderThickness="2"
+                                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                        materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+    
+                                        materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
+                                        materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet"
+                                        />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        Margin="8,0,0,0"
                                         Text="SỐ HÓA ĐƠN"
-                                        />  
+                                        />
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
@@ -154,12 +177,33 @@
 />
                                 </StackPanel>
                             </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        Margin="8,0,0,0"
+                                        Text="NGÀY HÓA ĐƠN"
+                                        />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    
+                                        <DatePicker   
+                                            materialDesign:HintAssist.Foreground="Black"
+                                            materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
+                                            Foreground="Black" x:Name="NgayHD"
+                                            
+                                            Focusable="False"
+                                             Style="{StaticResource MaterialDesignFilledDatePicker}" Width="286"/>          
+                                    
+                                    
+                                </StackPanel>
+                            </StackPanel>
                         </StackPanel>
                     </Border>
                 </Grid>
                 <Grid Grid.Column="1">
                     <Border
-                    Margin="20,0,20,0"
+                    Margin="20,0,20,25"
                     Background="White"
                     CornerRadius="15"
                     >
@@ -178,7 +222,7 @@
                                     <TextBlock
                                         Margin="8,0,0,0"
                                         Text="MÃ SẢN PHẨM"
-                                        />  
+                                        />
 
                                 </StackPanel>
 
@@ -202,7 +246,7 @@
                                     <TextBlock
                                         Margin="8,0,0,0"
                                         Text="ĐƠN GIÁ"
-                                        />  
+                                        />
 
                                 </StackPanel>
 
@@ -227,7 +271,7 @@
                                         <TextBlock
                                             Margin="8,0,0,0"
                                             Text="SỐ LƯỢNG"
-                                            />          
+                                            />
 
                                     </StackPanel>
 
@@ -251,7 +295,7 @@
                                         <TextBlock
                                             Margin="18,0,0,0"
                                             Text="KHUYẾN MÃI"
-                                            />      
+                                            />
 
                                     </StackPanel>
 
@@ -303,11 +347,12 @@
                         </StackPanel>
                     </Border>
                 </Grid>
-            </Grid>
-            <Grid Grid.Row="3">
-                <StackPanel>
 
-                    <DataGrid ItemsSource="{Binding dtHoadon }" Background="White" AutoGenerateColumns="False"  x:Name="dtHoaDon" Height="216" Width="456" RenderTransformOrigin="0.5,0.5"    >
+
+            </Grid>
+            <Grid Grid.Row="3" >
+                <StackPanel Margin="0,98,0,0">
+                    <DataGrid ItemsSource="{Binding dtHoadon}" Background="White" AutoGenerateColumns="False"  x:Name="dtHoaDon" Height="272" Width="481" RenderTransformOrigin="0.5,0.5">
                         <DataGrid.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -317,8 +362,8 @@
                             </TransformGroup>
                         </DataGrid.RenderTransform>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Mã SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MASP}"/>
-                            <DataGridTextColumn Header="Tên SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding TENSP}"/>
+                            <DataGridTextColumn Header="Mã SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MASP}" />
+                            <DataGridTextColumn Header="Tên SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding TENSP}" />
                             <DataGridTextColumn Header="Dung lượng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SIZE}"/>
 
                             <DataGridTextColumn Header="Số lượng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SL}"/>
@@ -329,8 +374,8 @@
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="4"
-              Margin="0,11,0,0"
-              >
+                      Margin="0,4,0,0"
+                      >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -338,17 +383,29 @@
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="2"
-                  HorizontalAlignment="Right"
-                  >
-                    <StackPanel Margin="-221,42,222,14">
+                      HorizontalAlignment="Right"
+                      >
+                    <StackPanel>
+
                         <TextBlock
-                        Foreground="Black"
-                        Text="THÀNH TIỀN : "
-                        FontSize="16"
+                            Foreground="Black"
+                            Text="THÀNH TIỀN: "
+                            FontSize="16"
+                            Margin="0,10,0,0"
+                            />
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="3">
+                    <StackPanel>
+                        <TextBlock
+                            Foreground="White"
+                            x:Name="TT"
+                            Margin="0,10,30,0"
+                            FontSize="16"
+                            HorizontalAlignment="Right"
                     />
                     </StackPanel>
                 </Grid>
-                <Grid Grid.Column="3"/>
             </Grid>
         </Grid>
     </Border>

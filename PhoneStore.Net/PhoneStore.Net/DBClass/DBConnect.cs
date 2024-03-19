@@ -252,7 +252,26 @@ namespace PhoneStore.Net.DBClass
 
                 return SANPHAMS;
             }
-            
+            public List<KHACHHANG> List_KH()
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                _con.Open();
+                string query = "SELECT * FROM KHACHHANGs";
+                SQLiteCommand cmd = new SQLiteCommand(query, _con);
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                List<KHACHHANG> KHs = new List<KHACHHANG>();
+                while (reader.Read())
+                {
+                    KHs.Add(new KHACHHANG()
+                    {
+                        MAKH = reader.GetString(0),
+                        HOTEN = reader.GetString(1),
+                        SDT = reader.GetString(4),
+                    });
+                }
+                _con.Close();
+                return KHs;
+            }
             public NGUOIDUNG checkUser(string username, string password)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
