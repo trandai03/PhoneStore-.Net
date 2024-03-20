@@ -51,8 +51,6 @@ namespace PhoneStore.Net.View
         }
 
 
-        
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             try
@@ -72,26 +70,7 @@ namespace PhoneStore.Net.View
         }
 
         
-        private List<HOADON> List_HD()
-        {
-            SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
-            _con.Open();
-            string query = "SELECT * FROM HOADONs";
-            SQLiteCommand cmd = new SQLiteCommand(query, _con);
-            SQLiteDataReader reader = cmd.ExecuteReader();
-            List<HOADON> HDs = new List<HOADON>();
-            while (reader.Read())
-            {
-                HDs.Add(new HOADON()
-                {
-                    SOHD = reader.GetInt32(0),
-                    NGHD = reader.GetDateTime(3),
-                    TRIGIA = reader.GetInt32(4),
-                });
-            }
-            _con.Close();
-            return HDs;
-        }
+        
         string rdma_SOHD()
         {
             string ma;
@@ -105,7 +84,7 @@ namespace PhoneStore.Net.View
         bool check_SOHD(string s)
         {
 
-            foreach (HOADON x in List_HD())
+            foreach (HOADON x in DBConnect.DataProvider.Instance.List_HD())
             {
                 if (x.SOHD.ToString() == s)
                 {
@@ -140,6 +119,7 @@ namespace PhoneStore.Net.View
             Nhap_hoa_don nhap = new Nhap_hoa_don();
             nhap.MaKH.Text = rdma_MAKH();
             nhap.SoHD.Text = rdma_SOHD();
+            nhap.MaND.Text = MainWindow.user.MAND;
             nhap.ShowDialog();
         }
 

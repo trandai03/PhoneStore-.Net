@@ -254,30 +254,69 @@ namespace PhoneStore.Net.DBClass
                 _con.Close();
                 return dt;
             }
-            public List<SANPHAM> selectQLSP()
+            
+            public List<SANPHAM> List_SP()
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
                 _con.Open();
                 string query = "SELECT * FROM SANPHAMs";
                 SQLiteCommand cmd = new SQLiteCommand(query, _con);
                 SQLiteDataReader reader = cmd.ExecuteReader();
-                List<SANPHAM> SANPHAMS = new List<SANPHAM>();
+                List<SANPHAM> SPs = new List<SANPHAM>();
                 while (reader.Read())
                 {
-                    SANPHAMS.Add(new SANPHAM()
+                    SPs.Add(new SANPHAM()
                     {
                         MASP = reader.GetString(0),
                         TENSP = reader.GetString(1),
                         GIA = reader.GetInt32(2),
-                        MOTA = reader.GetString(3),
-                        HINHSP = reader.GetString(4),
                         SL = reader.GetInt32(5),
                         LOAISP = reader.GetString(6),
                         SIZE = reader.GetString(7),
                     });
                 }
-
-                return SANPHAMS;
+                _con.Close();
+                return SPs;
+            }
+            public List<CTHD> List_CTHD()
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                _con.Open();
+                string query = "SELECT * FROM CTHDs";
+                SQLiteCommand cmd = new SQLiteCommand(query, _con);
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                List<CTHD> CTHDs = new List<CTHD>();
+                while (reader.Read())
+                {
+                    CTHDs.Add(new CTHD()
+                    {
+                        SOHD = reader.GetInt32(0),
+                        MASP = reader.GetString(1),
+                        SL = reader.GetInt32(2),
+                    });
+                }
+                _con.Close();
+                return CTHDs;
+            }
+            public List<HOADON> List_HD()
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                _con.Open();
+                string query = "SELECT * FROM HOADONs";
+                SQLiteCommand cmd = new SQLiteCommand(query, _con);
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                List<HOADON> HDs = new List<HOADON>();
+                while (reader.Read())
+                {
+                    HDs.Add(new HOADON()
+                    {
+                        SOHD = reader.GetInt32(0),
+                        NGHD = reader.GetDateTime(3),
+                        TRIGIA = reader.GetInt32(4),
+                    });
+                }
+                _con.Close();
+                return HDs;
             }
             public List<KHACHHANG> List_KH()
             {
