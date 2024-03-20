@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:PhoneStore.Net.View"
-      mc:Ignorable="d" d:DesignWidth="800"
+      mc:Ignorable="d" d:DesignWidth="700"
       Title="Phieu_nhap_hang" Height="512">
 
     <Border
@@ -66,25 +66,7 @@
                         HorizontalAlignment="Center"
                         />
                             <StackPanel Orientation="Vertical"/>
-                            <StackPanel>
-                                <TextBlock
-                            Margin="8,0,0,0"
-                            Text="THỜI GIAN"
-                           
-                        />
-                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                    <TextBox
-                                x:Name="Ngay"
-                                HorizontalAlignment="Left"
-                             AcceptsReturn="True"
-                               
-                                BorderThickness="0"
-                               
-                                IsEnabled="True"
-                               
-                            ></TextBox>
-                                </Border>
-                            </StackPanel>
+                            <StackPanel/>
                             <StackPanel>
                                 <TextBlock
                             Margin="8,0,0,0"

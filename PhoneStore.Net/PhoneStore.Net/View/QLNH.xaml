@@ -30,17 +30,6 @@
     materialDesign:HintAssist.Hint="Tìm Kiếm"
     Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="83,106,448,0" />
         <Label Content="Danh sách Nhập Hàng" HorizontalAlignment="Left" Margin="83,177,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16" FontWeight="Bold"/>
-        <ComboBox
-materialDesign:HintAssist.Hint="Bộ Lọc" Margin="455,106,130,0" VerticalAlignment="Top" RenderTransformOrigin="1.446,-4.952"  Height="37">
-            <ComboBoxItem
-  Content="Android" />
-            <ComboBoxItem
-  Content="iOS" />
-            <ComboBoxItem
-  Content="Linux" />
-            <ComboBoxItem
-  Content="Windows" />
-        </ComboBox>
         <DataGrid ItemsSource="{Binding dtNhapHang }"  Name="dtNhapHang" Margin="83,231,130,49" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã Phiếu Nhập" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MAPN}"/>

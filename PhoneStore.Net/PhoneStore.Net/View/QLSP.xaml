@@ -33,27 +33,7 @@
         <ComboBox x:Name="cbxChon1"
   materialDesign:HintAssist.Hint="Hãng" Margin="455,106,130,0" VerticalAlignment="Top" RenderTransformOrigin="1.446,-4.952"  Height="37" SelectionChanged="cbxChon1_SelectionChanged">
             
-            <ComboBoxItem Content="Tất cả"/>
-            <ComboBoxItem Content="IPhone"/>
-            <ComboBoxItem Content="Samsung"/>
-            <ComboBoxItem Content="LG"/>
-            <ComboBoxItem Content="Oppo"/>
-            <ComboBoxItem Content="Xiaomi"/>
-            <ComboBoxItem Content="Realme"/>
-            <ComboBoxItem Content="Vivo"/>
-            <ComboBoxItem Content="ASUS"/>
-            <ComboBoxItem Content="NOKIA"/>
-            <ComboBoxItem Content="MASSTEl"/>
-            <ComboBoxItem Content="IPhone"/>
-            <ComboBoxItem Content="Samsung"/>
-            <ComboBoxItem Content="LG"/>
-            <ComboBoxItem Content="Oppo"/>
-            <ComboBoxItem Content="Xiaomi"/>
-            <ComboBoxItem Content="Realme"/>
-            <ComboBoxItem Content="Vivo"/>
-            <ComboBoxItem Content="ASUS"/>
-            <ComboBoxItem Content="NOKIA"/>
-            <ComboBoxItem Content="MASSTEl"/>
+            
         </ComboBox>
         <DataGrid ItemsSource="{Binding dtSanPham }" AutoGenerateColumns="False"  Name="dtSanPham" Margin="83,229,56,51" SelectedCellsChanged="dtSanPham_SelectedCellsChanged"    >
             <DataGrid.Columns>

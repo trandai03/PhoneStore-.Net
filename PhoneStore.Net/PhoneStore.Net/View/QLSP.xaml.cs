@@ -32,6 +32,7 @@ namespace PhoneStore.Net.View
         {
             InitializeComponent();
             LoadData();
+            Load_CombboBox();
         }
         
         private void LoadData()
@@ -48,7 +49,21 @@ namespace PhoneStore.Net.View
                 MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message);
             }
         }
-
+        public void Load_CombboBox()
+        {
+            SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+            _con.Open();
+            string query = "SELECT DISTINCT  LOAISP  FROM SANPHAMs";
+            SQLiteCommand cmd = new SQLiteCommand(query, _con);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string loaisp = reader.GetString(0);
+                cbxChon1.Items.Add(loaisp);
+            }
+            
+            _con.Close();
+        }
         private void LoadData1()
 
         {
