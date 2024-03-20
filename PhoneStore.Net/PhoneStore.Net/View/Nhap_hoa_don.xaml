@@ -53,7 +53,7 @@
                     CornerRadius="15"
                     >
                         <StackPanel
-                        Margin="10"
+                        Margin="10,10,10,-10"
                         >
                             <TextBlock
                             Margin="0,10,0,5"
@@ -71,9 +71,17 @@
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
-                                    <ComboBox x:Name="MaND"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,0,0,0">
-                                        
-                                    </ComboBox>
+                                    <TextBox
+                                        Height="30"
+                                        x:Name="MaND"
+                                        Width="290"
+                                        BorderThickness="2"
+                                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                        materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+    
+                                        materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
+                                        materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet"
+                                />  
                                 </StackPanel>
 
                             </StackPanel>
@@ -175,7 +183,7 @@
                 </Grid>
                 <Grid Grid.Column="1">
                     <Border
-                    Margin="20,0,20,25"
+                    Margin="20,0,20,2"
                     Background="White"
                     CornerRadius="15"
                     >
@@ -203,6 +211,30 @@
 
                                     </ComboBox>
                                     
+                                </StackPanel>
+
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="0,5,0,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        Margin="8,0,0,0"
+                                        Text="TÊN SẢN PHẨM"
+                                        />  
+
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox
+                                        Height="30"
+                                        x:Name="TenSP"
+                                        Width="290"
+                                        BorderThickness="2"
+                                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                        materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+            
+                                        materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
+                                        materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet"
+                                    />  
                                 </StackPanel>
 
                             </StackPanel>
@@ -332,21 +364,25 @@
 
                         <TextBlock
                             Foreground="Black"
-                            Text="THÀNH TIỀN: "
+                            Text="THÀNH TIỀN : "
                             FontSize="16"
                             Margin="0,10,0,0"
                             />
+                        <Button BorderThickness="0"
+                            Content="XÁC NHẬN"
+                            FontSize="12" x:Name="xacnhanbtn" Background="AliceBlue" Foreground="#DD242222" Margin="0,10,0,0" Click="xacnhanbtn_Click"/>
                     </StackPanel>
                 </Grid>
-                <Grid Grid.Column="3">
+                <Grid Grid.Column="3" Margin="0,0,68,0">
                     <StackPanel>
                         <TextBlock
-                            Foreground="White"
+                            Foreground="Black"
                             x:Name="TT"
-                            Margin="0,10,30,0"
+                            Margin="0,10,15,0"
                             FontSize="16"
                             HorizontalAlignment="Right"
                     />
+                        
                     </StackPanel>
                 </Grid>
             </Grid>

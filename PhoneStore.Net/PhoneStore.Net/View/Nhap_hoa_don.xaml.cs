@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
+using System.Data.Common;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using MaterialDesignThemes.Wpf;
 using PhoneStore.Net.Controller;
 using PhoneStore.Net.DBClass;
 using PhoneStore.Net.Model;
+using static PhoneStore.Net.DBClass.DBConnect;
 namespace PhoneStore.Net.View
 {
     public partial class Nhap_hoa_don : Window
@@ -17,8 +21,6 @@ namespace PhoneStore.Net.View
         private SQLiteConnection con;
         private string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
         
-        public int tongTien { get; set; }
-        public int khuyenmai {  get; set; }
         public Nhap_hoa_don()
         {
             InitializeComponent();
@@ -50,11 +52,12 @@ namespace PhoneStore.Net.View
         {
             if(MaSP.SelectedItem != null)
             {
-                foreach (SANPHAM x in List_SP())
+                foreach (SANPHAM x in DBConnect.DataProvider.Instance.List_SP())
                 {
                     if (x.MASP == MaSP.SelectedItem.ToString())
                     {
                         DG.Text = x.GIA.ToString();
+                        TenSP.Text = x.TENSP.ToString();
                     }
                 }
             }
@@ -76,62 +79,10 @@ namespace PhoneStore.Net.View
                 string masp = reader.GetString(0);
                 MaSP.Items.Add(masp);
             }
-            string sql = "SELECT MAND FROM NGUOIDUNGs";
-            SQLiteCommand command = new SQLiteCommand(sql, _con);
-            SQLiteDataReader read = command.ExecuteReader();
-            while (read.Read())
-            {
-                string mand = read.GetString(0);
-                MaND.Items.Add(mand);
-            }
             _con.Close();
         }
 
         
-        private List<SANPHAM> List_SP()
-        {
-            SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
-            _con.Open();
-            string query = "SELECT * FROM SANPHAMs";
-            SQLiteCommand cmd = new SQLiteCommand(query, _con);
-            SQLiteDataReader reader = cmd.ExecuteReader();
-            List<SANPHAM> SPs = new List<SANPHAM>();
-            while (reader.Read())
-            {
-                SPs.Add(new SANPHAM()
-                {
-                    MASP = reader.GetString(0),
-                    TENSP = reader.GetString(1),
-                    GIA = reader.GetInt32(2),
-                    SL = reader.GetInt32(5),
-                    LOAISP = reader.GetString(6),
-                    SIZE = reader.GetString(7),
-                }) ;
-            }
-            _con.Close();
-            return SPs;
-        }
-        private List<HOADON> List_HD()
-        {
-            SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
-            _con.Open();
-            string query = "SELECT * FROM HOADONs";
-            SQLiteCommand cmd = new SQLiteCommand(query, _con);
-            SQLiteDataReader reader = cmd.ExecuteReader();
-            List<HOADON> HDs = new List<HOADON>();
-            while (reader.Read())
-            {
-                HDs.Add(new HOADON()
-                {
-                    SOHD = reader.GetInt32(0),
-                    NGHD = reader.GetDateTime(3),
-                    TRIGIA = reader.GetInt32(4),
-                });
-            }
-            _con.Close();
-            return HDs;
-        }
-
         private DataTable Sql_select(string sql_querry)
         {
             SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
@@ -159,7 +110,7 @@ namespace PhoneStore.Net.View
         bool check_SOHD(string s)
         {
             
-            foreach(HOADON x in List_HD())
+            foreach(HOADON x in DBConnect.DataProvider.Instance.List_HD())
             {
                 if(x.SOHD.ToString() == s)
                 {
@@ -217,15 +168,10 @@ namespace PhoneStore.Net.View
                 MessageBox.Show("Bạn chưa chọn khách hàng !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if(MaND.SelectedItem == null)
-            {
-                MessageBox.Show("Bạn chưa chọn người dùng !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
             
             SANPHAM temp = null;
             bool ok = false;
-            foreach(SANPHAM x in List_SP())
+            foreach(SANPHAM x in DBConnect.DataProvider.Instance.List_SP())
             {
                 if(x.MASP == MaSP.Text)
                 {
@@ -243,7 +189,7 @@ namespace PhoneStore.Net.View
             {
                 MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn thêm sản phẩm này ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
                 if(h == MessageBoxResult.Yes) {
-                    if(check_MAKH(MaKH.Text) == false)
+                    if (check_MAKH(MaKH.Text) == false)
                     {
                         string sql = "INSERT INTO KHACHHANGs(MAKH, HOTEN, SDT) VALUES(@makh, @hoten, @sdt)";
                         SQLiteCommand cmd = new SQLiteCommand(sql, con);
@@ -270,11 +216,25 @@ namespace PhoneStore.Net.View
                     command.Parameters.AddWithValue("@sohd", SoHD.Text);
                     command.Parameters.AddWithValue("@masp", MaSP.Text);
                     command.Parameters.AddWithValue("@sl", SL.Text);
-                    MessageBox.Show("Them thanh cong", "THÔNG BÁO");
+                    MessageBox.Show("Thêm thành công", "THÔNG BÁO");
                     command.ExecuteNonQuery();
+                    foreach(SANPHAM x in DBConnect.DataProvider.Instance.List_SP())
+                    {
+                        if(x.MASP == MaSP.Text)
+                        {
+                            x.SL -= int.Parse(SL.Text);
+                            temp.SL = x.SL;
+                        }
+                    }
+                    string query_sql = "UPDATE SANPHAMs SET SL = @sl WHERE MASP = @masp";
+                    SQLiteCommand cd = new SQLiteCommand(query_sql, con);
+                    cd.Parameters.AddWithValue("@sl", temp.SL);
+                    cd.Parameters.AddWithValue("@masp", MaSP.Text)
+;                    cd.ExecuteNonQuery();
                     MaSP.Text = "";
                     DG.Text = "";
                     SL.Text = "";
+                    TenSP.Text = "";
                     LoadData();
                 }
             }
@@ -310,21 +270,63 @@ namespace PhoneStore.Net.View
 
         private void ttbtn_Click(object sender, RoutedEventArgs e)
         {
+            if (dtHoaDon.Items.Count == 1)
+            {
+                System.Windows.MessageBox.Show("Thông tin hóa đơn chưa đầy đủ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn tính tiền thanh toán sản phẩm ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
-                string query = "UPDATE HOADONs SET TRIGIA = @trigia WHERE SOHD = @sohd";
+                int tonggia = 0;
+                foreach(CTHD x in DBConnect.DataProvider.Instance.List_CTHD())
+                {
+                    if(x.SOHD.ToString() == SoHD.Text)
+                    {
+                        foreach (SANPHAM y in DBConnect.DataProvider.Instance.List_SP())
+                        {
+                            if(x.MASP == y.MASP)
+                            {
+                                tonggia += x.SL * y.GIA;
+                            }
+                        }
+                    }
+                }
+                int km = 0;
+                if (tonggia > 2000000 && tonggia <= 5000000)
+                    km = 2;
+                else if (tonggia > 5000000 && tonggia <= 10000000)
+                    km = 5;
+                else if (tonggia > 10000000)
+                    km = 10;
+                double tmp = (double)(1 - (double)km / 100) * tonggia;
+                int tien = (int)tmp;
+                TT.Text = tien.ToString() + " VND";
+                
 
+                string query = "UPDATE HOADONs SET TRIGIA = @trigia, KHUYENMAI = @khuyenmai WHERE SOHD = @sohd";
                 SQLiteCommand command = new SQLiteCommand(query, con);
                 command.Parameters.AddWithValue("@sohd", SoHD.Text);
-                command.Parameters.AddWithValue("@mand", MaND.Text);
-                command.Parameters.AddWithValue("@dongia", DG.Text);
-                command.Parameters.AddWithValue("@km", 0);
+                command.Parameters.AddWithValue("@trigia", tien);
+                command.Parameters.AddWithValue("@khuyenmai", km);
                 command.ExecuteNonQuery();
                 MessageBox.Show("Thêm hóa đơn thành công !", "THÔNG BÁO");
             }
         }
 
-        
+        private void xacnhanbtn_Click(object sender, RoutedEventArgs e)
+        {
+            HoaDonBH hoaDonBH = new HoaDonBH();
+            hoaDonBH.TenKH.Text = TenKH.Text;
+            hoaDonBH.sdt.Text = SDT.Text;
+            hoaDonBH.ngay.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm tt");
+            hoaDonBH.sohd.Text = SoHD.Text;
+            hoaDonBH.tt.Text = TT.Text;
+            string query = "SELECT s1.MASP, s1.TENSP,  s1.GIA, ct.SL, ct.SOHD, (s1.GIA * ct.SL) AS THANHTIEN FROM SANPHAMs AS s1 INNER JOIN CTHDs AS ct ON s1.MASP = ct.MASP WHERE SOHD = @sohd";
+            DataTable dataTable = Sql_select(query);
+            hoaDonBH.dtInHoaDon.ItemsSource = dataTable.DefaultView;
+            hoaDonBH.ShowDialog();
+            
+            
+        }
     }
 }

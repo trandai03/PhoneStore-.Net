@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,13 @@ namespace PhoneStore.Net.View
     /// <summary>
     /// Interaction logic for HoaDonBH.xaml
     /// </summary>
-    public partial class HoaDonBH : Page
+    public partial class HoaDonBH : Window
     {
         public HoaDonBH()
         {
             InitializeComponent();
         }
+
+        
     }
 }
