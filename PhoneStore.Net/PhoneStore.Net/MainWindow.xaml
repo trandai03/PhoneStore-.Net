@@ -419,7 +419,7 @@
                         </Border>
 
                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <TextBlock  Text="Mạnh Tâm" FontSize="15" Foreground="White">
+                            <TextBlock  Text="Mạnh Tâm" FontSize="15" Foreground="White" x:Name="TenDangNhap">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Loaded">
                                             <i:InvokeCommandAction Command="{Binding TenDangNhap_Loaded}"
@@ -427,7 +427,7 @@
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>/>
                             </TextBlock>
-                            <TextBlock  Text="Quản trị viên" FontSize="12" Foreground="White">
+                            <TextBlock  Text="Quản trị viên" FontSize="12" Foreground="White" x:Name="chucVu">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Loaded">
                                             <i:InvokeCommandAction Command="{Binding Quyen_Loaded}"

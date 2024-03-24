@@ -29,6 +29,8 @@ namespace PhoneStore.Net
         private string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
         private Visibility _SetQuanLy;
         public Visibility SetQuanLy { get => _SetQuanLy; set { _SetQuanLy = value;  } }
+        
+        
         private void ConnectToDatabase()
         {
             con = new SQLiteConnection($"Data Source = {databaseName}; Version=3;");
@@ -39,6 +41,8 @@ namespace PhoneStore.Net
             InitializeComponent();
             user = u;
             SetQuanLy = user.QTV ? Visibility.Visible : Visibility.Collapsed;
+            TenDangNhap.Text = string.Join(" ", user.TENND.Split().Reverse().Take(2).Reverse());
+            chucVu.Text = user.QTV ? "Quản lý" : "Nhân viên";
             selectUser();
         }
         public void selectUser()
