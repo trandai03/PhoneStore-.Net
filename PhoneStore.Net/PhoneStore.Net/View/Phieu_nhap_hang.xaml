@@ -5,9 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:PhoneStore.Net.View"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        
-      mc:Ignorable="d" d:DesignWidth="700"
-      Title="Phieu_nhap_hang" Height="512">
+      ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+      mc:Ignorable="d" Width="700"
+      Title="Phieu_nhap_hang" Height="585">
 
     <Border
         x:Name="xx"
@@ -68,31 +68,38 @@
                         HorizontalAlignment="Center"
                         />
                             <StackPanel Orientation="Vertical"/>
-                            
-                            
-                            <StackPanel>
-                                <TextBlock
-                            Margin="8,0,0,0"
-                            Text="MÃ PHIẾU NHẬP"
-                           
-                        />
-                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+
+
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                    Margin="8,0,0,0"
+                                    Text="MÃ PHIẾU NHẬP"
+                                    />
+
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
                                     <TextBox
-                            x:Name="MaPN"
-                            HorizontalAlignment="Left"
-                             AcceptsReturn="True"
-                           IsEnabled="true"
-                            BorderThickness="0"
-                           
-                            ></TextBox>
-                                </Border>
+                                    Height="30"
+                                    x:Name="MaPN"
+                                    Width="253"
+                                    BorderThickness="2"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+
+                                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet"
+/>
+                                </StackPanel>
+
                             </StackPanel>
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock
-    Margin="8,0,0,0"
-    Text="MÃ ND"
-    />
+                                        Margin="8,0,0,0"
+                                        Text="MÃ ND"
+                                        />      
 
                                 </StackPanel>
 
@@ -100,7 +107,7 @@
                                     <TextBox
                                         Height="30"
                                         x:Name="MaND"
-                                        Width="290"
+                                        Width="253"
                                         BorderThickness="2"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                         materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
@@ -132,7 +139,7 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock
                             Margin="8,0,0,0"
-                            Text="TÊN SP | SIZE | SỐ LƯỢNG"
+                            Text="TÊN SP | SIZE "
                          
                         />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
@@ -153,12 +160,7 @@
                                                 />
                                                     <TextBlock
                                                 Text="{Binding SIZE}"/>
-                                                    <TextBlock
-                                                Text="|"
-                                                Margin="4,0,4,0"
-                                                />
-                                                    <TextBlock
-                                                Text="{Binding SL}"/>
+                                                    
                                                 </StackPanel>
                                             </DataTemplate>
                                         </ComboBox.ItemTemplate>
@@ -168,41 +170,53 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal">
-                                <StackPanel
-                            Width="150"
-                            >
-                                    <TextBlock
-                            Margin="8,0,0,0"
-                            Text="SỐ LƯỢNG"
-                           
-                            />
-                                    <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+                                <StackPanel Orientation="Vertical" Margin="0,0,20,0">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock
+                                    Margin="8,0,0,0"
+                                    Text="SỐ LƯỢNG"
+                                    />
+
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
                                         <TextBox
+                                    Height="30"
                                     x:Name="SL"
-                                    HorizontalAlignment="Left"
-                                   
-                                    BorderThickness="0"
-                                   
-                                ></TextBox>
-                                    </Border>
+                                    Width="126"
+                                    BorderThickness="2"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+
+                                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet"
+/>
+                                    </StackPanel>
+
                                 </StackPanel>
-                                <StackPanel
-                            Width="140"
-                            >
-                                    <TextBlock
-                                Margin="8,0,0,0"
-                                Text="ĐƠN GIÁ"
-                               
-                            />
-                                    <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+                                <StackPanel Orientation="Vertical" Margin="0,0,20,0">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock
+                                    Margin="8,0,0,0"
+                                    Text="ĐƠN GIÁ"
+                                    />
+
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
                                         <TextBox
-                                    x:Name="DG" 
-                                    HorizontalAlignment="Left"
-                                   
-                                    BorderThickness="0"
-                                   
-                                ></TextBox>
-                                    </Border>
+                                    Height="30"
+                                    x:Name="DG"
+                                    Width="126"
+                                    BorderThickness="2"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+
+                                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet"
+/>
+                                    </StackPanel>
+
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel
@@ -219,15 +233,7 @@
                         >
 
                                 </Button>
-                                <Button    
-                            BorderThickness="0"
-                            Margin="15,0,0,0"
-                            Content="SỬA"
-                            FontSize="12"
-                            x:Name="deletebtn" Width="73"
-                             Background="AliceBlue" Foreground="#DD000000" Click="UpdateByName"
-                        >
-                                </Button>
+                                
                                 <Button    
                                     Margin="15,0,0,0"
                                     BorderThickness="0"
@@ -242,7 +248,7 @@
                     </Border>
                 </Grid>
             </Grid>
-            <DataGrid ItemsSource="{Binding dtHoadon}" Background="White" AutoGenerateColumns="False"  x:Name="dtHoaDon" RenderTransformOrigin="0.5,0.5" SelectionChanged="dtHoaDon_SelectionChanged" Margin="120,0,109,5" Grid.Row="3">
+            <DataGrid ItemsSource="{Binding dtNhapHang}" Background="White" AutoGenerateColumns="False"  x:Name="dtNhaphang" RenderTransformOrigin="0.5,0.5" SelectionChanged="dtHoaDon_SelectionChanged" Margin="120,0,109,5" Grid.Row="3">
                 <DataGrid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>

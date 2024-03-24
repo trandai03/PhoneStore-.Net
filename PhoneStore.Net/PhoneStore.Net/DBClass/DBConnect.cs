@@ -318,6 +318,26 @@ namespace PhoneStore.Net.DBClass
                 _con.Close();
                 return HDs;
             }
+            public List<PHIEUNHAP> List_PN()
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                _con.Open();
+                string query = "SELECT * FROM PHIEUNHAPs";
+                SQLiteCommand cmd = new SQLiteCommand(query, _con);
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                List<PHIEUNHAP> PNs = new List<PHIEUNHAP>();
+                while (reader.Read())
+                {
+                    PNs.Add(new PHIEUNHAP()
+                    {
+                        MAPN = reader.GetInt32(0),
+                        MAND = reader.GetString(1),
+                        NGAYNHAP = reader.GetDateTime(2),
+                    });
+                }
+                _con.Close();
+                return PNs;
+            }
             public List<KHACHHANG> List_KH()
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");

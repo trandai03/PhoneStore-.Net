@@ -1,4 +1,5 @@
-﻿using PhoneStore.Net.Model;
+﻿using PhoneStore.Net.DBClass;
+using PhoneStore.Net.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,14 +15,13 @@ namespace PhoneStore.Net.View
     public partial class Phieu_nhap_hang : Window
     {
         string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
-
+        public int tongtien {  get; set; }
         public Phieu_nhap_hang()
         {
             InitializeComponent();
             LoadSANPHAMs();
             MaPN.Text = GetMAPNFromDB().ToString();
-            SL.Text = "1";
-            DG.Text = "1";
+            LoadData();
         }
 
         private void LoadSANPHAMs()
@@ -59,7 +59,33 @@ namespace PhoneStore.Net.View
                 connection.Close();
             }
         }
-
+        public void LoadData()
+        {
+            try
+            {
+                string query = "SELECT s1.MASP, s1.TENSP, s1.SIZE, ct.SL, (ct.SL * @dongia) AS THANHTIEN FROM SANPHAMs AS s1 INNER JOIN CTPNs AS ct ON s1.MASP = ct.MASP WHERE MAPN = @mapn";
+                DataTable dataTable = Sql_select(query);
+                dtNhaphang.ItemsSource = dataTable.DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message);
+            }
+        }
+        private DataTable Sql_select(string sql_querry)
+        {
+            SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+            _con.Open();
+            DataTable dt = new DataTable();
+            SQLiteCommand cmd = new SQLiteCommand(sql_querry, _con);
+            cmd.Parameters.AddWithValue("@mapn", MaPN.Text);
+            cmd.Parameters.AddWithValue("@dongia", DG.Text);
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            Console.WriteLine(reader.ToString());
+            dt.Load(reader);
+            _con.Close();
+            return dt;
+        }
         private int GetMAPNFromDB()
         {
             int nextId = 0;
@@ -96,107 +122,118 @@ namespace PhoneStore.Net.View
                 using (SQLiteCommand command = new SQLiteCommand(queryPN, connection))
                 {
                     command.Parameters.AddWithValue("@MAPN", int.Parse(MaPN.Text));
-                    command.Parameters.AddWithValue("@MAND", "1");
-                    command.Parameters.AddWithValue("@NGAYNHAP", DateTime.Now.ToString());
+                    command.Parameters.AddWithValue("@MAND", MaND.Text);
+                    command.Parameters.AddWithValue("@NGAYNHAP", DateTime.Now);
                     int rowsAffected = command.ExecuteNonQuery();
                 }
 
                 connection.Close();
             }
         }
+        bool check_MAPN(string s)
+        {
 
+            foreach (PHIEUNHAP x in DBConnect.DataProvider.Instance.List_PN())
+            {
+                if (x.MAPN.ToString() == s)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void InsertToDB(object sender, RoutedEventArgs e)
         {
-            using (SQLiteConnection connection = new SQLiteConnection($"Data Source={databaseName};Version=3;"))
+            if(check_MAPN(MaPN.Text) == false)
             {
-                connection.Open();
-                string querySP = "UPDATE SANPHAMs SET SL = SL + @ValueToAdd WHERE TENSP = @TENSP;";
-                using (SQLiteCommand command = new SQLiteCommand(querySP, connection))
-                {
-                    command.Parameters.AddWithValue("@TENSP", ((SANPHAM)SP.SelectedItem).TENSP);
-                    command.Parameters.AddWithValue("@ValueToAdd", int.Parse(SL.Text));
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Them thành công !!", "Thông báo");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Them khong thành công !!", "Thông báo");
-                    }
-                }
-
-                LoadSANPHAMs();
-                connection.Close();
+                InsertPNH();
             }
-        }
-
-        private void UpdateByName(object sender, RoutedEventArgs e)
-        {
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={databaseName};Version=3;"))
             {
                 connection.Open();
-                string querySP = "UPDATE SANPHAMs SET GIA = @GIA, SL = @SL WHERE TENSP = @TENSP;";
-                using (SQLiteCommand command = new SQLiteCommand(querySP, connection))
+                string sql = "INSERT INTO CTPNs(MAPN, MASP, SL) VALUES(@mapn, @masp, @sl)";
+                using (SQLiteCommand command = new SQLiteCommand(sql, connection))
                 {
-                    command.Parameters.AddWithValue("@TENSP", ((SANPHAM)SP.SelectedItem).TENSP);
-                    command.Parameters.AddWithValue("@GIA", int.Parse(DG.Text));
-                    command.Parameters.AddWithValue("@SL", int.Parse(SL.Text));
-                    command.ExecuteNonQuery();
-
+                    command.Parameters.AddWithValue("@mapn", MaPN.Text);
+                    command.Parameters.AddWithValue("@masp", ((SANPHAM)SP.SelectedItem).MASP);
+                    command.Parameters.AddWithValue("@sl", int.Parse(SL.Text));
                     int rowsAffected = command.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Sua thành công !!", "Thông báo");
+                        MessageBox.Show("Thêm thành công !!", "Thông báo");
                     }
                     else
                     {
-                        MessageBox.Show("Sua khong thành công !!", "Thông báo");
+                        MessageBox.Show("Thêm không thành công !!", "Thông báo");
                     }
                 }
-
+                tongtien += int.Parse(SL.Text) * int.Parse(DG.Text);
+                TT.Text = tongtien.ToString();
                 LoadSANPHAMs();
+                LoadData();
+                SL.Text = ""; DG.Text = "";
                 connection.Close();
             }
         }
 
         private void RemoveByName(object sender, RoutedEventArgs e)
         {
+            DataRowView selectedNhapHang = (DataRowView)dtNhaphang.SelectedItem;
             using (SQLiteConnection connection = new SQLiteConnection($"Data Source={databaseName};Version=3;"))
             {
                 connection.Open();
-                string querySP = "DELETE FROM SANPHAMs WHERE TENSP = @TENSP;";
+                string querySP = "DELETE FROM CTPNs WHERE MASP = @masp;";
                 using (SQLiteCommand command = new SQLiteCommand(querySP, connection))
                 {
-                    command.Parameters.AddWithValue("@TENSP", ((SANPHAM)SP.SelectedItem).TENSP);
+                    command.Parameters.AddWithValue("@masp", selectedNhapHang["MASP"].ToString());
                     int rowsAffected = command.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Xoa thành công !!", "Thông báo");
+                        MessageBox.Show("Xóa thành công !!", "Thông báo");
                     }
                     else
                     {
-                        MessageBox.Show("Xoa khong thành công !!", "Thông báo");
+                        MessageBox.Show("Xóa không thành công !!", "Thông báo");
                     }
                 }
-
+                tongtien -= int.Parse(selectedNhapHang["THANHTIEN"].ToString());
+                TT.Text = tongtien.ToString();
                 LoadSANPHAMs();
+                LoadData();
                 connection.Close();
             }
         }
 
         private void Confirm(object sender, RoutedEventArgs e)
         {
-            InsertPNH();
             MessageBox.Show("Nhập thành công !!", "Thông báo");
             this.Close();
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
+            using (SQLiteConnection connection = new SQLiteConnection($"Data Source={databaseName};Version=3;"))
+            {
+                connection.Open();
+                string sql = "DELETE FROM CTPNs WHERE MAPN = @mapn";
+                using (SQLiteCommand cmd = new SQLiteCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@mapn", MaPN.Text);
+                    cmd.ExecuteNonQuery();
+                }
+                string querySP = "DELETE FROM PHIEUNHAPs WHERE MAPN = @mapn";
+                using (SQLiteCommand command = new SQLiteCommand(querySP, connection))
+                {
+                    command.Parameters.AddWithValue("@mapn", MaPN.Text);
+                    command.ExecuteNonQuery();
+                }
+                
+                LoadSANPHAMs();
+                LoadData();
+                connection.Close();
+            }
             this.Close();
         }
 
