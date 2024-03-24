@@ -20,8 +20,6 @@ namespace PhoneStore.Net.View
             InitializeComponent();
             LoadSANPHAMs();
             MaPN.Text = GetMAPNFromDB().ToString();
-            SL.Text = "1";
-            DG.Text = "1";
         }
 
         private void LoadSANPHAMs()
