@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data.SQLite;
 using PhoneStore.Net.View;
 using PhoneStore.Net.Model;
+using System.Data;
 namespace PhoneStore.Net
 {
     /// <summary>
@@ -24,12 +25,37 @@ namespace PhoneStore.Net
     {    
         public static NGUOIDUNG user;
         public static string AVAType;
+        private SQLiteConnection con;
+        private string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
+        private Visibility _SetQuanLy;
+        public Visibility SetQuanLy { get => _SetQuanLy; set { _SetQuanLy = value;  } }
+        private void ConnectToDatabase()
+        {
+            con = new SQLiteConnection($"Data Source = {databaseName}; Version=3;");
+            con.Open();
+        }
         public MainWindow(NGUOIDUNG u)
         {
             InitializeComponent();
-            user = u;          
+            user = u;
+            SetQuanLy = user.QTV ? Visibility.Visible : Visibility.Collapsed;
+            selectUser();
         }
-     
+        public void selectUser()
+        {
+            string sql = "SELECT QTV from NGUOIDUNGs WHEre MAND = @keyword;";
+            ConnectToDatabase();
+            SQLiteCommand cmd = new SQLiteCommand(sql, con);
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = sql;
+            cmd.Parameters.Clear();
+            string keyword = string.Format("{0}", user.MAND);
+            Console.WriteLine(keyword);
+            cmd.Parameters.AddWithValue("@keyword", keyword);
+            
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            Console.WriteLine(reader.Read().ToString()+ "11111");
+        }
         private void HomePage_Click(object sender, RoutedEventArgs e)
         {
             this.Main.NavigationService.Navigate(new HomePage());

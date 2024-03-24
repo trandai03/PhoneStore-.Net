@@ -12,9 +12,7 @@
       d:DesignHeight="550" d:DesignWidth="665"
       Title="HomePage">
 
-    <Page.DataContext>
-        <local:HomePage />
-    </Page.DataContext>
+    
     
     <Border  
             Height="550"
