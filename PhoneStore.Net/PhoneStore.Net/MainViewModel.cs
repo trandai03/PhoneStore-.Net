@@ -67,8 +67,8 @@ namespace PhoneStore.Net
         public ICommand SwitchTab { get; set; }
         public string Name;
         
-        private BitmapImage _Ava;
-        public BitmapImage Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
+        private string _Ava;
+        public string Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
         public MainViewModel()
         {
     

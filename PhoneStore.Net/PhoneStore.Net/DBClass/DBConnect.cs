@@ -358,6 +358,24 @@ namespace PhoneStore.Net.DBClass
                 _con.Close();
                 return KHs;
             }
+            public List<NGUOIDUNG> List_ND()
+            {
+                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+                _con.Open();
+                string query = "SELECT * FROM NGUOIDUNGs";
+                SQLiteCommand cmd = new SQLiteCommand(query, _con);
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                List<NGUOIDUNG> NDs = new List<NGUOIDUNG>();
+                while (reader.Read())
+                {
+                    NDs.Add(new NGUOIDUNG()
+                    {
+                        AVA = reader.GetString(10),
+                    });
+                }
+                _con.Close();
+                return NDs;
+            }
             public NGUOIDUNG checkUser(string username, string password)
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
@@ -415,11 +433,7 @@ namespace PhoneStore.Net.DBClass
                             u.PASS = reader.GetString(7);
                         }
                         catch (Exception ex) { }
-                        try
-                        {
-                            u.AVA = Utility.ConvertToBitmapImage(reader.GetString(10));
-                        }
-                        catch (Exception ex) { }
+                        
                         try
                         {
                             u.MAIL = reader.GetString(11);
@@ -439,15 +453,14 @@ namespace PhoneStore.Net.DBClass
             {
                 SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
                 _con.Open();
-                string USERQUERYSTRING = @"UPDATE NGUOIDUNGs SET TENND = $ten , GIOITINH = $gioitinh , NGSINH = $ngsinh , SDT = $sdt , DIACHI = $diachi , AVA = $ava , MAIL = $mail WHERE MAND = $mand";
+                string USERQUERYSTRING = @"UPDATE NGUOIDUNGs SET TENND = $ten , GIOITINH = $gioitinh , NGSINH = $ngsinh , SDT = $sdt , DIACHI = $diachi , MAIL = $mail WHERE MAND = $mand";
                 var command = _con.CreateCommand();
                 command.CommandText = USERQUERYSTRING;
                 command.Parameters.AddWithValue("$ten", newU.TENND);
                 command.Parameters.AddWithValue("$gioitinh", newU.GIOITINH);
-                command.Parameters.AddWithValue("$ngsinh", newU.NGSINH.ToString());
+                command.Parameters.AddWithValue("$ngsinh", newU.NGSINH);
                 command.Parameters.AddWithValue("$sdt", newU.SDT);
                 command.Parameters.AddWithValue("$diachi", newU.DIACHI);
-                command.Parameters.AddWithValue("$ava", Utility.ConvertToString(newU.AVA, "png"));
                 command.Parameters.AddWithValue("$mail", newU.MAIL);
                 command.Parameters.AddWithValue("$mand", newU.MAND);
 
