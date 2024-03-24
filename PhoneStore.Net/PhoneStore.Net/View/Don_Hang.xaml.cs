@@ -121,6 +121,7 @@ namespace PhoneStore.Net.View
             nhap.SoHD.Text = rdma_SOHD();
             nhap.MaND.Text = MainWindow.user.MAND;
             nhap.ShowDialog();
+            LoadData();
         }
 
         private void cbxChon1_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -20,7 +20,6 @@ namespace PhoneStore.Net.View
             InitializeComponent();
             this.FullNameTextBox.Text = MainWindow.user.TENND;
             this.GenderComboBox.Text = MainWindow.user.GIOITINH;
-            this.DateBox.SelectedDate = MainWindow.user.NGSINH;
             this.DateBox.Text = MainWindow.user.NGSINH.ToString();
             this.PhoneNumberTextBox.Text = MainWindow.user.SDT;
             this.AddressTextBox.Text = MainWindow.user.DIACHI;
@@ -109,6 +108,7 @@ namespace PhoneStore.Net.View
                     return;
                 }
                 this.UserImage.Fill = new ImageBrush(image);
+                Console.WriteLine(image);
                 MainWindow.user.AVA = image;
             }
             
