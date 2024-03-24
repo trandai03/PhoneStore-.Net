@@ -15,6 +15,8 @@ namespace PhoneStore.Net.View
     /// </summary>
     public partial class Setting : Page
     {
+        public string _localLink = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf(@"bin\Debug"));
+        
         public Setting()
         {
             InitializeComponent();
@@ -24,7 +26,8 @@ namespace PhoneStore.Net.View
             this.PhoneNumberTextBox.Text = MainWindow.user.SDT;
             this.AddressTextBox.Text = MainWindow.user.DIACHI;
             this.EmailTextBox.Text = MainWindow.user.MAIL;
-            this.UserImage.Fill = new ImageBrush(MainWindow.user.AVA);
+            this.UserImage.Fill = new ImageBrush(new BitmapImage(new Uri(_localLink + "/Resource/avatar/GoldGoat.jpg")));
+            Console.WriteLine(MainWindow.user.AVA);
             this.UsernameTextBox.Text = MainWindow.user.USERNAME;
             this.PasswordTextBox.Text = MainWindow.user.PASS;
         }
@@ -107,9 +110,9 @@ namespace PhoneStore.Net.View
                     MessageBox.Show($"Error: {selectedFileName}");
                     return;
                 }
-                this.UserImage.Fill = new ImageBrush(image);
-                Console.WriteLine(image);
-                MainWindow.user.AVA = image;
+                //this.UserImage.Fill = new ImageBrush(image);
+                //Console.WriteLine(image);
+                //MainWindow.user.AVA = image;
             }
             
         }

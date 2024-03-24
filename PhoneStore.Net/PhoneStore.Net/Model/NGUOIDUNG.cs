@@ -42,7 +42,7 @@ namespace PhoneStore.Net.Model
 
         public bool TTND { get; set; }
 
-        public BitmapImage AVA { get; set; }
+        public string AVA { get; set; }
 
         public string MAIL { get; set; }
 
