@@ -30,7 +30,7 @@
     materialDesign:HintAssist.Hint="Tìm Kiếm"
     Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="83,106,448,0" />
         <Label Content="Danh sách Nhập Hàng" HorizontalAlignment="Left" Margin="83,177,0,0" VerticalAlignment="Top" Width="183" Height="30" FontSize="16" FontWeight="Bold"/>
-        <DataGrid ItemsSource="{Binding dtNhapHang }"  Name="dtNhapHang" Margin="83,231,130,49" AutoGenerateColumns="False">
+        <DataGrid ItemsSource="{Binding dtNhapHang }"  Name="dtNhapHang" Margin="83,231,98,49" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã Phiếu Nhập" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MAPN}"/>
                 <DataGridTextColumn Header="Người Nhập" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MAND}"/>

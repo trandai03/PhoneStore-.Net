@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:PhoneStore.Net.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
       mc:Ignorable="d" d:DesignWidth="700"
       Title="Phieu_nhap_hang" Height="512">
 
@@ -42,7 +44,7 @@
            
             FontSize="30"
             HorizontalAlignment="Left"
-            VerticalAlignment="Center" Margin="269,0,0,0" TextAlignment="Center"
+            VerticalAlignment="Top" Margin="219,10,0,0" TextAlignment="Center"
             />
             </Grid>
             <Grid Grid.Row="2">
@@ -66,7 +68,8 @@
                         HorizontalAlignment="Center"
                         />
                             <StackPanel Orientation="Vertical"/>
-                            <StackPanel/>
+                            
+                            
                             <StackPanel>
                                 <TextBlock
                             Margin="8,0,0,0"
@@ -75,15 +78,38 @@
                         />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
                                     <TextBox
-                                        IsReadOnly="False"
                             x:Name="MaPN"
                             HorizontalAlignment="Left"
                              AcceptsReturn="True"
-                           
+                           IsEnabled="true"
                             BorderThickness="0"
                            
                             ></TextBox>
                                 </Border>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+    Margin="8,0,0,0"
+    Text="MÃ ND"
+    />
+
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox
+                                        Height="30"
+                                        x:Name="MaND"
+                                        Width="290"
+                                        BorderThickness="2"
+                                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                        materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+    
+                                        materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
+                                        materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet"
+    />
+                                </StackPanel>
+
                             </StackPanel>
                         </StackPanel>
                     </Border>
@@ -106,7 +132,7 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock
                             Margin="8,0,0,0"
-                            Text="TÊN SP | DUNG LƯỢNG"
+                            Text="TÊN SP | SIZE | SỐ LƯỢNG"
                          
                         />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
@@ -170,7 +196,7 @@
                             />
                                     <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
                                         <TextBox
-                                    x:Name="DG" IsEnabled="False"
+                                    x:Name="DG" 
                                     HorizontalAlignment="Left"
                                    
                                     BorderThickness="0"
@@ -188,6 +214,7 @@
                                 Content="THÊM"
                                 FontSize="12"
                                 x:Name="addbtn" Width="73"
+                                Click="InsertToDB"
                                Background="AliceBlue" Foreground="#DD000000"
                         >
 
@@ -198,7 +225,7 @@
                             Content="SỬA"
                             FontSize="12"
                             x:Name="deletebtn" Width="73"
-                             Background="AliceBlue" Foreground="#DD000000" Click="deletebtn_Click"
+                             Background="AliceBlue" Foreground="#DD000000" Click="UpdateByName"
                         >
                                 </Button>
                                 <Button    
@@ -207,6 +234,7 @@
                                     Content="XÓA"
                                     FontSize="12"
                                     x:Name="deletebtn_Copy" Width="73"
+                                Click="RemoveByName"
                                     Background="AliceBlue" Foreground="#DD000000"
                         />
                             </StackPanel>
@@ -214,155 +242,25 @@
                     </Border>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="3">
-                <StackPanel>
-                    <Border
-                Margin="-12,10,0,0"
-                Width="600"
-                Height="40"
-                CornerRadius="10"
-                Background="White"
-                >
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0">
-                                <TextBlock
-                            Text="MÃ SP"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                           
-                            FontSize="12"
-                        />
-                            </Grid>
-                            <Grid Grid.Column="1">
-                                <TextBlock
-                            Margin="2,0,0,0"
-                            HorizontalAlignment="Left"
-                            Text="TÊN SP"
-                            VerticalAlignment="Center"
-                           
-                            FontSize="12"
-                        />
-                            </Grid>
-                            <Grid Grid.Column="2">
-                                <TextBlock
-                            Text="SIZE"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                           
-                            FontSize="12"
-                        />
-                            </Grid>
-                            <Grid Grid.Column="3">
-                                <TextBlock
-                            Text="SL"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            MaxWidth="150"
-                           
-                            FontSize="12"
-                        />
-                            </Grid>
-                            <Grid Grid.Column="4">
-                                <TextBlock
-                            Text="THÀNH TIỀN"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            MaxWidth="150"
-                           
-                            FontSize="12"
-                        />
-                            </Grid>
-                        </Grid>
-                    </Border>
-                    <ListView x:Name="ListViewSP"
-                  SelectionMode="Single"
-                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                  Height="56"
-                >
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Border
-                            Margin="35,0,0,0"
-                            Width="600"
-                            Height="40"
-                            CornerRadius="10"
-                            Background="White"
-                >
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition Width="150"/>
-                                            <ColumnDefinition Width="130"/>
-                                            <ColumnDefinition/>
-                                            <ColumnDefinition/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid Grid.Column="0">
-                                            <TextBlock
-                        Text="{Binding MaSp}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                       
-                        FontSize="12"
-                        />
-                                        </Grid>
-                                        <Grid Grid.Column="1">
-                                            <TextBlock
-                                        Margin="2,0,0,0"
-                                        HorizontalAlignment="Left"
-                                        Text="{Binding TenSP}"
-                                        VerticalAlignment="Center"
-                                       
-                                        FontSize="12"
-                                    />
-                                        </Grid>
-                                        <Grid Grid.Column="2">
-                                            <TextBlock
-                                        Text="{Binding Size}"
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Center"
-                                       
-                                        FontSize="12"
-                                    />
-                                        </Grid>
-                                        <Grid Grid.Column="3">
-                                            <TextBlock
-                                        Text="{Binding SL}"
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Center"
-                                        MaxWidth="150"
-                                       
-                                        FontSize="12"
-                                    />
-                                        </Grid>
-                                        <Grid Grid.Column="4">
-                                            <TextBlock
-                                     
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Center"
-                                        MaxWidth="150"
-                                       
-                                        FontSize="12"
-                                    />
-                                        </Grid>
-                                    </Grid>
-                                </Border>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Vertical"/>
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                    </ListView>
-                </StackPanel>
-            </Grid>
+            <DataGrid ItemsSource="{Binding dtHoadon}" Background="White" AutoGenerateColumns="False"  x:Name="dtHoaDon" RenderTransformOrigin="0.5,0.5" SelectionChanged="dtHoaDon_SelectionChanged" Margin="120,0,109,5" Grid.Row="3">
+                <DataGrid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="-0.136"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="2.242"/>
+                    </TransformGroup>
+                </DataGrid.RenderTransform>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Mã SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MASP}" />
+                    <DataGridTextColumn Header="Tên SP" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding TENSP}" />
+                    <DataGridTextColumn Header="Dung lượng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SIZE}"/>
+
+                    <DataGridTextColumn Header="Số lượng" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SL}"/>
+                    <DataGridTextColumn Header="Thành Tiền" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding THANHTIEN}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
             <Grid Grid.Row="4"
                 Margin="0,4,0,0"
           >
@@ -395,14 +293,16 @@
                     Content="XÁC NHẬN"
                     FontSize="16"
                     Background="AliceBlue"
-                    x:Name="ttbtn" Margin="41,0,38,14" Grid.Column="3" Foreground="#DD000000" Click="XacNhan"
+                    Click= "Confirm"
+                    x:Name="ttbtn" Margin="41,0,10,14" Grid.Column="3" Foreground="#DD000000"
                         />
                 <Button                            
                     BorderThickness="0"
                     Content="HỦY"
                     FontSize="16"
                     Background="AliceBlue"
-                    x:Name="ttbtn_Copy" Margin="122,0,10,14" Grid.Column="2" Foreground="#DD000000"
+                    Click="Cancel"
+                    x:Name="ttbtn_Copy" Margin="88,0,10,14" Grid.Column="2" Foreground="#DD000000"
                         />
             </Grid>
         </Grid>
