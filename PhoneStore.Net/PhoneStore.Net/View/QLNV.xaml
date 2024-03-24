@@ -39,7 +39,6 @@
                 <DataGridTextColumn Header="Giới tính" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding GIOITINH}"/>
                 <DataGridTextColumn Header="Địa chỉ" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding DIACHI}"/>
                 <DataGridTextColumn Header="SĐT " IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding SDT}"/>
-                
                 <DataGridTextColumn Header="Email" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding MAIL}"/>
             </DataGrid.Columns>
         </DataGrid>
