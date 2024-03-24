@@ -11,6 +11,10 @@
       x:Name="Homewd"     
       d:DesignHeight="550" d:DesignWidth="665"
       Title="HomePage">
+
+    <Page.DataContext>
+        <local:HomePage />
+    </Page.DataContext>
     
     <Border  
             Height="550"
@@ -80,19 +84,10 @@
                                             <materialDesign:PackIcon Kind="Shopping" Foreground="White" 
                                                                              Height="50" Width="50"/>
                                         </Grid>
-                                        <TextBlock x:Name="DonNgay" VerticalAlignment="Center" Text="0" 
+                                        <TextBlock x:Name="DonNgay" VerticalAlignment="Center" Text="{Binding LoadDon}" 
                                                            TextAlignment="Left" FontWeight="Bold" TextWrapping="Wrap" 
                                                            FontSize="30" Foreground="White" FontFamily="Times New Roman" 
-                                                           Height="Auto">
-                                                    
-                                                    <i:Interaction.Triggers>
-                                                        <i:EventTrigger EventName="Loaded">
-                                                            <i:InvokeCommandAction Command="{Binding LoadDon}"
-                                                                                   CommandParameter="{Binding ElementName=Homewd}">                                                           
-                                                            </i:InvokeCommandAction>
-                                                        </i:EventTrigger>
-                                                    </i:Interaction.Triggers>
-
+                                                           Height="Auto">                                                
                                         </TextBlock>
                                     </Grid>
                                 </Grid>
@@ -140,17 +135,10 @@
                                             <materialDesign:PackIcon VerticalAlignment="Center" Kind="HandCoin" 
                                                                              Foreground="White" Height="50" Width="50"/>
                                         </Grid>
-                                        <TextBlock x:Name="DTNgay" VerticalAlignment="Center" Text="0 VNĐ" 
+                                        <TextBlock x:Name="DTNgay" VerticalAlignment="Center" Text= "{Binding LoadDoanhThu}"
                                                            TextAlignment="Left" FontWeight="Bold"  TextWrapping="Wrap" 
                                                            FontSize="20" Foreground="White" FontFamily="Times New Roman" 
                                                            Height="Auto">
-                                                    <i:Interaction.Triggers>
-                                                        <i:EventTrigger EventName="Loaded">
-                                                            <i:InvokeCommandAction Command="{Binding LoadDoanhThu}"
-                                                                                   CommandParameter="{Binding ElementName=Homewd}">                                                             
-                                                            </i:InvokeCommandAction>
-                                                        </i:EventTrigger>
-                                                </i:Interaction.Triggers>
                                         </TextBlock>
                                     </Grid>
                                 </Grid>
@@ -198,17 +186,10 @@
                                             <materialDesign:PackIcon Kind="BasketCheck" Foreground="White" 
                                                                              Height="50" Width="50"/>
                                         </Grid>
-                                        <TextBlock x:Name="SPNgay" VerticalAlignment="Center" Text="0" 
+                                        <TextBlock x:Name="SPNgay" VerticalAlignment="Center" Text="{Binding LoadSP}"
                                                            TextAlignment="Left" FontWeight="Bold" TextWrapping="Wrap" 
                                                            FontSize="30" Foreground="White" FontFamily="Times New Roman" 
                                                            Height="Auto">
-                                                <i:Interaction.Triggers>
-                                                    <i:EventTrigger EventName="Loaded">
-                                                        <i:InvokeCommandAction Command="{Binding LoadSP}"
-                                                                               CommandParameter="{Binding ElementName=Homewd}">                                                          
-                                                        </i:InvokeCommandAction>
-                                                    </i:EventTrigger>
-                                                </i:Interaction.Triggers>
                                         </TextBlock>
                                     </Grid>
 
