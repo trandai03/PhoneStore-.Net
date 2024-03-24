@@ -139,7 +139,7 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock
                             Margin="8,0,0,0"
-                            Text="TÊN SP | SIZE | SỐ LƯỢNG"
+                            Text="TÊN SP | SIZE "
                          
                         />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
@@ -160,12 +160,7 @@
                                                 />
                                                     <TextBlock
                                                 Text="{Binding SIZE}"/>
-                                                    <TextBlock
-                                                Text="|"
-                                                Margin="4,0,4,0"
-                                                />
-                                                    <TextBlock
-                                                Text="{Binding SL}"/>
+                                                    
                                                 </StackPanel>
                                             </DataTemplate>
                                         </ComboBox.ItemTemplate>
@@ -238,15 +233,7 @@
                         >
 
                                 </Button>
-                                <Button    
-                            BorderThickness="0"
-                            Margin="15,0,0,0"
-                            Content="SỬA"
-                            FontSize="12"
-                            x:Name="deletebtn" Width="73"
-                             Background="AliceBlue" Foreground="#DD000000" Click="UpdateByName"
-                        >
-                                </Button>
+                                
                                 <Button    
                                     Margin="15,0,0,0"
                                     BorderThickness="0"
@@ -261,7 +248,7 @@
                     </Border>
                 </Grid>
             </Grid>
-            <DataGrid ItemsSource="{Binding dtHoadon}" Background="White" AutoGenerateColumns="False"  x:Name="dtHoaDon" RenderTransformOrigin="0.5,0.5" SelectionChanged="dtHoaDon_SelectionChanged" Margin="120,0,109,5" Grid.Row="3">
+            <DataGrid ItemsSource="{Binding dtNhapHang}" Background="White" AutoGenerateColumns="False"  x:Name="dtNhaphang" RenderTransformOrigin="0.5,0.5" SelectionChanged="dtHoaDon_SelectionChanged" Margin="120,0,109,5" Grid.Row="3">
                 <DataGrid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
