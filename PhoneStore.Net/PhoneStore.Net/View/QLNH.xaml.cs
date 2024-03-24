@@ -66,6 +66,7 @@ namespace PhoneStore.Net.View
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Phieu_nhap_hang phieu = new Phieu_nhap_hang();
+            phieu.MaND.Text = MainWindow.user.MAND;
             phieu.ShowDialog();
         }
     }

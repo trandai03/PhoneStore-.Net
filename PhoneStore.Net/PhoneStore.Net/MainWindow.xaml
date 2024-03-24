@@ -255,7 +255,7 @@
                             </RadioButton.Style>
                         </RadioButton>
 
-                        <RadioButton IsChecked="False" Width="200" Click="Quan_Ly" Cursor="Hand">
+                        <RadioButton IsChecked="False" Width="200" Click="Quan_Ly" Cursor="Hand" Name="quanlyButton" Visibility="{Binding SetQuanLy}">
                             <RadioButton.Style>
                                 <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
                                     <Style.Setters>
@@ -295,7 +295,7 @@
                             </RadioButton.Style>
                         </RadioButton>
 
-                        <RadioButton IsChecked="False" Width="200" Click="Cai_Dat" Cursor="Hand">
+                        <RadioButton IsChecked="False" Width="200" Click="Cai_Dat" Cursor="Hand" >
                             <RadioButton.Style>
                                 <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
                                     <Style.Setters>
@@ -307,7 +307,7 @@
                                                             HorizontalAlignment="Stretch"
                                                             VerticalAlignment="Stretch"
                                                             Background="{TemplateBinding Background}">       
-                                                        <DockPanel>
+                                                        <DockPanel >
                                                             <materialDesign:PackIcon   
                                                                 Kind="Settings" Width="25"
                                                                 Height="25"  Margin="6"
