@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:PhoneStore.Net.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
       mc:Ignorable="d" d:DesignWidth="700"
       Title="Phieu_nhap_hang" Height="512">
 
@@ -66,7 +68,8 @@
                         HorizontalAlignment="Center"
                         />
                             <StackPanel Orientation="Vertical"/>
-                            <StackPanel/>
+                            
+                            
                             <StackPanel>
                                 <TextBlock
                             Margin="8,0,0,0"
@@ -84,6 +87,30 @@
                            
                             ></TextBox>
                                 </Border>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+    Margin="8,0,0,0"
+    Text="MÃ ND"
+    />
+
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox
+                                        Height="30"
+                                        x:Name="MaND"
+                                        Width="290"
+                                        BorderThickness="2"
+                                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                        materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+    
+                                        materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
+                                        materialDesign:TextFieldAssist.UnderlineBrush="BlueViolet"
+    />
+                                </StackPanel>
+
                             </StackPanel>
                         </StackPanel>
                     </Border>

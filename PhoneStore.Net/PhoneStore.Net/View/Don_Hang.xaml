@@ -32,7 +32,7 @@
         <ComboBox x:Name="cbxChon1"
 materialDesign:HintAssist.Hint="Khuyến Mãi" Margin="455,106,130,0" VerticalAlignment="Top" RenderTransformOrigin="1.446,-4.952"  Height="37" SelectionChanged="cbxChon1_SelectionChanged">
 
-            <ComboBoxItem Content="Tất cả"/>
+            <ComboBoxItem Content="Tất cả" IsEnabled="True"/>
             <ComboBoxItem Content="Có khuyến mãi"/>
             <ComboBoxItem Content="Không có Khuyến Mãi"/>
         </ComboBox>
