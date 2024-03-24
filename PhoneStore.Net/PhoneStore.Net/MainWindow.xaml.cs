@@ -29,8 +29,8 @@ namespace PhoneStore.Net
         private string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
         private Visibility _SetQuanLy;
         public Visibility SetQuanLy { get => _SetQuanLy; set { _SetQuanLy = value;  } }
-        
-        
+
+        Boolean QTV;
         private void ConnectToDatabase()
         {
             con = new SQLiteConnection($"Data Source = {databaseName}; Version=3;");
@@ -40,14 +40,16 @@ namespace PhoneStore.Net
         {
             InitializeComponent();
             user = u;
-            SetQuanLy = user.QTV ? Visibility.Visible : Visibility.Collapsed;
-            TenDangNhap.Text = string.Join(" ", user.TENND.Split().Reverse().Take(2).Reverse());
-            chucVu.Text = user.QTV ? "Quản lý" : "Nhân viên";
+            
             selectUser();
+            SetQuanLy = QTV ? Visibility.Visible : Visibility.Collapsed;
+            TenDangNhap.Text = string.Join(" ", user.TENND.Split().Reverse().Take(2).Reverse());
+            chucVu.Text = QTV ? "Quản lý" : "Nhân viên";
         }
         public void selectUser()
         {
-            string sql = "SELECT QTV from NGUOIDUNGs WHEre MAND = @keyword;";
+            //string sql = "SELECT QTV from NGUOIDUNGs WHEre MAND = @keyword ;";
+            string sql = "SELECT MAND, QTV from NGUOIDUNGs";
             ConnectToDatabase();
             SQLiteCommand cmd = new SQLiteCommand(sql, con);
             cmd.CommandType = CommandType.Text;
@@ -58,7 +60,15 @@ namespace PhoneStore.Net
             cmd.Parameters.AddWithValue("@keyword", keyword);
             
             SQLiteDataReader reader = cmd.ExecuteReader();
-            Console.WriteLine(reader.Read().ToString()+ "11111");
+            while (reader.Read())
+            {
+                if(reader.GetString(0)== user.MAND)
+                {
+                     QTV = reader.GetBoolean(1);
+                }
+                
+            }
+            Console.WriteLine(QTV.ToString());
         }
         private void HomePage_Click(object sender, RoutedEventArgs e)
         {
