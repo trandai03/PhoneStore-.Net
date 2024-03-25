@@ -402,21 +402,7 @@
                         </materialDesign:PackIcon>
                     </StackPanel>
 
-                    <DockPanel>
-                        <Border
-                            Height="40"
-                            Width="40"
-                            Background="White"
-                            CornerRadius="50"
-                            Margin="6">
-
-                            <Ellipse Height="40" Width="40" VerticalAlignment="Top">
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="/Resource/avatar/GoldGoat.jpg" />
-                                </Ellipse.Fill>
-                            </Ellipse>
-
-                        </Border>
+                    <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                             <TextBlock  Text="Mạnh Tâm" FontSize="15" Foreground="White" x:Name="TenDangNhap">

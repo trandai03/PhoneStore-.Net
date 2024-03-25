@@ -4,6 +4,7 @@ using PhoneStore.Net.Controller;
 using PhoneStore.Net.DBClass;
 using PhoneStore.Net.Model;
 using System;
+using System.Data.SQLite;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,7 +18,8 @@ namespace PhoneStore.Net.View
     public partial class Setting : Page
     {
         public string _localLink = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf(@"bin\Debug"));
-        
+        public string tmp;
+        string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
         public Setting()
         {
             InitializeComponent();
@@ -27,13 +29,35 @@ namespace PhoneStore.Net.View
             this.PhoneNumberTextBox.Text = MainWindow.user.SDT;
             this.AddressTextBox.Text = MainWindow.user.DIACHI;
             this.EmailTextBox.Text = MainWindow.user.MAIL;
-            string tmp = DBConnect.DataProvider.Instance.main_user_ava(MainWindow.user.TENND);
+            tmp = DBConnect.DataProvider.Instance.main_user_ava(MainWindow.user.TENND);
             this.UserImage.Fill = new ImageBrush(new BitmapImage(new Uri(_localLink + tmp)));
             
             this.UsernameTextBox.Text = MainWindow.user.USERNAME;
             this.PasswordTextBox.Text = MainWindow.user.PASS;
         }
 
+        public bool updateUser(NGUOIDUNG newU)
+        {
+            SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
+            _con.Open();
+            string fileName = Path.GetFileName(tmp);
+            string link_img_temp = "/Resource/avatar/" + fileName;
+            string USERQUERYSTRING = @"UPDATE NGUOIDUNGs SET TENND = $ten , GIOITINH = $gioitinh , NGSINH = $ngsinh , SDT = $sdt , DIACHI = $diachi , MAIL = $mail, AVA = @ava WHERE MAND = $mand";
+            var command = _con.CreateCommand();
+            command.CommandText = USERQUERYSTRING;
+            command.Parameters.AddWithValue("$ten", newU.TENND);
+            command.Parameters.AddWithValue("$gioitinh", newU.GIOITINH);
+            command.Parameters.AddWithValue("$ngsinh", newU.NGSINH);
+            command.Parameters.AddWithValue("$sdt", newU.SDT);
+            command.Parameters.AddWithValue("$diachi", newU.DIACHI);
+            command.Parameters.AddWithValue("$mail", newU.MAIL);
+            command.Parameters.AddWithValue("$mand", newU.MAND);
+            command.Parameters.AddWithValue("@ava", link_img_temp);
+            var _ = command.ExecuteNonQuery();
+            _con.Close();
+
+            return true;
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(this.FullNameTextBox.Text))
@@ -84,7 +108,7 @@ namespace PhoneStore.Net.View
             MainWindow.user.DIACHI = this.AddressTextBox.Text;
             MainWindow.user.MAIL = this.EmailTextBox.Text;
 
-            DBConnect.DataProvider.Instance.updateUser(MainWindow.user);
+            updateUser(MainWindow.user);
 
             MessageBox.Show("Cập nhật thành công");
         }
@@ -92,31 +116,16 @@ namespace PhoneStore.Net.View
         // Event cho nút "Thay đổi ảnh"
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png, *.bmp)|*.jpg;*.jpeg;*.png;*.bmp|All files (*.*)|*.*";
-            bool? result = openFileDialog.ShowDialog();
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.png)|*.jpg; *.png";
 
-            if (result == true)
+            if (open.ShowDialog() == true)
             {
-                string selectedFileName = openFileDialog.FileName;
-
-                BitmapImage image = new BitmapImage();
-                try
-                {
-                    image.BeginInit();
-                    image.UriSource = new Uri(selectedFileName);
-                    image.EndInit();
-                }
-                catch
-                {
-                    MessageBox.Show($"Error: {selectedFileName}");
-                    return;
-                }
-                //this.UserImage.Fill = new ImageBrush(image);
-                //Console.WriteLine(image);
-                //MainWindow.user.AVA = image;
-            }
-            
+                if (open.FileName != "")
+                    tmp = open.FileName;
+            };
+            Uri fileUri = new Uri(tmp);
+            UserImage.Fill = new ImageBrush(new BitmapImage(new Uri(tmp)));
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

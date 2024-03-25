@@ -463,26 +463,7 @@ namespace PhoneStore.Net.DBClass
                 }
             }
 
-            public bool updateUser(NGUOIDUNG newU)
-            {
-                SQLiteConnection _con = new SQLiteConnection($"Data Source={databaseName};Version=3;");
-                _con.Open();
-                string USERQUERYSTRING = @"UPDATE NGUOIDUNGs SET TENND = $ten , GIOITINH = $gioitinh , NGSINH = $ngsinh , SDT = $sdt , DIACHI = $diachi , MAIL = $mail WHERE MAND = $mand";
-                var command = _con.CreateCommand();
-                command.CommandText = USERQUERYSTRING;
-                command.Parameters.AddWithValue("$ten", newU.TENND);
-                command.Parameters.AddWithValue("$gioitinh", newU.GIOITINH);
-                command.Parameters.AddWithValue("$ngsinh", newU.NGSINH);
-                command.Parameters.AddWithValue("$sdt", newU.SDT);
-                command.Parameters.AddWithValue("$diachi", newU.DIACHI);
-                command.Parameters.AddWithValue("$mail", newU.MAIL);
-                command.Parameters.AddWithValue("$mand", newU.MAND);
-
-                var _ = command.ExecuteNonQuery();
-                _con.Close();
-
-                return true;
-            }
+            
 
             public bool changeUserLogin(NGUOIDUNG newU)
             {
