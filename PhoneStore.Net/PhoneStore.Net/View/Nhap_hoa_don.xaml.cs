@@ -20,6 +20,7 @@ namespace PhoneStore.Net.View
     {
         private SQLiteConnection con;
         private string databaseName = "..\\..\\bin\\Debug\\QLDT.db";
+        public int tongtien = 0;
         
         public Nhap_hoa_don()
         {
@@ -231,6 +232,8 @@ namespace PhoneStore.Net.View
                     cd.Parameters.AddWithValue("@sl", temp.SL);
                     cd.Parameters.AddWithValue("@masp", MaSP.Text)
 ;                    cd.ExecuteNonQuery();
+                    tongtien += int.Parse(DG.Text) * int.Parse(SL.Text);
+                    TT.Text = tongtien.ToString();
                     MaSP.Text = "";
                     DG.Text = "";
                     SL.Text = "";
@@ -262,6 +265,8 @@ namespace PhoneStore.Net.View
                 command.Parameters.AddWithValue("@sl", selectedSanpham["SL"].ToString());
                 command.ExecuteNonQuery();
                 MessageBox.Show("Xóa thành công !!", "Thông báo");
+                tongtien -= int.Parse(selectedSanpham["THANHTIEN"].ToString());
+                TT.Text = tongtien.ToString();
                 LoadData();
             }
             else

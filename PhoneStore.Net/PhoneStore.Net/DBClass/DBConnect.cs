@@ -370,11 +370,25 @@ namespace PhoneStore.Net.DBClass
                 {
                     NDs.Add(new NGUOIDUNG()
                     {
+                        MAND = reader.GetString(0),
+                        TENND = reader.GetString(1),
                         AVA = reader.GetString(10),
                     });
                 }
                 _con.Close();
                 return NDs;
+            }
+            public string main_user_ava(string s)
+            {
+                string tmp = null; 
+                foreach (NGUOIDUNG x in DBConnect.DataProvider.Instance.List_ND())
+                {
+                    if(x.TENND == s)
+                    {
+                        tmp = x.AVA; break;
+                    }
+                }
+                return tmp;
             }
             public NGUOIDUNG checkUser(string username, string password)
             {

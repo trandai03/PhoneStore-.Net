@@ -2,6 +2,7 @@
 using OpenTK.Graphics.OpenGL;
 using PhoneStore.Net.Controller;
 using PhoneStore.Net.DBClass;
+using PhoneStore.Net.Model;
 using System;
 using System.IO;
 using System.Windows;
@@ -26,8 +27,9 @@ namespace PhoneStore.Net.View
             this.PhoneNumberTextBox.Text = MainWindow.user.SDT;
             this.AddressTextBox.Text = MainWindow.user.DIACHI;
             this.EmailTextBox.Text = MainWindow.user.MAIL;
-            this.UserImage.Fill = new ImageBrush(new BitmapImage(new Uri(_localLink + "/Resource/avatar/GoldGoat.jpg")));
-            Console.WriteLine(MainWindow.user.AVA);
+            string tmp = DBConnect.DataProvider.Instance.main_user_ava(MainWindow.user.TENND);
+            this.UserImage.Fill = new ImageBrush(new BitmapImage(new Uri(_localLink + tmp)));
+            
             this.UsernameTextBox.Text = MainWindow.user.USERNAME;
             this.PasswordTextBox.Text = MainWindow.user.PASS;
         }
