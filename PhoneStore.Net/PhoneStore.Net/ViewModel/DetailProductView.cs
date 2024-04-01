@@ -99,6 +99,11 @@ namespace PhoneStore.Net.ViewModel
             MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn xóa sản phẩm ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
+                string sql = "DELETE FROM CTHDs WHERE MASP = @masp";
+                SQLiteCommand cmd = new SQLiteCommand(sql, con);
+                cmd.Parameters.AddWithValue("@masp", p.MaSP.Text);
+                cmd.ExecuteNonQuery();
+
                 string query = "DELETE FROM SANPHAMs WHERE MASP = @masp";
                 SQLiteCommand command = new SQLiteCommand(query, con);
                 command.Parameters.AddWithValue("@masp", p.MaSP.Text);
